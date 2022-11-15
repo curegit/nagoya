@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {{ if eq .Kind "home" }}
+        {{ .Site.Title }}
+      {{ else }}
+        {{ printf "%s | %s" .Title .Site.Title }}
+      {{ end }}
+    </title>
+    {{ partial "head/custom" . }}
+  </head>
+  <body>
+    {{ partial "header" . }}
+    {{ partial "menu" . }}
+      <main>
+        {{ template "main" . }}
+      </main>
+    {{ partial "footer" . }}
+  </body>
+</html>
