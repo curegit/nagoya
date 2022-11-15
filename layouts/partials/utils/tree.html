@@ -1,0 +1,18 @@
+{{ define "section-tree" }}
+  {{ if .Sections }}
+    <ul>
+      {{ range .Sections }}
+        <li>
+          <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+            {{ $n := len .RegularPages }}
+            {{ if $n }}({{ $n }}){{ end }}
+          </a>
+          {{ template "section-tree" . }}
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}
+
+{{ template "section-tree" .Site }}
