@@ -1,5 +1,7 @@
 <article>
+  {{ partial "utils/breadcrumb" . }}
   <h1>{{ .Title }}</h1>
+  <div>{{ .Lastmod }}</div>
   {{ .TableOfContents }}
   {{ .Content }}
 </article>
