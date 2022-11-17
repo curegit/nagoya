@@ -1,4 +1,18 @@
 <nav>
   <h2>Sections</h2>
   {{ partial "utils/tree" . }}
+  <h2>Taxonomies</h2>
+  <section>
+  <ul>
+    {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+      <li><a href="{{ "/" | relLangURL}}{{ $taxonomyname | urlize }}">{{ $taxonomyname }}</a>
+        <ul>
+          {{ range $taxonomy }}
+          <li><a href="{{ .Page.RelPermalink }}"> {{ .Page.LinkTitle }} ({{ len .Pages }})</a></li>
+          {{ end }}
+        </ul>
+      </li>
+    {{ end }}
+  </ul>
+  </section>
 </nav>
