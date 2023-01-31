@@ -9,14 +9,17 @@
         {{ printf "%s | %s" .Title .Site.Title }}
       {{ end }}
     </title>
+    <link rel="stylesheet" href="/main.css">
     {{ partial "head/custom" . }}
   </head>
   <body>
     {{ partial "header" . }}
-    {{ partial "menu" . }}
+    <div id="content">
       <main>
         {{ template "main" . }}
       </main>
+      {{ partial "sidebar" . }}
+    </div>
     {{ partial "footer" . }}
   </body>
 </html>

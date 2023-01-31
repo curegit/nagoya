@@ -1,8 +1,13 @@
 <article>
-  {{ partial "utils/breadcrumb" . }}
-  <h1>{{ .Title }}</h1>
-  <div>{{ .Date }}</div>
-  <div>{{ .Lastmod }}</div>
-  {{ .TableOfContents }}
-  {{ .Content }}
+  <header>
+    {{ partial "utils/breadcrumb" . }}
+    <h1>{{ .Title }}</h1>
+    <div>{{ .Date }}</div>
+    <div>{{ .Lastmod }}</div>
+    {{ .Summary }}
+    {{ if plainify .TableOfContents }}
+      {{ .TableOfContents }}
+    {{ end }}
+  </header>
+  <div class="body">{{ replace .Content .Summary "" 1 | safeHTML }}</div>
 </article>
