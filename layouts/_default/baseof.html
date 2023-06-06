@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
   <head>
-    <meta charset="utf-8">
-    <title>
-      {{ if .IsHome }}
-        {{ .Site.Title }}
-      {{ else }}
-        {{ printf "%s | %s" .Title .Site.Title }}
-      {{ end }}
-    </title>
-    <link rel="stylesheet" href="/main.css">
+    {{ partial "head/basic" . }}
     {{ partial "head/custom" . }}
   </head>
   <body>
