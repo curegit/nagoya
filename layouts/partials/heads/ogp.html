@@ -1,0 +1,23 @@
+{{ if .IsHome }}
+  <meta property="og:type" content="website">
+{{ else if .IsPage }}
+  <meta property="og:type" content="article">
+{{ else }}
+  <meta property="og:type" content="website">
+{{ end }}
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{ if .IsHome }}
+  <meta property="og:title" content="{{ .Site.Title }}">
+{{ else if .IsPage }}
+  <meta property="og:title" content="{{ .Title }}">
+{{ else }}
+  <meta property="og:title" content="{{ printf "%s | %s" .Title .Site.Title }}">
+{{ end }}
+{{ if .Description }}
+  <meta name="og:description" content="{{ .Description }}">
+{{ else if and .IsHome .Site.Params.description }}
+  <meta name="og:description" content="{{ .Site.Params.description }}">
+{{ else if and .IsPage .Summary }}
+  <meta name="og:description" content="{{ .Summary }}">
+{{ end }}
+<meta property="og:url" content="{{ .Permalink }}">

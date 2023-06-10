@@ -1,6 +1,8 @@
 <meta charset="utf-8">
 {{ if .IsHome }}
   <title>{{ .Site.Title }}</title>
+{{ else if .IsPage }}
+  <title>{{ .Title }}</title>
 {{ else }}
   <title>{{ printf "%s | %s" .Title .Site.Title }}</title>
 {{ end }}
