@@ -10,7 +10,7 @@
 min-height: 200px;
 background-size: cover;
 background-position: 80% 70%;
-margin-bottom: 24px;
+
 backdrop-filter: brightness(-10%);
 
 display: flex;
@@ -38,7 +38,7 @@ padding: 20px 12px 0;
 
   text-align: center;
   align-self: end;
-  font-size: 40px;
+  font-size: 42px;
   font-weight: bold;
 }
 
