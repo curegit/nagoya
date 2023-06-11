@@ -11,11 +11,11 @@
       {{ partial "header" . }}
       <div id="content">
         {{ if not .IsHome }}
-          <nav id="breadcrumb">
+          <nav id="breadcrumb" class="pane">
             {{ partial "components/breadcrumb" . }}
           </nav>
         {{ end }}
-        <main>
+        <main class="pane">
           {{ template "main" . }}
         </main>
         {{ partial "sidebar" . }}
