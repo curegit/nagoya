@@ -1,14 +1,21 @@
 {{ define "breadcrumb" }}
-  {{ if and .Parent (not .Parent.IsHome) }}
+  {{ if .Parent }}
     {{ template "breadcrumb" .Parent }}
   {{ end }}
-  {{ if not .IsPage }}
+  {{ if .IsHome }}
+    <li><a href="{{ .RelPermalink }}">ホーム</a></li>
+  {{ else if not .IsPage }}
     <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
   {{ end }}
 {{ end }}
 
 <ol class="breadcrumb">
   {{ if .Parent }}
-    {{ template "breadcrumb" . }}
+    {{ template "breadcrumb" .Parent }}
+  {{ end }}
+  {{ if .IsHome }}
+    <li>ホーム</li>
+  {{ else if not .IsPage }}
+    <li>{{ .LinkTitle }}</li>
   {{ end }}
 </ol>
