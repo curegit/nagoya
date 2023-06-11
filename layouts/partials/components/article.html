@@ -1,13 +1,18 @@
 <article>
   <header>
-    {{ partial "utils/breadcrumb" . }}
     <h1>{{ .Title }}</h1>
     <div>{{ .Date }}</div>
     <div>{{ .Lastmod }}</div>
-    {{ .Summary }}
+    {{ .Summary | safeHTML }}
     {{ if plainify .TableOfContents }}
       {{ .TableOfContents }}
     {{ end }}
   </header>
-  <div class="body">{{ replace .Content .Summary "" 1 | safeHTML }}</div>
+  <div class="body">{{ replace (safeHTML .Content) (safeHTML .Summary) "" 1 | safeHTML }}</div>
+  <footer>
+    Taxno
+    <nav>
+      Nexy, Prev
+    </nav>
+  </footer>
 </article>

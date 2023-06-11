@@ -2,11 +2,13 @@
   {{ if and .Parent (not .Parent.IsHome) }}
     {{ template "breadcrumb" .Parent }}
   {{ end }}
-  <li> / <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ if not .IsPage }}
+    <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+  {{ end }}
 {{ end }}
 
-<ol>
+<ol class="breadcrumb">
   {{ if .Parent }}
-    {{ template "breadcrumb" .Parent }}
+    {{ template "breadcrumb" . }}
   {{ end }}
 </ol>

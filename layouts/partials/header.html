@@ -1,6 +1,12 @@
-<header>
+<header id="top">
   <div>
-    <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-    <p>Nagoya Theme</p>
+    <div id="site-title">
+      <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+    </div>
+    {{ if .Site.Home.Description }}
+      <p id="description">{{ .Site.Home.Description }}</p>
+    {{ else if .Site.Params.description }}
+      <p id="description">{{ .Site.Params.description }}</p>
+    {{ end }}
   </div>
 </header>

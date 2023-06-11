@@ -6,6 +6,27 @@
 {{ else }}
   <title>{{ printf "%s | %s" .Title .Site.Title }}</title>
 {{ end }}
+{{ if .Description }}
+  <meta name="description" content="{{ .Description }}">
+{{ else if and .IsHome .Site.Params.description }}
+  <meta name="description" content="{{ .Site.Params.description }}">
+{{ else if and .IsPage .Summary }}
+  <meta name="description" content="{{ .Summary }}">
+{{ end }}
+{{ if .Keywords }}
+  <meta name="keywords" content="{{ delimit .Keywords ", " }}">
+{{ else if and .IsHome .Site.Params.keywords }}
+  <meta name="keywords" content="{{ delimit .Site.Params.keywords ", " }}">
+{{ else if .GetTerms "tags" }}
+  <meta name="keywords" content="{{ (index (.GetTerms "tags") 0).Title }}{{ range after 1 (.GetTerms "tags") }}, {{ .Title }}{{ end }}">
+{{ end }}
+{{ if .Params.author }}
+  <meta name="author" content="{{ .Params.author }}">
+{{ else if .Site.Params.author }}
+  <meta name="author" content="{{ .Site.Params.author }}">
+{{ end }}
+{{ hugo.Generator }}
+<link rel="canonical" href="{{ .Permalink }}">
 <link rel="stylesheet" href="/main.css">
 <link rel="stylesheet" href="/color.css">
 <link rel="stylesheet" href="/header.css">

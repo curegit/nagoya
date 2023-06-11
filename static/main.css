@@ -5,11 +5,10 @@
 }
 
 body {
-  min-width: 440px;
+  min-width: 420px;
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.7;
   overflow-wrap: break-word;
-  background-color: aliceblue;
 }
 
 #content {
@@ -17,8 +16,12 @@ body {
   max-width: 1100px;
   margin: auto;
   grid-template-columns: minmax(300px, auto) 300px;
-  column-gap: 30px;
+  gap: 30px;
   align-items: start;
+}
+
+#breadcrumb {
+  grid-column: 1 / -1;
 }
 
 main {
@@ -61,4 +64,14 @@ ul, ol {
 .footnote-ref::after {
   display: inline;
   content: "]";
+}
+
+
+
+footer {
+  background: rgb(44, 151, 88);
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
 }
