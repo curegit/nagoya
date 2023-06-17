@@ -11,6 +11,7 @@
       {{ partial "header" . }}
       <div id="middle">
         <div id="content" class="column">
+          {{ partial "widgets/content-top" . }}
           {{ if not .IsHome }}
             <nav id="breadcrumb">
               {{ partial "components/breadcrumb" . }}
@@ -19,6 +20,7 @@
           <main>
             {{ template "main" . }}
           </main>
+          {{ partial "components/page-nav" . }}
           {{ partial "widgets/content-bottom" . }}
         </div>
         {{ partial "sidebar" . }}
