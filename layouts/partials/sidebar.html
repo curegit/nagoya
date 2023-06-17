@@ -1,3 +1,5 @@
-<aside id="sidebar" class="pane side">
+<aside id="sidebar" class="column">
+  {{ partial "widgets/sidebar-top" . }}
   {{ partial "menu" . }}
+  {{ partial "widgets/sidebar-bottom" . }}
 </aside>

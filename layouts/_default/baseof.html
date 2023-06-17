@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+<html lang="{{ with .Params.lang }}{{ . }}{{ else }}{{ .Site.Language.Lang }}{{ end }}">
   <head>
     {{ partial "heads/basic" . }}
     {{ partial "heads/icons" . }}
@@ -7,17 +7,20 @@
     {{ partial "heads/custom" . }}
   </head>
   <body>
-    <div id="frame">
+    <div id="container">
       {{ partial "header" . }}
-      <div id="content">
-        {{ if not .IsHome }}
-          <nav id="breadcrumb" class="pane">
-            {{ partial "components/breadcrumb" . }}
-          </nav>
-        {{ end }}
-        <main class="pane">
-          {{ template "main" . }}
-        </main>
+      <div id="middle">
+        <div id="content" class="column">
+          {{ if not .IsHome }}
+            <nav id="breadcrumb">
+              {{ partial "components/breadcrumb" . }}
+            </nav>
+          {{ end }}
+          <main>
+            {{ template "main" . }}
+          </main>
+          {{ partial "widgets/content-bottom" . }}
+        </div>
         {{ partial "sidebar" . }}
       </div>
       {{ partial "footer" . }}
