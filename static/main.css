@@ -80,7 +80,13 @@ ol.breadcrumb > li:has(a):last-child::after {
 }
 
 .pagenator {
-  padding: 12px 16px;
+  padding: 14px 16px;
+}
+
+@container (min-width: 1120px) {
+  .pagenator {
+    padding: 0 16px;
+  }
 }
 
 .pagination {
