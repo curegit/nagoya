@@ -1,0 +1,16 @@
+{{ $image := false }}
+{{ with .Params.images }}
+  {{ $image = index . 0 | relURL }}
+{{ else }}
+  {{ $images := .Resources.ByType "image" }}
+  {{ $featured := $images.GetMatch "*feature*" }}
+  {{ $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") }}
+  {{ with $featured }}
+    {{ $image = $featured.RelPermalink }}
+  {{ else }}
+    {{ with .Site.Params.images }}
+      {{ $image = index . 0 | relURL }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $image }}

@@ -6,7 +6,10 @@
       <h2>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
       </h2>
-      {{ .Summary }}
+      {{ with partial "functions/feature-image" . }}
+        <img src="{{ . }}">
+      {{ end }}
+      {{ .Summary | plainify }}
     </article>
   {{ end }}
 {{ end }}

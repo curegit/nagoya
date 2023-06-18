@@ -21,3 +21,6 @@
   <meta name="og:description" content="{{ .Summary }}">
 {{ end }}
 <meta property="og:url" content="{{ .Permalink }}">
+{{ with partial "functions/feature-image" . }}
+  <meta property="og:image" content="{{ . | absURL }}">
+{{ end }}
