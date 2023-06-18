@@ -1,0 +1,5 @@
+{{ with .Page.TableOfContents }}
+  {{ if plainify . }}
+    <nav class="toc">{{ . }}</nav>
+  {{ end }}
+{{ end }}
