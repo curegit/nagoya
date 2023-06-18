@@ -39,7 +39,7 @@ main.pane {
 @container (min-width: 1120px) {
   #middle {
     max-width: 1180px;
-    margin: 20px auto;
+    margin: 30px auto;
     padding: 0 20px;
     grid-template-columns: minmax(300px, auto) 320px;
     column-gap: 30px;
