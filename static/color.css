@@ -1,7 +1,28 @@
 html, body {
-  background-color: rgb(44, 151, 88);
+  background-color: #2c9758;
 }
 
-#frame {
-  background-color: rgb(205, 204, 238);
+#top {
+  border-bottom-color: #2c9758;
+}
+
+#site-title a {
+  color: #fff;
+}
+
+#description {
+  color: #a4ebff;
+}
+
+#container {
+  background-color: #cdccee;
+}
+
+#bottom {
+  background: #2c9758;
+  color: #fff;
+}
+
+a[href] {
+  color: #1010e3;
 }
