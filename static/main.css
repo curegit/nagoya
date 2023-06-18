@@ -27,7 +27,7 @@ body {
 
 main.pane {
   background-color: white;
-  padding: 24px 30px;
+  padding: 24px 32px;
 }
 
 @container (min-width: 840px) {
@@ -36,9 +36,9 @@ main.pane {
   }
 }
 
-@container (min-width: 1120px) {
+@container (min-width: 1160px) {
   #middle {
-    max-width: 1180px;
+    max-width: 1240px;
     margin: 30px auto;
     padding: 0 20px;
     grid-template-columns: minmax(300px, auto) 320px;
@@ -46,12 +46,17 @@ main.pane {
     row-gap: 20px;
   }
 
+  .column {
+    row-gap: 18px;
+  }
+
   .pane {
     border-radius: 16px;
   }
 
-  .column {
-    row-gap: 18px;
+  main.pane {
+    background-color: white;
+    padding: 30px 44px;
   }
 }
 
