@@ -1,9 +1,12 @@
 
 {{ define "main" }}
-  <h1>Ae: {{ .Title }}</h1>
+  <h1>List: {{ .Title }}</h1>
   {{ .Content }}
 
-  {{ range .Site.RegularPages.GroupByDate "2006" }}
+
+  {{ with partial "functions/filter-articles" .Site.RegularPages }}
+
+  {{ range .GroupByDate "2006" }}
   {{ $year := .Key }}
   <div class="archive archive-year box" data-date="{{ $year }}">
     <h4 class="archive-title" style="text-decoration: none;">{{ $year }}{{ if i18n "date.year.suffix" }}{{ i18n "date.year.suffix" }}{{ end }}</h4>
@@ -18,6 +21,8 @@
       </ul>
     {{ end }}
   </div>
+{{ end }}
+
 {{ end }}
 
 {{ end }}
