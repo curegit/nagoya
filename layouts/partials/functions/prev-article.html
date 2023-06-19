@@ -1,0 +1,9 @@
+{{ $prev := false }}
+{{ with .Prev }}
+  {{ if .Params.page }}
+    {{ $prev = partial "partials/functions/prev-article" . }}
+  {{ else }}
+    {{ $prev = . }}
+  {{ end }}
+{{ end }}
+{{ return $prev }}

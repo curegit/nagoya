@@ -1,3 +1,18 @@
 {{ define "main" }}
   {{ partial "components/article" . }}
 {{ end }}
+
+{{ define "page-nav" }}
+  {{ $prev := partial "functions/prev-article" . }}
+  {{ $next := partial "functions/next-article" . }}
+  {{ if or $prev $next }}
+    <nav class="pane">
+      {{ with $prev }}
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{ end }}
+      {{ with $next }}
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      {{ end }}
+    </nav>
+  {{ end }}
+{{ end }}
