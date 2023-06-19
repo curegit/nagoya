@@ -36,11 +36,11 @@ main.pane {
   }
 }
 
-@container (min-width: 1160px) {
+@container (min-width: 1150px) {
   #middle {
-    max-width: 1240px;
+    max-width: 1220px;
     margin: 30px auto;
-    padding: 0 20px;
+    padding: 0 40px;
     grid-template-columns: minmax(300px, auto) 320px;
     column-gap: 30px;
     row-gap: 20px;
