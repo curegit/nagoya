@@ -35,3 +35,11 @@ pre {
 pre, code {
   tab-size: 4;
 }
+
+blockquote {
+  margin: 12px;
+  padding: 2px 15px 2px 5px;
+  border-left: 4px solid #5d686f;
+  font-style: italic;
+}
+
