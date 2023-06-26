@@ -7,6 +7,39 @@
 body {
   font-size: 16px;
   line-height: 1.7;
+  text-underline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 2px 0 4px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 30px;
+  word-spacing: -2px;
+}
+
+h2 {
+  font-size: 25px;
+  word-spacing: -1px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 18px;
+}
+
+h6 {
+  font-size: 16px;
 }
 
 img {
@@ -26,6 +59,15 @@ ul, ol {
   padding-left: 21px;
 }
 
+table {
+  max-width: 100%;
+  margin: 10px 0;
+}
+
+th, td {
+  padding: 1px;
+}
+
 pre {
   overflow-x: auto;
   white-space: pre-wrap;
@@ -43,3 +85,35 @@ blockquote {
   font-style: italic;
 }
 
+hr {
+  margin: 0.5em auto;
+  border: 1px inset #cfcfcf;
+  overflow: hidden;
+}
+
+dl {
+  margin: 16px 0;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  padding-left: 24px;
+}
+
+kbd {
+  padding: 2px 4px;
+  border: 1px solid #b4b4b4;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #00000033, 0 2px 0 0 #ffffffb3 inset;
+  background-color: #eee;
+  font-size: 85%;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+kbd:has(kbd) {
+  display: contents;
+}
