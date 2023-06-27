@@ -1,8 +1,14 @@
 <header id="top" style="background-image: url('{{ "header.jpg" | relURL }}')">
   <div id="header-grid">
-    <div id="site-title">
-      <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
-    </div>
+    {{ if .IsHome }}
+      <h1 id="site-title">
+        <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+      </h1>
+    {{ else }}
+      <div id="site-title">
+        <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+      </div>
+    {{ end }}
     {{ if .Site.Home.Description }}
       <p id="description">{{ .Site.Home.Description }}</p>
     {{ else if .Site.Params.description }}
