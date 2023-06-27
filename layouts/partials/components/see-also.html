@@ -1,0 +1,16 @@
+{{ $related := partial "functions/filter-articles" (.Site.RegularPages.Related .) | first .Site.Params.relatedNum }}
+{{ $random := shuffle (partial "functions/filter-articles" .Site.RegularPages) | first .Site.Params.randomNum }}
+{{ $seeAlso := $related | append $random }}
+{{ if .Site.Params.shuffleSeeAlso }}
+  {{ $seeAlso = shuffle $seeAlso }}
+{{ end }}
+{{ with $seeAlso }}
+  <nav class="pane">
+    <h2>次に読む</h2>
+    <ul>
+      {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+{{ end }}

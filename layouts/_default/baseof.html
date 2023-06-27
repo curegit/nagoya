@@ -24,9 +24,7 @@
           {{ partial "widgets/after-main" . }}
           {{ block "page-nav" . }}{{ end }}
           {{ if and .IsPage (not .Params.page) }}
-          <nav class="pane">
             {{ partial "components/see-also" . }}
-          </nav>
           {{ end }}
           {{ partial "widgets/content-bottom" . }}
         </div>
