@@ -9,11 +9,11 @@ body {
   overscroll-behavior: none auto;
 }
 
-#container {
+div#container {
   container-type: inline-size;
 }
 
-#middle {
+div#middle {
   display: grid;
   grid-template-columns: 1fr;
   align-items: start;
@@ -46,7 +46,7 @@ main.pane > * {
   width: 100%;
 }
 
-#breadcrumb {
+nav#breadcrumb {
   padding: 10px 12px 10px 24px;
 }
 
@@ -166,6 +166,32 @@ a.page-link[href]:hover {
   background-color: #fff6;
 }
 
+.prev-next {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 15px;
+}
+
+.prev-next > a {
+  display: block;
+  background: linear-gradient(0deg, #ffffff70, #ffffffbf);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.prev-next > a:hover {
+  background-color: #fff6;
+}
+
+.prev-next > a.next {
+  grid-column: 1;
+}
+
+.prev-next > a.prev {
+  grid-column: 2;
+}
+
 .children {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -190,7 +216,7 @@ ul.folders {
   padding-left: 32px;
 }
 
-#bottom {
+footer#bottom {
   padding: 30px 20px;
   border-top-width: 16px;
   border-top-style: solid;
@@ -198,7 +224,7 @@ ul.folders {
 }
 
 @container (min-width: 840px) {
-  #middle {
+  div#middle {
     grid-template-columns: minmax(300px, auto) 300px;
   }
 
@@ -208,7 +234,7 @@ ul.folders {
 }
 
 @container (min-width: 1140px) {
-  #middle {
+  div#middle {
     max-width: 1240px;
     margin: 30px auto;
     padding: 0 40px;
@@ -230,5 +256,14 @@ ul.folders {
 
   .pagenator {
     padding: 2px 16px;
+  }
+
+  .prev-next {
+    padding: 0;
+  }
+
+  .prev-next > a {
+    padding: 16px;
+    border-radius: 10px 16px 12px;
   }
 }
