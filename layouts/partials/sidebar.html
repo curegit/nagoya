@@ -1,5 +1,7 @@
 <aside id="sidebar" class="column">
   {{ partial "widgets/sidebar-top" . }}
-  {{ partial "menu" . }}
+  {{ partial "menus/pinned-articles" . }}
+  {{ partial "menus/section-tree" .Site }}
+  {{ partial "menus/taxonomy-list" . }}
   {{ partial "widgets/sidebar-bottom" . }}
 </aside>

@@ -1,0 +1,15 @@
+{{ $pinned := where .Site.RegularPages "Params.pin" "==" true }}
+{{ if $pinned }}
+  <nav class="pane">
+    <ul>
+      <li>
+        <a href="{{ .Site.Home.RelPermalink }}">ホーム</a>
+      </li>
+      {{ range $pinned }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
+{{ end }}
