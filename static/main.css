@@ -25,34 +25,9 @@ body {
   background-color: #fff6;
 }
 
-main.pane {
-  background-color: white;
-  padding: 24px 32px;
+.pane a:hover, .pane a:active {
+  text-decoration: underline;
 }
-
-@container (min-width: 840px) {
-  #middle {
-    grid-template-columns: minmax(300px, auto) 300px;
-  }
-}
-
-@container (min-width: 1150px) {
-  #middle {
-    max-width: 1220px;
-    margin: 30px auto;
-    padding: 0 40px;
-    grid-template-columns: minmax(300px, auto) 320px;
-    column-gap: 30px;
-    row-gap: 20px;
-  }
-
-  .column {
-    row-gap: 18px;
-  }
-
-  .pane {
-    border-radius: 16px;
-  }
 
   main.pane {
     background-color: white;
