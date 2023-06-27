@@ -1,0 +1,26 @@
+<div class="article-list">
+  {{ range . }}
+    <article>
+      <header>
+        {{ if not .Params.page }}
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>
+        {{ end }}
+        <h2>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+      </header>
+      {{ $link := .RelPermalink }}
+      {{ with partial "functions/feature-image" . }}
+        <a href="{{ $link }}" class="thumbnail-link">
+          <img class="thumbnail" src="{{ . }}">
+        </a>
+      {{ end }}
+      {{ if .Summary }}
+        <div class="summary">
+          {{ .Summary | plainify | safeHTML }}
+          {{ if .Truncated }} … <a href="{{ .RelPermalink }}" class="read-more">続きを読む</a>{{ end }}
+        </div>
+      {{ end }}
+    </article>
+  {{ end }}
+</div>

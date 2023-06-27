@@ -1,18 +1,19 @@
-<article>
+{{ $created := .Date.Format "2006/01/02" }}
+{{ $lastmod := .Lastmod.Format "2006/01/02" }}
+<article class="single">
   <header>
     <h1>{{ .Title }}</h1>
-    <div>{{ .Date }}</div>
-    <div>{{ .Lastmod }}</div>
-    {{ .Summary | safeHTML }}
-    {{ if plainify .TableOfContents }}
-      {{ .TableOfContents }}
-    {{ end }}
+    <div class="time">
+      {{ if or (not .Site.Params.showLastmod) (eq $created $lastmod) }}
+        <div><time datetime="{{ .Date.Format "2006-01-02" }}"> {{ $created }}</time></div>
+      {{ else }}
+        <div>作成: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ $created }}</time></div>
+        <div>更新: <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ $lastmod }}</time></div>
+      {{ end }}
+    </div>
   </header>
-  <div class="body">{{ replace (safeHTML .Content) (safeHTML .Summary) "" 1 | safeHTML }}</div>
+  <div class="body">{{ .Content }}</div>
   <footer>
     Taxno
-    <nav>
-      Nexy, Prev
-    </nav>
   </footer>
 </article>
