@@ -1,6 +1,22 @@
 {{ define "main" }}
-  <h1>{{ .Site.Title }}</h1>
-  <h2>{{ .Title }}</h2>
-  <p>TOOOOP PAGE!!!</p>
-  {{ .Content }}
+  {{ $paginator := (.Paginate (partial "functions/filter-articles" .Site.RegularPages)).Pages }}
+  {{ if or .Title .Content }}
+    <article class="single">
+      {{ with .Title }}
+        <h1>{{ . }}</h1>
+      {{ end }}
+      {{ with .Content }}
+        <div class="body">
+          {{ . }}
+        </div>
+      {{ end }}
+    </article>
+  {{ end }}
+  {{ with $paginator }}
+    {{ partial "components/article-list" . }}
+  {{ end }}
+{{ end }}
+
+{{ define "page-nav" }}
+  {{ partial "components/paginator" . }}
 {{ end }}
