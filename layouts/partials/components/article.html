@@ -2,7 +2,7 @@
 {{ $lastmod := .Lastmod.Format "2006/01/02" }}
 <article class="single">
   <header>
-    <h1>{{ .Title }}</h1>
+    <h1 class="title">{{ .Title }}</h1>
     <div class="time">
       {{ if or (not .Site.Params.showLastmod) (eq $created $lastmod) }}
         <div><time datetime="{{ .Date.Format "2006-01-02" }}"> {{ $created }}</time></div>
@@ -12,8 +12,10 @@
       {{ end }}
     </div>
   </header>
-  <div class="body">{{ .Content }}</div>
+  <div class="body">
+    {{ .Content }}
+  </div>
   <footer>
-    Taxno
+    フッター
   </footer>
 </article>

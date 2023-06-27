@@ -1,12 +1,11 @@
 {{ define "section-tree" }}
-  {{ if .Sections }}
-    <ul>
-      {{ range .Sections }}
-        <li>
+  {{ with .Sections }}
+    <ul class="folders">
+      {{ range . }}
+        {{ $n := len .RegularPagesRecursive }}
+        <li class="folder">
           <a href="{{ .RelPermalink }}">
-            {{ .Title }}
-            {{ $n := len .RegularPages }}
-            {{ if $n }}({{ $n }}){{ end }}
+            {{ .LinkTitle }}{{ if $n }} ({{ $n }}) {{ end }}
           </a>
           {{ template "section-tree" . }}
         </li>
@@ -15,4 +14,8 @@
   {{ end }}
 {{ end }}
 
-{{ template "section-tree" .Site }}
+{{ if .Site.Params.treeRoot }}
+  {{ template "section-tree" (.Site.GetPage .Site.Params.treeRoot) }}
+{{ else }}
+  {{ template "section-tree" .Site }}
+{{ end }}

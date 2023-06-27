@@ -1,20 +1,28 @@
 {{ define "main" }}
-  {{ $paginator := (.Paginate (partial "functions/filter-articles" .Site.RegularPages)).Pages }}
-  {{ if or .Title .Content }}
-    <article class="single">
-      {{ with .Title }}
-        <h1>{{ . }}</h1>
-      {{ end }}
-      {{ with .Content }}
-        <div class="body">
-          {{ . }}
-        </div>
-      {{ end }}
-    </article>
+  {{ $paginator := .Paginate (partial "functions/filter-articles" .Site.RegularPages) }}
+  {{ if eq $paginator.PageNumber 1 }}
+    {{ if or .Title .Content }}
+      <article class="single">
+        {{ with .Title }}
+          <header>
+            <h1>{{ . }}</h1>
+          </header>
+        {{ end }}
+        {{ with .Content }}
+          <div class="body">
+            {{ . }}
+          </div>
+        {{ end }}
+      </article>
+    {{ end }}
+  {{ else }}
+    <header>
+      <small class="page-num">
+        {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} ページ
+      </small>
+    </header>
   {{ end }}
-  {{ with $paginator }}
-    {{ partial "components/article-list" . }}
-  {{ end }}
+  {{ partial "components/article-list" $paginator.Pages }}
 {{ end }}
 
 {{ define "page-nav" }}

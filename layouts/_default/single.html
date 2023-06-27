@@ -3,16 +3,22 @@
 {{ end }}
 
 {{ define "page-nav" }}
-  {{ $prev := partial "functions/prev-article" . }}
-  {{ $next := partial "functions/next-article" . }}
-  {{ if or $prev $next }}
-    <nav class="pane">
-      {{ with $prev }}
-        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-      {{ end }}
-      {{ with $next }}
-        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-      {{ end }}
-    </nav>
+  {{ if not .Params.page }}
+    {{ $prev := partial "functions/prev-article" . }}
+    {{ $next := partial "functions/next-article" . }}
+    {{ if or $prev $next }}
+      <nav class="prev-next">
+        {{ with $next }}
+          <a class="next" href="{{ .RelPermalink }}">
+            <div>« 次の記事: {{ .LinkTitle }}</div>
+          </a>
+        {{ end }}
+        {{ with $prev }}
+          <a class="prev" href="{{ .RelPermalink }}">
+            <div>» 前の記事: {{ .LinkTitle }}</div>
+          </a>
+        {{ end }}
+      </nav>
+    {{ end }}
   {{ end }}
 {{ end }}

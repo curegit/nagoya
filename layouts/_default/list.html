@@ -1,15 +1,23 @@
 {{ define "main" }}
-  <h1>List: {{ .Title }}</h1>
-  {{ .Content }}
-  {{ range .Pages }}
-    <article>
-      <h2>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </h2>
-      {{ with partial "functions/feature-image" . }}
-        <img src="{{ . }}">
+  {{ $paginator := .Paginator }}
+  <div class="single">
+    <header>
+      <h1 class="list-title">{{ .Title }}</h1>
+      {{ if gt $paginator.TotalPages 1 }}
+        <small class="page-num">
+          {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} ページ
+        </small>
       {{ end }}
-      {{ .Summary | plainify }}
-    </article>
-  {{ end }}
+    </header>
+    {{ with .Content }}
+      <div class="body">
+        {{ . }}
+      </div>
+    {{ end }}
+  </div>
+  {{ partial "components/article-list" $paginator.Pages }}
+{{ end }}
+
+{{ define "page-nav" }}
+  {{ partial "components/paginator" . }}
 {{ end }}
