@@ -51,12 +51,32 @@ p {
   margin: 8px 0;
 }
 
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: 85%;
+}
+
 a {
   text-decoration: none;
 }
 
 ul, ol {
   padding-left: 21px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ul ul {
+  list-style-type: circle;
+}
+
+ul ul ul {
+  list-style-type: square;
 }
 
 table {
