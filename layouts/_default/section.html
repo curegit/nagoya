@@ -1,0 +1,37 @@
+{{ define "children" }}
+  {{ with .Sections }}
+    <nav class="pane">
+      <ul class="folders children">
+        {{ range . }}
+          <li class="folder">
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
+{{ end }}
+
+{{ define "main" }}
+  {{ $paginator := .Paginate .RegularPagesRecursive }}
+  <div class="single">
+    <header>
+      <h1 class="section-title">{{ .Title }}</h1>
+      {{ if or (gt $paginator.PageNumber 1) (and (not .Content) (gt $paginator.TotalPages 1)) }}
+        <small class="page-num">
+          {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} ページ
+        </small>
+      {{ end }}
+    </header>
+    {{ with .Content }}
+      <div class="body">
+        {{ . }}
+      </div>
+    {{ end }}
+  </div>
+  {{ partial "components/article-list" $paginator.Pages }}
+{{ end }}
+
+{{ define "page-nav" }}
+  {{ partial "components/paginator" . }}
+{{ end }}
