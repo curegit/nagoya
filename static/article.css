@@ -1,0 +1,115 @@
+main h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.single {
+  display: flex;
+  flex-flow: column;
+  row-gap: 10px;
+}
+
+.single h1.title {
+  font-size: 27px;
+}
+
+.single .time {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  color: #4d4d4d;
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.single time {
+  display: inline;
+}
+
+.toc {
+  margin: 10px 6px;
+}
+
+.single h2 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  padding-bottom: 4px;
+  padding-left: 2px;
+  border-bottom: 1px solid #d1d8df;
+  font-size: 24px;
+}
+
+.single h3 {
+  margin-top: 10px;
+  padding-left: 4px;
+}
+
+.single h4, .single h5, .single h6 {
+  margin-top: 4px;
+  padding-left: 4px;
+}
+
+.single h2:first-child {
+  margin-top: 4px;
+}
+
+.single p {
+  margin: 12px 0;
+  padding-left: 4px;
+  padding-right: 4px;
+  text-indent: 6px;
+}
+
+.single a {
+  text-decoration: underline;
+}
+
+.single img {
+  margin: 16px 0;
+}
+
+.single ul, .single ol {
+  margin-top: 14px;
+  margin-bottom: 14px;
+  padding-left: 32px;
+  padding-right: 4px;
+}
+
+.single ul ul, .single ul ol, .single ol ul, .single ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 18px;
+  padding-right: 0;
+}
+
+.single li {
+  padding: 1px;
+}
+
+.single pre {
+  margin: 16px 0;
+  padding: 8px 12px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.single dl {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.footnote-ref {
+  padding-left: 1px;
+  padding-right: 1px;
+  font-size: 95%;
+}
+
+.footnote-ref::before {
+  display: inline;
+  content: "[";
+}
+
+.footnote-ref::after {
+  display: inline;
+  content: "]";
+}
