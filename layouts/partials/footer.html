@@ -1,3 +1,18 @@
 <footer id="bottom">
-  <p>Nagoya Hugo theme</p>
+  <small>
+    {{ .Site.Title }}
+    {{ with .Site.Copyright }}
+      {{ . }}
+    {{ else }}
+      {{ $first := index (partial "functions/filter-articles" .Site.RegularPages.ByDate) 0 }}
+      {{ with $first }}
+        © {{ .Date.Format "2006" }}–{{ now.Format "2006" }}
+      {{ else }}
+        © {{ now.Format "2006" }}
+      {{ end }}
+      {{ with .Site.Params.author }}
+        {{ . }}
+      {{ end }}
+    {{ end }}
+  </small>
 </footer>
