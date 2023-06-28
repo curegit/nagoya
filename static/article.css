@@ -82,8 +82,8 @@ main h1 {
   padding-right: 0;
 }
 
-.single li {
-  padding: 1px 1px 1px 2px;
+#content .single li {
+  padding: 1px;
 }
 
 .single pre {
