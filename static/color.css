@@ -2,27 +2,36 @@ html, body {
   background-color: #2c9758;
 }
 
-#top {
+header#top {
   border-bottom-color: #2c9758;
 }
 
-#site-title a {
+header#top #site-title a {
   color: #fff;
 }
 
-#description {
+header#top #description {
   color: #a4ebff;
 }
 
-#container {
+div#container {
   background-color: #cdccee;
 }
 
-#bottom {
-  background: #2c9758;
+footer#bottom {
+  background-color: #2c9758;
+  border-top-color: #2dd099;
   color: #fff;
+}
+
+.component-title {
+  color: #5e78ff;
 }
 
 a[href] {
   color: #1010e3;
+}
+
+.single a[href] {
+  color: #0076d1;
 }
