@@ -1,0 +1,7 @@
+[params]
+  showLastmod = true
+  treeRoot = ""
+  newNum = 10
+  relatedNum = 5
+  randomNum = 2
+  shuffleSeeAlso = false
