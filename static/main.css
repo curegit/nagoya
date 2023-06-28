@@ -192,6 +192,12 @@ a.page-link[href]:hover {
   grid-column: 2;
 }
 
+.component-title {
+  padding-left: 4px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
 .children {
   display: grid;
   grid-template-columns: 1fr 1fr;
