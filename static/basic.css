@@ -65,6 +65,7 @@ a {
 
 ul, ol {
   padding-left: 21px;
+  list-style-position: outside;
 }
 
 ul {
@@ -77,6 +78,10 @@ ul ul {
 
 ul ul ul {
   list-style-type: square;
+}
+
+li {
+  padding-left: 1px;
 }
 
 table {
