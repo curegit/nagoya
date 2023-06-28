@@ -1,7 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-date: {{ .Date }}
-tags: []
+weight: 0
+page: true
+pin: true
 ---
-
-<!--more-->
