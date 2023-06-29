@@ -46,10 +46,6 @@ main.pane > * {
   width: 100%;
 }
 
-div#content li {
-  padding-left: 2px;
-}
-
 nav#breadcrumb {
   padding: 10px 12px 10px 24px;
 }
@@ -198,6 +194,7 @@ a.page-link[href]:hover {
 
 .component-title {
   padding-left: 4px;
+  padding-bottom: 3px;
   font-size: 22px;
   font-weight: bold;
 }
