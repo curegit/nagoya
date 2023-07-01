@@ -7,7 +7,6 @@
       </div>
     {{ end }}
   </div>
-
   {{ with partial "functions/filter-articles" .Site.RegularPages }}
     <ol class="archives">
       {{ range .GroupByDate "2006" }}
