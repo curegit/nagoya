@@ -1,28 +1,28 @@
-
 {{ define "main" }}
-  <h1>List: {{ .Title }}</h1>
-  {{ .Content }}
-
-
-  {{ with partial "functions/filter-articles" .Site.RegularPages }}
-
-  {{ range .GroupByDate "2006" }}
-  {{ $year := .Key }}
-  <div class="archive archive-year box" data-date="{{ $year }}">
-    <h4 class="archive-title" style="text-decoration: none;">{{ $year }}{{ if i18n "date.year.suffix" }}{{ i18n "date.year.suffix" }}{{ end }}</h4>
-    {{ range .Pages.GroupByDate "01-January" }}
-      <ul class="archive-posts archive-month" data-date="{{ $year }}{{ range first 1 (split .Key "-") }}{{ . }}{{ end }}">
-        <h5 class="archive-title" style="text-decoration: none;">{{ range last 1 (split .Key "-") }}{{ i18n (lower (printf "date.month.%s" .)) }}{{ if i18n "date.month.suffix" }}{{ i18n "date.month.suffix" }}{{ end }}{{ end }}</h5>
-        {{ range .Pages }}
-          <li class="archive-post archive-day" data-date="{{ dateFormat "20060102" .Date }}">
-            <a class="archive-post-title" href="{{ .Permalink }}">{{ .Title }}</a>
-          </li>
-        {{ end }}
-      </ul>
+  <div class="single">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="body">
+        {{ . }}
+      </div>
     {{ end }}
   </div>
-{{ end }}
 
-{{ end }}
-
+  {{ with partial "functions/filter-articles" .Site.RegularPages }}
+    <ol class="archives">
+      {{ range .GroupByDate "2006" }}
+        {{ $year := .Key }}
+        <li>
+          <h2>{{ $year }}</h2>
+          {{ range .Pages }}
+            <ul>
+              <li>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </li>
+            </ul>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ol>
+  {{ end }}
 {{ end }}

@@ -129,6 +129,24 @@ ol.breadcrumb > li:has(a):last-child::after {
   }
 }
 
+.archives {
+  display: flex;
+  flex-flow: column;
+  row-gap: 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.archives h2 {
+  padding-bottom: 6px;
+  font-size: 20px;
+}
+
+.archives ul {
+  padding-left: 24px;
+  list-style: square;
+}
+
 .pagenator {
   padding: 14px 16px;
 }
