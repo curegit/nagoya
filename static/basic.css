@@ -51,7 +51,7 @@ p {
   margin: 8px 0;
 }
 
-i {
+i, em {
   font-style: italic;
 }
 
