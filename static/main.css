@@ -240,6 +240,14 @@ a.page-link[href]:hover {
   font-weight: bold;
 }
 
+#sidebar .component-title {
+  font-size: 20px;
+}
+
+.component-title a[href] {
+  color: currentColor;
+}
+
 .children {
   display: grid;
   grid-template-columns: 1fr 1fr;
