@@ -3,7 +3,12 @@
   <div class="single">
     <header>
       {{ if eq .Page.Kind "term" }}
-        <h1 class="list-title"><span class="list-title-taxonomy">{{ (site.GetPage .Data.Plural).Title }}:</span> {{ .Title }}</h1>
+        {{ $taxonomy := .Data.Plural }}
+        {{ if eq $taxonomy "tags" }}
+          <h1 class="list-title list-title-tag">{{ .Title }}</h1>
+        {{ else }}
+          <h1 class="list-title"><span class="list-title-taxonomy">{{ (site.GetPage $taxonomy).Title }}:</span> {{ .Title }}</h1>
+        {{ end }}
       {{ else }}
         <h1 class="list-title">{{ .Title }}</h1>
       {{ end }}

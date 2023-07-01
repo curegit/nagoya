@@ -138,6 +138,14 @@ ol.breadcrumb > li:has(a):last-child::after {
   word-spacing: -1px;
 }
 
+.list-title-tag {
+  padding-left: 40px;
+  background-image: var(--tag-icon);
+  background-repeat: no-repeat;
+  background-position: left 4px;
+  background-size: auto 30px;
+}
+
 .list-title-taxonomy {
   color: #555;
   font-size: 90%;
@@ -151,6 +159,21 @@ ol.breadcrumb > li:has(a):last-child::after {
   display: flex;
   flex-flow: row wrap;
   gap: 6px 50px;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  padding-left: 26px;
+  background-image: var(--tag-icon);
+  background-repeat: no-repeat;
+  background-position: left 8px;
+  background-size: auto 18px;
+}
+
+.tag-list li a {
+  margin-left: -24px;
+  padding-left: 24px;
 }
 
 .archives {
