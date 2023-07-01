@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <div class="single">
+    <h1>{{ .Title }}の一覧</h1>
+    {{ with .Content }}
+      <div class="body">
+        {{ . }}
+      </div>
+    {{ end }}
+  </div>
+  <ul class="term-list {{ if eq .Data.Plural "tags" }}tag-list{{ end }}">
+    {{ range .Pages }}
+      {{ $n := len .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }} ({{ $n }})</a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
