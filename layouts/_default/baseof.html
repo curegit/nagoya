@@ -12,7 +12,7 @@
       <div id="middle">
         <div id="content" class="column">
           {{ partial "widgets/content-top" . }}
-          {{ if not .IsHome }}
+          {{ if not (or .IsHome (eq .Kind "404")) }}
             <nav id="breadcrumb" class="pane">
               {{ partial "components/breadcrumb" . }}
             </nav>
@@ -23,7 +23,7 @@
           </main>
           {{ partial "widgets/after-main" . }}
           {{ block "page-nav" . }}{{ end }}
-          {{ if and .IsPage (not .Params.page) }}
+          {{ if or (and .IsPage (not .Params.page)) (eq .Kind "404") }}
             {{ partial "components/see-also" . }}
           {{ end }}
           {{ partial "widgets/content-bottom" . }}
