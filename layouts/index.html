@@ -2,7 +2,7 @@
   {{ $paginator := .Paginate (partial "functions/filter-articles" .Site.RegularPages) }}
   {{ if eq $paginator.PageNumber 1 }}
     {{ if or .Title .Content }}
-      <article class="single">
+      <div class="single">
         {{ with .Title }}
           <header>
             <h1>{{ . }}</h1>
@@ -13,7 +13,7 @@
             {{ . }}
           </div>
         {{ end }}
-      </article>
+      </div>
     {{ end }}
   {{ else }}
     <header>
