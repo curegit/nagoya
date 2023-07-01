@@ -94,6 +94,10 @@ main h1 {
   padding-right: 4px;
 }
 
+.footnotes {
+  margin-top: 32px;
+}
+
 .footnote-ref {
   padding-left: 1px;
   padding-right: 1px;
