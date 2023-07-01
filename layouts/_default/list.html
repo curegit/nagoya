@@ -2,7 +2,11 @@
   {{ $paginator := .Paginator }}
   <div class="single">
     <header>
-      <h1 class="list-title">{{ .Title }}</h1>
+      {{ if eq .Page.Kind "term" }}
+        <h1 class="list-title"><span class="list-title-taxonomy">{{ (site.GetPage .Data.Plural).Title }}:</span> {{ .Title }}</h1>
+      {{ else }}
+        <h1 class="list-title">{{ .Title }}</h1>
+      {{ end }}
       {{ if gt $paginator.TotalPages 1 }}
         <small class="page-num">
           {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} ページ
