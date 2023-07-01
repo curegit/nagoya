@@ -1,22 +1,22 @@
-<nav class="pane">
-  <ul>
-    {{ range $taxonomy, $terms := .Site.Taxonomies }}
-      {{ if not (in (slice "tags" "archives") $taxonomy) }}
-        <li>
-          {{ with site.GetPage $taxonomy }}
+{{ range $taxonomy, $terms := .Site.Taxonomies }}
+  {{ if not (in (slice "tags" "archives") $taxonomy) }}
+    {{ if $terms }}
+      <nav class="pane">
+        {{ with site.GetPage $taxonomy }}
+          <header class="component-title">
             <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          </header>
+        {{ end }}
+        <ul>
+          {{ range $term, $pages := $terms }}
+            <li>
+              {{ with site.GetPage (path.Join $taxonomy $term) }}
+                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+              {{ end }}
+            </li>
           {{ end }}
-          <ul>
-            {{ range $term, $pages := $terms }}
-              <li>
-                {{ with site.GetPage (path.Join $taxonomy $term) }}
-                  <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-                {{ end }}
-              </li>
-            {{ end }}
-          <ul>
-        </li>
-      {{ end }}
+        </ul>
+      </nav>
     {{ end }}
-  </ul>
-</nav>
+  {{ end }}
+{{ end }}

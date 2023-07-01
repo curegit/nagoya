@@ -1,0 +1,19 @@
+{{ $terms := index .Site.Taxonomies "tags" }}
+{{ if $terms }}
+  <nav class="pane">
+    {{ with site.GetPage "tags" }}
+      <header class="component-title">
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      </header>
+    {{ end }}
+    <ul class="tags">
+      {{ range $term, $pages := $terms }}
+        <li class="tag">
+          {{ with site.GetPage (path.Join "tags" $term) }}
+            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
+{{ end }}
