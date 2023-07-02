@@ -48,11 +48,11 @@ main.pane > * {
 }
 
 #sidebar .pane:last-child {
-  padding-bottom: 24px;
+  padding-bottom: 28px;
 }
 
 nav#breadcrumb {
-  padding: 12px 12px 12px 24px;
+  padding: 12px 24px;
 }
 
 ol.breadcrumb {
