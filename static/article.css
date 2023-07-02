@@ -68,6 +68,27 @@ main h1 {
   margin: 16px 0;
 }
 
+.single figure {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.single figure img {
+  margin: 0;
+}
+
+.single figure figcaption {
+  font-size: 95%;
+  font-style: italic;
+}
+
+.single figure figcaption p {
+  margin: 10px 0;
+  text-indent: 0;
+}
+
 .single ul, .single ol {
   margin-top: 14px;
   margin-bottom: 14px;
