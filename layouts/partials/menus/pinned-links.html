@@ -1,0 +1,28 @@
+{{ $pinned := where .Site.RegularPages "Params.pin" "==" true }}
+<nav class="pane">
+  <ul>
+    <li>
+      <a href="{{ .Site.Home.RelPermalink }}">ホーム</a>
+    </li>
+    {{ range $pinned }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+      </li>
+    {{ end }}
+    {{ with site.GetPage "archives" }}
+      <li>
+        <a href={{ .RelPermalink }}>{{ .LinkTitle }}</a>
+      </li>
+    {{ end }}
+
+    <li>
+      <a href={{ "sitemap.xml" | relURL }}>サイトマップ (XML)</a>
+    </li>
+
+    {{ if .Site.Home.OutputFormats.Get "rss" }}
+      <li>
+        <a href={{ "index.xml" | relURL }}>RSS フィード (XML)</a>
+      </li>
+    {{ end }}
+  </ul>
+</nav>
