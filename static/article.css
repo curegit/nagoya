@@ -32,7 +32,7 @@ main h1 {
 
 .single h2 {
   margin-top: 28px;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   padding-bottom: 4px;
   padding-left: 2px;
   border-bottom: 1px solid #d1d8df;
@@ -40,12 +40,13 @@ main h1 {
 }
 
 .single h3 {
-  margin-top: 10px;
+  margin-top: 16px;
+  margin-bottom: 2px;
   padding-left: 4px;
 }
 
 .single h4, .single h5, .single h6 {
-  margin-top: 4px;
+  margin-top: 6px;
   padding-left: 4px;
 }
 
