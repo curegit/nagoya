@@ -19,9 +19,10 @@
       <a href={{ "sitemap.xml" | relURL }}>サイトマップ (XML)</a>
     </li>
 
-    {{ if .Site.Home.OutputFormats.Get "rss" }}
+
+    {{ with .Site.Home.OutputFormats.Get "rss" }}
       <li>
-        <a href={{ "index.xml" | relURL }}>RSS フィード (XML)</a>
+        <a href="{{ .RelPermalink }}">RSS フィード (XML)</a>
       </li>
     {{ end }}
   </ul>
