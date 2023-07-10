@@ -116,6 +116,12 @@ main h1 {
   padding-right: 4px;
 }
 
+.single details {
+  margin: 12px 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
 .footnotes {
   margin-top: 32px;
 }
