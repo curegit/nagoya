@@ -11,7 +11,7 @@
     {{ end }}
     {{ with site.GetPage "archives" }}
       <li>
-        <a href={{ .RelPermalink }}>{{ .LinkTitle }}</a>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
       </li>
     {{ end }}
     {{ with .Site.Home.OutputFormats.Get "rss" }}
