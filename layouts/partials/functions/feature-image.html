@@ -6,6 +6,9 @@
   {{ $featured := $images.GetMatch "*feature*" }}
   {{ $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") }}
   {{ with $featured }}
+    {{ if gt $featured.Width 720 }}
+      {{ $featured = $featured.Resize "720x" }}
+    {{ end }}
     {{ $image = $featured.RelPermalink }}
   {{ else }}
     {{ with .Site.Params.images }}
