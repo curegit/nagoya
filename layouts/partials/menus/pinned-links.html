@@ -14,15 +14,9 @@
         <a href={{ .RelPermalink }}>{{ .LinkTitle }}</a>
       </li>
     {{ end }}
-
-    <li>
-      <a href={{ "sitemap.xml" | relURL }}>サイトマップ (XML)</a>
-    </li>
-
-
     {{ with .Site.Home.OutputFormats.Get "rss" }}
       <li>
-        <a href="{{ .RelPermalink }}">RSS フィード (XML)</a>
+        <a href="{{ .RelPermalink }}">RSS</a>
       </li>
     {{ end }}
   </ul>
