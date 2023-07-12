@@ -114,6 +114,14 @@ main h1 {
   padding-right: 0;
 }
 
+.single :not(pre) > code {
+  padding: 0.2rem 0.4rem;
+  border-radius: 5px;
+  background-color: #e5e9ec;
+  font-size: 95%;
+  white-space: break-spaces;
+}
+
 .single pre {
   margin: 16px 0;
   padding: 8px 12px;
