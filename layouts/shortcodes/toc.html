@@ -1,5 +1,8 @@
 {{ with .Page.TableOfContents }}
   {{ if plainify . }}
-    <div class="toc">{{ . }}</div>
+    <div class="toc">
+      <div class="toc-title">目次</div>
+      {{ . }}
+    </div>
   {{ end }}
 {{ end }}

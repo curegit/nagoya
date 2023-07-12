@@ -27,7 +27,17 @@ main h1 {
 }
 
 .toc {
-  margin: 10px 6px;
+  display: inline-flex;
+  flex-flow: column;
+  min-width: 40%;
+  margin: 16px 2px 28px 36px;
+  padding: 8px 24px 8px 12px;
+  border-radius: 16px;
+  background-color: aliceblue;
+}
+
+.toc-title {
+  text-align: center;
 }
 
 .single h2 {
