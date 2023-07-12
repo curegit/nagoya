@@ -121,6 +121,10 @@ main h1 {
   overflow-x: auto;
 }
 
+.single blockquote .highlight {
+  margin-left: 6px;
+}
+
 .single dl {
   padding-left: 4px;
   padding-right: 4px;
