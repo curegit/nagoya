@@ -1,23 +1,27 @@
 <footer id="bottom">
   <small>
-    {{ .Site.Title }}
+    <span>{{ .Site.Title }}</span>
     <wbr>
-    {{ with .Site.Copyright }}
-      {{ . }}
-    {{ else }}
-      {{ $first := index (partial "functions/filter-articles" .Site.RegularPages.ByDate) 0 }}
-      {{ with $first }}
-        © {{ .Date.Format "2006" }}–{{ now.Format "2006" }}
+    <div>
+      {{ with .Site.Copyright }}
+        {{ . }}
       {{ else }}
-        © {{ now.Format "2006" }}
+        {{ $first := index (partial "functions/filter-articles" .Site.RegularPages.ByDate) 0 }}
+        {{ with $first }}
+          ©&nbsp;{{ .Date.Format "2006" }}–{{ now.Format "2006" }}
+        {{ else }}
+          ©&nbsp;{{ now.Format "2006" }}
+        {{ end }}
+        {{ with .Site.Params.author }}
+          <em>{{ . }}</em>
+        {{ end }}
       {{ end }}
-      {{ with .Site.Params.author }}
-        <em>{{ . }}</em>
-      {{ end }}
-    {{ end }}
-  </small>
-  <br>
-  <small>
-    <i>Nagoya</i> Theme by <i>curegit</i>. Built with Hugo.
+    </div>
+    <br>
+    <div>
+      <i>Nagoya</i>&nbsp;Theme&nbsp;by&nbsp;<i>curegit</i>.
+      <wbr>
+      Built&nbsp;with&nbsp;Hugo.
+    </div>
   </small>
 </footer>
