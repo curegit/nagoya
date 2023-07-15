@@ -39,3 +39,11 @@ a[href] {
 .single a[href] {
   color: #0076d1;
 }
+
+.single thead tr {
+  background-color: #e5e4f7;
+}
+
+.single tr:nth-child(2n) {
+  background-color: #f5f5f5;
+}

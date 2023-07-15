@@ -136,6 +136,11 @@ main h1 {
   margin-left: 6px;
 }
 
+.single th, .single td {
+  padding: 5px 10px;
+  border: 1px solid #d1d8df;
+}
+
 .single dl {
   padding-left: 4px;
   padding-right: 4px;

@@ -86,7 +86,14 @@ li {
 
 table {
   max-width: 100%;
-  margin: 10px 0;
+  margin: 12px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  line-height: 1.6;
+}
+
+th {
+  font-weight: bold;
 }
 
 th, td {
