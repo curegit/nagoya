@@ -28,6 +28,10 @@ footer#bottom {
   color: #5e78ff;
 }
 
+.toc {
+  background-color: #d7f2fe;
+}
+
 a[href] {
   color: #1010e3;
 }
