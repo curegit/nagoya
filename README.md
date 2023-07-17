@@ -3,7 +3,7 @@
 **Nagoya（名古屋）** は、静的サイトジェネレーター **Hugo** 用の日本語テーマです。
 日本語のユーザーに最適化されて設計されており、i18n（国際化対応）は提供していません。
 
-デモサイト: <https://github.com/curegit/nagoya-example>
+デモサイト: <https://curegit.github.io/nagoya-example/>
 
 ## サムネイル画像の設定方法
 
@@ -55,23 +55,13 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
 | キー          | 型            | 説明                                                                 |
 | ------------- | ------------- | -------------------------------------------------------------------- |
 | `author`      | String        | 明示的にこのページの著者名を設定し、サイト全体の著者名を上書きします |
-| `description` | String        | Hugo の Summary から記事の説明を上書きします                         |
+| `description` | String        | Hugo の Summary の代わりに、手動で記事の説明を上書きします           |
 | `keywords`    | Array[String] | このページのキーワードを設定し、タグによるキーワードを上書きします   |
 | `lang`        | String        | このページの言語を明示し、サイト全体の言語設定を上書きします         |
 | `pin`         | Boolean       | このページへのリンクをサイドバーにピン留めします                     |
 | `page`        | Boolean       | このページを記事ではなく、固定ページとして扱います                   |
 
-## `hugo.toml` の例
-
-```
-title = "blog"
-paginate = 5
-languageCode = "ja"
-DefaultContentLanguage = "ja"
-# enableInlineShortcodes = true
-```
-
-## 備考
+## その他備考
 
 - Hugo の Menu Templates は使用しません
 
