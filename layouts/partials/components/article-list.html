@@ -10,7 +10,7 @@
         </h2>
       </header>
       {{ $link := .RelPermalink }}
-      {{ with partial "functions/feature-image" . }}
+      {{ with partial "functions/feature-image" (dict "context" . "fallbackGlobal" false "preferOriginal" false) }}
         <a href="{{ $link }}" class="thumbnail-link">
           <img class="thumbnail" src="{{ . }}">
         </a>

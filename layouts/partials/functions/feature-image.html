@@ -1,18 +1,26 @@
+{{ $fallbackGlobal := .fallbackGlobal }}
+{{ $preferOriginal := .preferOriginal }}
 {{ $image := false }}
-{{ with .Params.images }}
-  {{ $image = index . 0 | relURL }}
-{{ else }}
-  {{ $images := .Resources.ByType "image" }}
-  {{ $featured := $images.GetMatch "*feature*" }}
-  {{ $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") }}
-  {{ with $featured }}
-    {{ if gt $featured.Width 720 }}
-      {{ $featured = $featured.Resize "720x" }}
-    {{ end }}
-    {{ $image = $featured.RelPermalink }}
+{{ with .context }}
+  {{ with .Params.images }}
+    {{ $image = index . 0 | relURL }}
   {{ else }}
-    {{ with .Site.Params.images }}
-      {{ $image = index . 0 | relURL }}
+    {{ $images := .Resources.ByType "image" }}
+    {{ $featured := $images.GetMatch "*feature*" }}
+    {{ $featured := cond (ne $featured nil) $featured ($images.GetMatch "{*cover*,*thumbnail*}") }}
+    {{ with $featured }}
+      {{ if not $preferOriginal }}
+        {{ if gt $featured.Width 720 }}
+          {{ $featured = $featured.Resize "720x" }}
+        {{ end }}
+      {{ end }}
+      {{ $image = $featured.RelPermalink }}
+    {{ else }}
+      {{ if $fallbackGlobal }}
+        {{ with .Site.Params.images }}
+          {{ $image = index . 0 | relURL }}
+        {{ end }}
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}

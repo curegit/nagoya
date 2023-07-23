@@ -21,6 +21,6 @@
   <meta name="og:description" content="{{ .Summary }}">
 {{ end }}
 <meta property="og:url" content="{{ .Permalink }}">
-{{ with partial "functions/feature-image" . }}
+{{ with partial "functions/feature-image" (dict "context" . "fallbackGlobal" true "preferOriginal" true) }}
   <meta property="og:image" content="{{ . | absURL }}">
 {{ end }}
