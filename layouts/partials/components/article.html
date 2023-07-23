@@ -16,6 +16,30 @@
     {{ .Content }}
   </div>
   <footer>
-    フッター
+    {{ $taxonomy := "tags" }}
+    {{ with .GetTerms $taxonomy }}
+      <div>
+        <div>{{ (site.GetPage $taxonomy).LinkTitle }}:</div>
+        <ul class="tags">
+          {{ range . }}
+            <li class="tag"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+    {{ range $taxonomy, $terms := .Site.Taxonomies }}
+      {{ if not (in (slice "tags" "archives") $taxonomy) }}
+        {{ with $.GetTerms $taxonomy }}
+          <div>
+            <div>{{ (site.GetPage $taxonomy).LinkTitle }}:</div>
+            <ul>
+              {{ range . }}
+                <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+              {{ end }}
+            </ul>
+          </div>
+        {{ end }}
+      {{ end }}
+    {{ end }}
   </footer>
 </article>
