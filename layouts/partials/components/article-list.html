@@ -15,13 +15,14 @@
           <img class="thumbnail" src="{{ . }}">
         </a>
       {{ end }}
-      {{ if .Summary }}
+      {{ $summary := (trim (.Summary | plainify) " \n") }}
+      {{ if $summary }}
         <div class="summary">
           {{ if .Truncated }}
-            {{ printf "%s&nbsp;…" (trim (.Summary | plainify) " \n") | safeHTML }}
+            {{ printf "%s&nbsp;…" $summary | safeHTML }}
             <a href="{{ .RelPermalink }}" class="read-more">続きを読む</a>
           {{ else }}
-            {{ .Summary | plainify | safeHTML }}
+            {{ $summary | safeHTML }}
           {{ end }}
         </div>
       {{ end }}

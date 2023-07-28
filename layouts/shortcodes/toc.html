@@ -1,5 +1,5 @@
 {{ with .Page.TableOfContents }}
-  {{ if plainify . }}
+  {{ if (trim (. | plainify) " \n") }}
     <div class="toc">
       <div class="toc-title">目次</div>
       {{ . }}
