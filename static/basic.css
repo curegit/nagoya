@@ -11,7 +11,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 2px 0 4px;
+  margin: 2px 0 6px;
   font-weight: bold;
   line-height: 1.4;
 }
@@ -118,7 +118,7 @@ blockquote {
 }
 
 hr {
-  margin: 0.5em auto;
+  margin: 1.5em auto;
   border: 1px inset #cfcfcf;
   overflow: hidden;
 }

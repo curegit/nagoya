@@ -125,6 +125,11 @@ main h1 {
   white-space: break-spaces;
 }
 
+.single :is(h1, h2, h3, h4, h5, h6) code {
+  padding: 0;
+  background-color: initial;
+}
+
 .single pre {
   margin: 16px 0;
   padding: 8px 12px;
