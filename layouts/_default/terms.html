@@ -8,7 +8,7 @@
     {{ end }}
   </div>
   <ul class="term-list {{ if eq .Data.Plural "tags" }}tag-list{{ end }}">
-    {{ range .Pages }}
+    {{ range .Pages.ByWeight }}
       {{ $n := len .Pages }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .Title }} ({{ $n }})</a>
