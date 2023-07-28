@@ -17,8 +17,12 @@
       {{ end }}
       {{ if .Summary }}
         <div class="summary">
-          {{ .Summary | plainify | safeHTML }}
-          {{ if .Truncated }} … <a href="{{ .RelPermalink }}" class="read-more">続きを読む</a>{{ end }}
+          {{ if .Truncated }}
+            {{ printf "%s&nbsp;…" (trim (.Summary | plainify) " \n") | safeHTML }}
+            <a href="{{ .RelPermalink }}" class="read-more">続きを読む</a>
+          {{ else }}
+            {{ .Summary | plainify | safeHTML }}
+          {{ end }}
         </div>
       {{ end }}
     </article>
