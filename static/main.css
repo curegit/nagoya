@@ -118,6 +118,7 @@ ol.breadcrumb > li:has(a):last-child::after {
   .thumbnail {
     min-width: 10%;
     max-width: 40%;
+    max-height: max(60vh, 120cqw);
     margin: 4px 18px 6px 0;
     border-radius: 6px;
     float: left;
