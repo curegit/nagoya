@@ -1,16 +1,24 @@
 # Nagoya
 
-**Nagoya（名古屋）** は、静的サイトジェネレーター **Hugo** 用の日本語テーマです。
+**Nagoya (名古屋)** は、静的サイトジェネレーター **Hugo** 用の日本語テーマです。
 日本語のユーザーに最適化されて設計されており、i18n（国際化対応）は提供していません。
 
 デモサイト: <https://curegit.github.io/nagoya-example/>
 
 デモサイトのソース: <https://github.com/curegit/nagoya-example>
 
+## インストール方法
+
+Git submodule によるやり方を推奨します。
+
+```sh
+git submodule add https://github.com/curegit/nagoya.git themes/nagoya
+```
+
 ## サムネイル画像の設定方法
 
 Hugo 自体の挙動に似せており、フロントマターの `images` の値があればそれをサムネイルとして使用します。
-それがなければ、フォルダ内でファイル名に feature, cover, thumbnail が含まれる画像がサムネイルとして使われます。
+それがなければ、バンドル内でファイル名に feature, cover, thumbnail が含まれる画像がサムネイルとして使われます。
 
 ## Taxonomies（タグやカテゴリ）
 
@@ -63,7 +71,8 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
 
 ## その他備考
 
-- Hugo の Menu Templates は使用しません
+- Hugo の Menu Templates は使用しません。
+  該当部分のパーシャルレイアウトを上書きしてメニューを作成します。
 
 ## ライセンス
 
