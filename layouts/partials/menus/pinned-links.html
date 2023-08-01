@@ -1,8 +1,8 @@
-{{ $pinned := where .Site.RegularPages "Params.pin" "==" true }}
+{{ $pinned := where site.RegularPages "Params.pin" "==" true }}
 <nav class="pane">
   <ul>
     <li>
-      <a href="{{ .Site.Home.RelPermalink }}">ホーム</a>
+      <a href="{{ site.Home.RelPermalink }}">ホーム</a>
     </li>
     {{ range $pinned }}
       <li>
@@ -14,7 +14,7 @@
         <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
       </li>
     {{ end }}
-    {{ with .Site.Home.OutputFormats.Get "rss" }}
+    {{ with site.Home.OutputFormats.Get "rss" }}
       <li>
         <a href="{{ .RelPermalink }}">RSS</a>
       </li>

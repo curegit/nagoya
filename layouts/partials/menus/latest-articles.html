@@ -1,4 +1,4 @@
-{{ $latest := partial "functions/filter-articles" .Site.RegularPages | first .Site.Params.newNum }}
+{{ $latest := partial "functions/filter-articles" site.RegularPages | first site.Params.newNum }}
 {{ if $latest }}
   <nav class="pane">
     <header class="component-title">最新記事</header>

@@ -1,7 +1,7 @@
-{{ $related := partial "functions/filter-articles" (.Site.RegularPages.Related .) | first .Site.Params.relatedNum }}
-{{ $random := shuffle (partial "functions/filter-articles" .Site.RegularPages) | first .Site.Params.randomNum }}
+{{ $related := partial "functions/filter-articles" (.Site.RegularPages.Related .) | first site.Params.relatedNum }}
+{{ $random := shuffle (partial "functions/filter-articles" site.RegularPages) | first site.Params.randomNum }}
 {{ $seeAlso := $related | append $random }}
-{{ if .Site.Params.shuffleSeeAlso }}
+{{ if site.Params.shuffleSeeAlso }}
   {{ $seeAlso = shuffle $seeAlso }}
 {{ end }}
 {{ with $seeAlso }}

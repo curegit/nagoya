@@ -1,30 +1,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-{{ $title := printf "%s | %s" .Title .Site.Title }}
+{{ $title := printf "%s | %s" .Title site.Title }}
 {{ if .IsHome }}
-  {{ $title = .Site.Title }}
+  {{ $title = site.Title }}
 {{ else if .IsPage }}
   {{ $title = .Title }}
 {{ end }}
 <title>{{ $title }}</title>
 {{ if .Description }}
   <meta name="description" content="{{ .Description }}">
-{{ else if and .IsHome .Site.Params.description }}
-  <meta name="description" content="{{ .Site.Params.description }}">
+{{ else if and .IsHome site.Params.description }}
+  <meta name="description" content="{{ site.Params.description }}">
 {{ else if and .IsPage .Summary }}
   <meta name="description" content="{{ .Summary }}">
 {{ end }}
 {{ if .Keywords }}
   <meta name="keywords" content="{{ delimit .Keywords ", " }}">
-{{ else if and .IsHome .Site.Params.keywords }}
-  <meta name="keywords" content="{{ delimit .Site.Params.keywords ", " }}">
+{{ else if and .IsHome site.Params.keywords }}
+  <meta name="keywords" content="{{ delimit site.Params.keywords ", " }}">
 {{ else if .GetTerms "tags" }}
   <meta name="keywords" content="{{ (index (.GetTerms "tags") 0).Title }}{{ range after 1 (.GetTerms "tags") }}, {{ .Title }}{{ end }}">
 {{ end }}
 {{ if .Params.author }}
   <meta name="author" content="{{ .Params.author }}">
-{{ else if .Site.Params.author }}
-  <meta name="author" content="{{ .Site.Params.author }}">
+{{ else if site.Params.author }}
+  <meta name="author" content="{{ site.Params.author }}">
 {{ end }}
 {{ hugo.Generator }}
 <link rel="canonical" href="{{ .Permalink }}">

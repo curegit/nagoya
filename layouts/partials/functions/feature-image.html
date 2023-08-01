@@ -17,7 +17,7 @@
       {{ $image = $featured.RelPermalink }}
     {{ else }}
       {{ if $fallbackGlobal }}
-        {{ with .Site.Params.images }}
+        {{ with site.Params.images }}
           {{ $image = index . 0 | relURL }}
         {{ end }}
       {{ end }}

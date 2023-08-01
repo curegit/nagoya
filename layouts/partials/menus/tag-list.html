@@ -1,4 +1,4 @@
-{{ $terms := index .Site.Taxonomies "tags" }}
+{{ $terms := index site.Taxonomies "tags" }}
 {{ if $terms }}
   <nav class="pane">
     {{ with site.GetPage "tags" }}
