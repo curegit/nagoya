@@ -15,9 +15,9 @@
 {{ end }}
 
 <nav class="pane">
-  {{ if .Site.Params.treeRoot }}
-    {{ template "section-tree" (.Site.GetPage .Site.Params.treeRoot) }}
+  {{ if site.Params.treeRoot }}
+    {{ template "section-tree" (site.GetPage site.Params.treeRoot) }}
   {{ else }}
-    {{ template "section-tree" .Site }}
+    {{ template "section-tree" site }}
   {{ end }}
 </nav>
