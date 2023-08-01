@@ -4,14 +4,14 @@
   <header>
     <h1 class="title">{{ .Title }}</h1>
     {{ if .Params.page }}
-      {{ if .Site.Params.showLastmod }}
+      {{ if site.Params.showLastmod }}
         <div class="time">
           <div>更新: <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ $lastmod }}</time></div>
         </div>
       {{ end }}
     {{ else }}
       <div class="time">
-        {{ if or (not .Site.Params.showLastmod) (eq $created $lastmod) }}
+        {{ if or (not site.Params.showLastmod) (eq $created $lastmod) }}
           <div><time datetime="{{ .Date.Format "2006-01-02" }}"> {{ $created }}</time></div>
         {{ else }}
           <div>作成: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ $created }}</time></div>
@@ -35,7 +35,7 @@
         </ul>
       </div>
     {{ end }}
-    {{ range $taxonomy, $terms := .Site.Taxonomies }}
+    {{ range $taxonomy, $terms := site.Taxonomies }}
       {{ if not (in (slice "tags" "archives") $taxonomy) }}
         {{ with $.GetTerms $taxonomy }}
           <div>

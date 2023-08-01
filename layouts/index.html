@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $paginator := .Paginate (partial "functions/filter-articles" .Site.RegularPages) }}
+  {{ $paginator := .Paginate (partial "functions/filter-articles" site.RegularPages) }}
   {{ if eq $paginator.PageNumber 1 }}
     {{ if or .Title .Content }}
       <div class="single">

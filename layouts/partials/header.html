@@ -2,17 +2,17 @@
   <div id="header-grid">
     {{ if .IsHome }}
       <h1 id="site-title">
-        <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+        <a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
       </h1>
     {{ else }}
       <div id="site-title">
-        <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+        <a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
       </div>
     {{ end }}
-    {{ if .Site.Home.Description }}
-      <p id="description">{{ .Site.Home.Description }}</p>
-    {{ else if .Site.Params.description }}
-      <p id="description">{{ .Site.Params.description }}</p>
+    {{ if site.Home.Description }}
+      <p id="description">{{ site.Home.Description }}</p>
+    {{ else if site.Params.description }}
+      <p id="description">{{ site.Params.description }}</p>
     {{ end }}
   </div>
 </header>

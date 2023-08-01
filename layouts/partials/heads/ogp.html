@@ -5,18 +5,18 @@
 {{ else }}
   <meta property="og:type" content="website">
 {{ end }}
-<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:site_name" content="{{ site.Title }}">
 {{ if .IsHome }}
-  <meta property="og:title" content="{{ .Site.Title }}">
+  <meta property="og:title" content="{{ site.Title }}">
 {{ else if .IsPage }}
   <meta property="og:title" content="{{ .Title }}">
 {{ else }}
-  <meta property="og:title" content="{{ printf "%s | %s" .Title .Site.Title }}">
+  <meta property="og:title" content="{{ printf "%s | %s" .Title site.Title }}">
 {{ end }}
 {{ if .Description }}
   <meta name="og:description" content="{{ .Description }}">
-{{ else if and .IsHome .Site.Params.description }}
-  <meta name="og:description" content="{{ .Site.Params.description }}">
+{{ else if and .IsHome site.Params.description }}
+  <meta name="og:description" content="{{ site.Params.description }}">
 {{ else if and .IsPage .Summary }}
   <meta name="og:description" content="{{ .Summary }}">
 {{ end }}

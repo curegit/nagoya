@@ -1,18 +1,18 @@
 <footer id="bottom">
   <small>
-    <span>{{ .Site.Title }}</span>
+    <span>{{ site.Title }}</span>
     <wbr>
     <div>
-      {{ with .Site.Copyright }}
+      {{ with site.Copyright }}
         {{ . }}
       {{ else }}
-        {{ $first := index (partial "functions/filter-articles" .Site.RegularPages.ByDate) 0 }}
+        {{ $first := index (partial "functions/filter-articles" site.RegularPages.ByDate) 0 }}
         {{ with $first }}
           ©&nbsp;{{ .Date.Format "2006" }}–{{ now.Format "2006" }}
         {{ else }}
           ©&nbsp;{{ now.Format "2006" }}
         {{ end }}
-        {{ with .Site.Params.author }}
+        {{ with site.Params.author }}
           <em>{{ . }}</em>
         {{ end }}
       {{ end }}

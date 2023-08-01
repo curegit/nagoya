@@ -1,4 +1,4 @@
-{{ range $taxonomy, $terms := .Site.Taxonomies }}
+{{ range $taxonomy, $terms := site.Taxonomies }}
   {{ if not (in (slice "tags" "archives") $taxonomy) }}
     {{ if $terms }}
       <nav class="pane">
