@@ -1,0 +1,12 @@
+{{ $description := false }}
+{{ if .Description }}
+  {{ $description = .Description }}
+{{ else if and .IsHome site.Params.description }}
+  {{ $description = site.Params.description }}
+{{ else if and .IsPage .Summary }}
+  {{ $description = .Summary }}
+{{ end }}
+{{ with $description }}
+  {{ $description = (trim (. | plainify) " \n") }}
+{{ end }}
+{{ return $description }}

@@ -7,12 +7,8 @@
   {{ $title = .Title }}
 {{ end }}
 <title>{{ $title }}</title>
-{{ if .Description }}
-  <meta name="description" content="{{ .Description }}">
-{{ else if and .IsHome site.Params.description }}
-  <meta name="description" content="{{ site.Params.description }}">
-{{ else if and .IsPage .Summary }}
-  <meta name="description" content="{{ .Summary }}">
+{{ with partial "functions/description" . }}
+  <meta name="description" content="{{ . }}">
 {{ end }}
 {{ if .Keywords }}
   <meta name="keywords" content="{{ delimit .Keywords ", " }}">
