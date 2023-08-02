@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ with .Params.lang }}{{ . }}{{ else }}{{ site.Language.Lang }}{{ end }}">
+<html lang="{{ with .Params.lang }}{{ . }}{{ else }}{{ site.Language.Lang }}{{ end }}" itemscope itemtype="{{ if and .IsPage (not .Params.page) }}{{ "https://schema.org/BlogPosting" }}{{ else }}{{ "http://schema.org/WebPage" }}{{ end }}">
   <head>
     {{ partial "heads/basic" . }}
     {{ partial "heads/icons" . }}
     {{ partial "heads/ogp" . }}
+    {{ partial "heads/schema" . }}
     {{ partial "heads/katex" . }}
     {{ partial "heads/mermaid" . }}
     {{ partial "heads/custom" . }}

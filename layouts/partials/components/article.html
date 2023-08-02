@@ -2,7 +2,7 @@
 {{ $lastmod := .Lastmod.Format "2006/01/02" }}
 <article class="single">
   <header>
-    <h1 class="title">{{ .Title }}</h1>
+    <h1 class="title" itemprop="headline">{{ .Title }}</h1>
     {{ if .Params.page }}
       {{ if site.Params.showLastmod }}
         <div class="time">
