@@ -9,7 +9,7 @@
 
 ## インストール方法
 
-Git submodule によるやり方を推奨します。
+Git submodule による導入を推奨します。
 
 ```sh
 git submodule add https://github.com/curegit/nagoya.git themes/nagoya
