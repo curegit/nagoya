@@ -72,8 +72,8 @@ ol.breadcrumb > li:last-child::after {
   content: "";
 }
 
-ol.breadcrumb > li:has(a):last-child::after {
-  content: " > ";
+ol.breadcrumb > li.page {
+  display: none;
 }
 
 .section-title {
