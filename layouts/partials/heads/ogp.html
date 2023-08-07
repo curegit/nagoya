@@ -14,7 +14,7 @@
   <meta property="og:title" content="{{ printf "%s | %s" .Title site.Title }}">
 {{ end }}
 {{ with partial "functions/description" . }}
-  <meta name="og:description" content="{{ . }}">
+  <meta property="og:description" content="{{ . }}">
 {{ end }}
 <meta property="og:url" content="{{ .Permalink }}">
 {{ with partial "functions/feature-image" (dict "context" . "fallbackGlobal" true "preferOriginal" true) }}
