@@ -17,12 +17,17 @@
 {{ else if .GetTerms "tags" }}
   <meta name="keywords" content="{{ (index (.GetTerms "tags") 0).Title }}{{ range after 1 (.GetTerms "tags") }}, {{ .Title }}{{ end }}">
 {{ end }}
+{{ hugo.Generator }}
 {{ if .Params.author }}
   <meta name="author" content="{{ .Params.author }}">
 {{ else if site.Params.author }}
   <meta name="author" content="{{ site.Params.author }}">
 {{ end }}
-{{ hugo.Generator }}
+{{ if .Params.authorLink }}
+  <link rel="author" href="{{ .Params.authorLink }}">
+{{ else if site.Params.authorLink }}
+  <link rel="author" href="{{ site.Params.authorLink }}">
+{{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="stylesheet" href="{{ "font.css" | relURL }}">
 <link rel="stylesheet" href="{{ "basic.css" | relURL }}">
