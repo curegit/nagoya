@@ -1,4 +1,5 @@
 [params]
+  showAuthor = true
   showLastmod = true
   treeRoot = ""
   newNum = 10

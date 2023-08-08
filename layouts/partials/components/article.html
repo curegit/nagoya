@@ -49,5 +49,20 @@
         {{ end }}
       {{ end }}
     {{ end }}
+    {{ if site.Params.showAuthor }}
+      {{ $author := .Params.author | default site.Params.author | default false }}
+      {{ $authorLink := .Params.authorLink | default site.Params.authorLink | default false }}
+      {{ if or $author $authorLink }}
+        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+          {{ if and $author $authorLink }}
+            <a href="{{ $authorLink }}" itemprop="url"><span itemprop="name">{{ $author }}</span></a>
+          {{ else if $author }}
+            <span itemprop="name">{{ $author }}</span>
+          {{ else if $authorLink }}
+            <meta itemprop="url" content="{{ $authorLink }}">
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
   </footer>
 </article>

@@ -1,0 +1,30 @@
+{{ if .IsHome }}
+  <meta itemprop="name" content="{{ site.Title }}">
+{{ else }}
+  <meta itemprop="name" content="{{ .Title }}">
+{{ end }}
+{{ with partial "functions/description" . }}
+  <meta itemprop="description" content="{{ . }}">
+{{ end }}
+{{ if .Keywords }}
+  <meta itemprop="keywords" content="{{ delimit .Keywords ", " }}">
+{{ else if and .IsHome site.Params.keywords }}
+  <meta itemprop="keywords" content="{{ delimit site.Params.keywords ", " }}">
+{{ else if .GetTerms "tags" }}
+  <meta itemprop="keywords" content="{{ (index (.GetTerms "tags") 0).Title }}{{ range after 1 (.GetTerms "tags") }}, {{ .Title }}{{ end }}">
+{{ end }}
+{{ if .IsPage }}
+  {{ $iso8601 := "2006-01-02T15:04:05-07:00" }}
+  {{ with .Date }}
+    <meta itemprop="datePublished" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }}>
+  {{ end }}
+  {{ with .Lastmod }}
+    {{ if site.Params.showLastmod }}
+      <meta itemprop="dateModified" {{ .Format $iso8601 | printf "content=%q" | safeHTMLAttr }}>
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ with partial "functions/feature-image" (dict "context" . "fallbackGlobal" true "preferOriginal" true) }}
+  <meta itemprop="image" content="{{ . | absURL }}">
+{{ end }}
+<link itemprop="url" href="{{ .Permalink }}">
