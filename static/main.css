@@ -197,7 +197,7 @@ ol.breadcrumb > li.page {
   list-style: square;
 }
 
-.pagenator {
+.paginator {
   padding: 14px 16px;
 }
 
@@ -370,7 +370,7 @@ footer#bottom div {
     padding: 30px 44px 42px;
   }
 
-  .pagenator {
+  .paginator {
     padding: 2px 16px;
   }
 
