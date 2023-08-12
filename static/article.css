@@ -7,6 +7,7 @@ main h1 {
   display: flex;
   flex-flow: column;
   row-gap: 10px;
+  container-type: inline-size;
 }
 
 .single h1.title {
@@ -30,7 +31,7 @@ main h1 {
   display: inline-flex;
   flex-flow: column;
   min-width: 40%;
-  margin: 16px 2px 28px 36px;
+  margin: 16px 2px;
   padding: 8px 24px 8px 12px;
   border-radius: 16px;
 }
@@ -179,4 +180,10 @@ main h1 {
 .footnote-ref::after {
   display: inline;
   content: "]";
+}
+
+@container (min-width: 600px) {
+  .toc {
+    margin: 16px 2px 28px 36px;
+  }
 }
