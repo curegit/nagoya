@@ -70,6 +70,10 @@ main h1 {
   text-indent: 6px;
 }
 
+.single p:has(img) {
+  text-indent: 0;
+}
+
 .single a {
   text-decoration: underline;
 }
