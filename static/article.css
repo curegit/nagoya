@@ -41,7 +41,7 @@ main h1 {
 }
 
 .single h2 {
-  margin-top: 28px;
+  margin-top: 32px;
   margin-bottom: 16px;
   padding-bottom: 4px;
   padding-left: 2px;
@@ -136,7 +136,7 @@ main h1 {
 }
 
 .single pre {
-  margin: 16px 0;
+  margin: 24px 0;
   padding: 8px 12px;
   border-radius: 6px;
   overflow-x: auto;
@@ -169,7 +169,7 @@ main h1 {
 .footnote-ref {
   padding-left: 1px;
   padding-right: 1px;
-  font-size: 95%;
+  font-size: 96%;
 }
 
 .footnote-ref::before {
