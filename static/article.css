@@ -108,6 +108,10 @@ main h1 {
   text-indent: 0;
 }
 
+.single figure figcaption code {
+  font-style: normal;
+}
+
 .single ul, .single ol {
   margin-top: 14px;
   margin-bottom: 14px;
@@ -128,6 +132,10 @@ main h1 {
   background-color: #e5e9ec;
   font-size: 95%;
   white-space: break-spaces;
+}
+
+.single .toc code {
+  display: contents;
 }
 
 .single :is(h1, h2, h3, h4, h5, h6) code {

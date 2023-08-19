@@ -118,6 +118,10 @@ blockquote {
   font-style: italic;
 }
 
+blockquote pre, blockquote code {
+  font-style: normal;
+}
+
 hr {
   margin: 1.5em auto;
   border: 1px inset #cfcfcf;
