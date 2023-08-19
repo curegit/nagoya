@@ -82,7 +82,7 @@ ol.breadcrumb > li.page {
   background-image: var(--folder-icon);
   background-repeat: no-repeat;
   background-position: top left;
-  background-size: auto 36px;
+  background-size: auto 34px;
 }
 
 .article-list {
@@ -147,7 +147,7 @@ ol.breadcrumb > li.page {
   background-image: var(--tag-icon);
   background-repeat: no-repeat;
   background-position: left 4px;
-  background-size: auto 30px;
+  background-size: auto 28px;
 }
 
 .list-title-taxonomy {
@@ -313,7 +313,7 @@ ul.tags {
   background-image: var(--tag-icon);
   background-repeat: no-repeat;
   background-position: left 7px;
-  background-size: auto 16px;
+  background-size: auto 17px;
 }
 
 .tag a {
