@@ -1,9 +1,9 @@
 html, body {
-  background-color: #2c9758;
+  background-color: #474a8a;
 }
 
 header#top {
-  border-bottom-color: #2c9758;
+  border-bottom-color: #4b8bbe;
 }
 
 header#top #site-title a {
@@ -11,21 +11,21 @@ header#top #site-title a {
 }
 
 header#top #description {
-  color: #a4ebff;
+  color: #ffe873;
 }
 
 div#container {
-  background-color: #cdccee;
+  background-color: #bdd1f3;
 }
 
 footer#bottom {
-  background-color: #2c9758;
-  border-top-color: #2dd099;
+  background-color: #474a8a;
+  border-top-color: #3ea7ac;
   color: #fff;
 }
 
 .component-title {
-  color: #5e78ff;
+  color: #494da4;
 }
 
 .toc {
@@ -33,11 +33,11 @@ footer#bottom {
 }
 
 a[href] {
-  color: #1010e3;
+  color: #0041ad;
 }
 
 .single a[href] {
-  color: #0076d1;
+  color: #0053d4;
 }
 
 .single thead tr {
