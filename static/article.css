@@ -38,6 +38,10 @@ main h1 {
 
 .toc-title {
   text-align: center;
+  color: #000000b5;
+  font-size: 1.05em;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .single h2 {
