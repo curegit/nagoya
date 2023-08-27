@@ -194,6 +194,36 @@ main h1 {
   content: "]";
 }
 
+.single footer {
+  margin: 24px 0;
+}
+
+.single .taxonomy-table {
+  margin: 12px 0;
+  line-height: 1.5;
+}
+
+.single .taxonomy-table tr {
+  background-color: revert;
+}
+
+.taxonomy-table th {
+  text-align: right;
+  font-weight: normal;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+.taxonomy-table th, .taxonomy-table td {
+  border: none;
+  vertical-align: baseline;
+}
+
+.taxonomy-table ul {
+  margin: 0;
+  padding: 0;
+}
+
 @container (min-width: 600px) {
   .toc {
     margin: 16px 2px 28px 36px;

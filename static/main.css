@@ -300,7 +300,7 @@ ul.folders {
   padding-left: 32px;
 }
 
-ul.tags {
+ul.tags, ul.terms {
   display: flex;
   flex-flow: row wrap;
   gap: 2px 30px;

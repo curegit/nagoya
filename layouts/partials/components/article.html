@@ -24,30 +24,52 @@
     {{ .Content }}
   </div>
   <footer>
-    {{ $taxonomy := "tags" }}
-    {{ with .GetTerms $taxonomy }}
-      <div>
-        <div>{{ (site.GetPage $taxonomy).LinkTitle }}:</div>
-        <ul class="tags">
-          {{ range . }}
-            <li class="tag"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-          {{ end }}
-        </ul>
-      </div>
+    {{ $hasTerms := false }}
+    {{ $taxonomyTag := "tags" }}
+    {{ $tagTerms := .GetTerms $taxonomyTag }}
+    {{ if $tagTerms }}
+      {{ $hasTerms = true }}
     {{ end }}
     {{ range $taxonomy, $terms := site.Taxonomies }}
       {{ if not (in (slice "tags" "archives") $taxonomy) }}
-        {{ with $.GetTerms $taxonomy }}
-          <div>
-            <div>{{ (site.GetPage $taxonomy).LinkTitle }}:</div>
-            <ul>
-              {{ range . }}
-                <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-              {{ end }}
-            </ul>
-          </div>
+        {{ if $.GetTerms $taxonomy }}
+          {{ $hasTerms = true }}
         {{ end }}
       {{ end }}
+    {{ end }}
+    {{ if $hasTerms }}
+      <table class="taxonomy-table">
+        <tbody>
+          {{ with $tagTerms }}
+            <tr>
+              <th>{{ (site.GetPage $taxonomyTag).LinkTitle }}:</th>
+              <td>
+                <ul class="tags">
+                  {{ range . }}
+                    <li class="tag"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+                  {{ end }}
+                </ul>
+              </td>
+            </tr>
+          {{ end }}
+          {{ range $taxonomy, $terms := site.Taxonomies }}
+            {{ if not (in (slice "tags" "archives") $taxonomy) }}
+              {{ with $.GetTerms $taxonomy }}
+                <tr>
+                  <th>{{ (site.GetPage $taxonomy).LinkTitle }}:</th>
+                  <td>
+                    <ul class="terms">
+                      {{ range . }}
+                        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+                      {{ end }}
+                    </ul>
+                  </td>
+                </tr>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </tbody>
+      </table>
     {{ end }}
     {{ if site.Params.showAuthor }}
       {{ $author := .Params.author | default site.Params.author | default false }}
