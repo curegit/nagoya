@@ -25,6 +25,10 @@
   </div>
   <footer>
     {{ $hasTerms := false }}
+    {{ $section := false }}
+    {{ if and .Parent (not .Parent.IsHome) }}
+      {{ $section = .Parent }}
+    {{ end }}
     {{ $taxonomyTag := "tags" }}
     {{ $tagTerms := .GetTerms $taxonomyTag }}
     {{ if $tagTerms }}
@@ -40,6 +44,16 @@
     {{ if $hasTerms }}
       <table class="taxonomy-table">
         <tbody>
+          {{ with $section }}
+            <tr>
+              <th>セクション:</th>
+              <td>
+                <div class="folder">
+                  <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                </div>
+              </td>
+            </tr>
+          {{ end }}
           {{ with $tagTerms }}
             <tr>
               <th>{{ (site.GetPage $taxonomyTag).LinkTitle }}:</th>
