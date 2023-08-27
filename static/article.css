@@ -231,6 +231,6 @@ main h1 {
 
 @container (min-width: 600px) {
   .toc {
-    margin: 16px 2px 28px 36px;
+    margin: 16px 36px 28px;
   }
 }
