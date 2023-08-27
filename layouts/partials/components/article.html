@@ -75,7 +75,7 @@
       {{ $author := .Params.author | default site.Params.author | default false }}
       {{ $authorLink := .Params.authorLink | default site.Params.authorLink | default false }}
       {{ if or $author $authorLink }}
-        <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+        <div class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
           {{ if and $author $authorLink }}
             <a href="{{ $authorLink }}" itemprop="url"><span itemprop="name">{{ $author }}</span></a>
           {{ else if $author }}

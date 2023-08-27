@@ -224,6 +224,11 @@ main h1 {
   padding: 0;
 }
 
+.single .author {
+  padding-right: 20px;
+  text-align: right;
+}
+
 @container (min-width: 600px) {
   .toc {
     margin: 16px 2px 28px 36px;
