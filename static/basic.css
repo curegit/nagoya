@@ -103,7 +103,7 @@ th, td {
 
 pre {
   overflow-x: auto;
-  white-space: pre-wrap;
+  white-space: pre;
   line-height: 1.5;
 }
 
