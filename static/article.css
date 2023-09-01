@@ -208,8 +208,10 @@ main h1 {
 }
 
 .taxonomy-table th {
-  text-align: right;
+  color: #4d4d4d;
+  font-size: 0.95em;
   font-weight: normal;
+  text-align: right;
   overflow-wrap: normal;
   word-break: keep-all;
 }
