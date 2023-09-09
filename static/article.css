@@ -154,6 +154,10 @@ main h1 {
   overflow-x: auto;
 }
 
+.single pre > code:first-child:not(:has(+ *)) {
+  display: inline-block;
+}
+
 .single blockquote .highlight {
   margin-left: 6px;
 }
