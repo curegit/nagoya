@@ -312,7 +312,7 @@ ul.tags, ul.terms {
   padding-left: 24px;
   background-image: var(--tag-icon);
   background-repeat: no-repeat;
-  background-position: left 7px;
+  background-position: left 6px;
   background-size: auto 17px;
 }
 
