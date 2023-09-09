@@ -103,8 +103,12 @@ th, td {
 
 pre {
   overflow-x: auto;
-  white-space: pre;
+  white-space: pre-wrap;
   line-height: 1.5;
+}
+
+pre:has(code) {
+  white-space: pre;
 }
 
 pre, code {
