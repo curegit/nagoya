@@ -45,7 +45,7 @@ main h1 {
 }
 
 .single h2 {
-  margin-top: 32px;
+  margin-top: 40px;
   margin-bottom: 16px;
   padding-bottom: 4px;
   padding-left: 2px;
@@ -54,7 +54,7 @@ main h1 {
 }
 
 .single h3 {
-  margin-top: 16px;
+  margin-top: 24px;
   margin-bottom: 2px;
   padding-left: 4px;
 }
@@ -148,8 +148,8 @@ main h1 {
 }
 
 .single pre {
-  margin: 24px 0;
-  padding: 8px 12px;
+  margin: 22px 0;
+  padding: 12px 16px;
   border-radius: 6px;
   overflow-x: auto;
 }
@@ -179,7 +179,7 @@ main h1 {
 }
 
 .footnotes {
-  margin-top: 32px;
+  margin-top: 40px;
 }
 
 .footnote-ref {
@@ -199,7 +199,7 @@ main h1 {
 }
 
 .single footer {
-  margin: 16px 0;
+  margin: 20px 0 16px;
 }
 
 .single .taxonomy-table {

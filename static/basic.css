@@ -32,15 +32,15 @@ h2 {
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 21px;
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 19px;
 }
 
 h5 {
-  font-size: 18px;
+  font-size: 17px;
 }
 
 h6 {
@@ -122,7 +122,7 @@ pre, code {
 
 blockquote {
   margin: 12px;
-  padding: 2px 15px 2px 5px;
+  padding: 2px 13px 2px 7px;
   border-left: 4px solid #5d686f;
   font-style: italic;
 }
