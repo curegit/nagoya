@@ -1,5 +1,5 @@
 {{ $related := partial "functions/filter-articles" (.Site.RegularPages.Related .) | first site.Params.relatedNum }}
-{{ $random := shuffle (where (partial "functions/filter-articles" site.RegularPages) "not in" $related) | first site.Params.randomNum }}
+{{ $random := shuffle (complement $related (partial "functions/filter-articles" site.RegularPages)) | first site.Params.randomNum }}
 {{ $seeAlso := $related | append $random }}
 {{ if site.Params.shuffleSeeAlso }}
   {{ $seeAlso = shuffle $seeAlso }}
