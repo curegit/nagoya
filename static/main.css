@@ -105,6 +105,7 @@ ol.breadcrumb > li.page {
 }
 
 .summary {
+  padding-top: 1px;
   text-indent: 12px;
 }
 
@@ -322,12 +323,17 @@ ul.tags, ul.terms {
 }
 
 footer#bottom {
-  padding: 30px 20px 40px;
+  padding: 32px 20px 44px;
   border-top-width: 16px;
   border-top-style: solid;
   text-align: center;
   word-break: keep-all;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+}
+
+footer#bottom a {
+  display: contents;
+  color: unset;
 }
 
 footer#bottom small {
