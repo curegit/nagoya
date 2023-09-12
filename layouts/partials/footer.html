@@ -1,6 +1,8 @@
 <footer id="bottom">
   <small>
-    <span>{{ site.Title }}</span>
+    <a href="{{ site.Home.RelPermalink }}">
+      <span>{{ site.Title }}</span>
+    </a>
     <wbr>
     <span>
       {{ with site.Copyright }}
@@ -13,13 +15,17 @@
           ©&nbsp;{{ now.Format "2006" }}
         {{ end }}
         {{ with site.Params.author }}
-          <em>{{ . }}</em>
+          {{ if site.Params.authorLink }}
+            <a href="{{ site.Params.authorLink }}"><em>{{ . }}</em></a>
+          {{ else }}
+            <em>{{ . }}</em>
+          {{ end }}
         {{ end }}
       {{ end }}
     </span>
     <br>
     <span>
-      <i>Nagoya</i>&nbsp;Theme&nbsp;by&nbsp;<i>curegit</i>.
+      <a href="https://github.com/curegit/nagoya"><i>Nagoya</i>&nbsp;Theme</a>&nbsp;by&nbsp;<a href="https://curegit.jp/"><i>curegit</i></a>.
       <wbr>
       Built&nbsp;with&nbsp;Hugo.
     </span>
