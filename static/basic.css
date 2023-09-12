@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
 body {
   font-size: 16px;
   line-height: 1.7;
