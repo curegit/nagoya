@@ -79,6 +79,10 @@ main h1 {
   text-indent: 0;
 }
 
+.single p:first-child:has(img) {
+  margin-top: 0;
+}
+
 .single a {
   text-decoration: underline;
 }
