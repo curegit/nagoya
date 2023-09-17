@@ -3,7 +3,7 @@ homepage = "https://github.com/curegit/nagoya"
 demosite = "https://curegit.github.io/nagoya-example/"
 license = "MIT"
 licenselink = "https://github.com/curegit/nagoya/blob/master/LICENSE"
-min_version = "0.111.2"
+min_version = "0.118.2"
 
 [author]
   name = "curegit"
