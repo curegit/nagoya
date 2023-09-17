@@ -11,6 +11,7 @@ main h1 {
 }
 
 .single h1.title {
+  padding-left: 4px;
   font-size: 27px;
 }
 
