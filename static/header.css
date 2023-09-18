@@ -14,7 +14,7 @@ header#top #header-grid {
   display: grid;
   grid-auto-rows: 0.8fr;
   gap: 10px;
-  padding: 20px 12px 0;
+  padding: 45px 12px 0;
 }
 
 header#top #site-title {
