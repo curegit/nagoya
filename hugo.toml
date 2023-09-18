@@ -6,3 +6,5 @@
   relatedNum = 3
   randomNum = 2
   shuffleSeeAlso = true
+  showHeaderText = true
+  headerText = ""

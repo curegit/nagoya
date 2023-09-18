@@ -9,10 +9,14 @@
         <a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
       </div>
     {{ end }}
-    {{ if site.Home.Description }}
-      <p id="description">{{ site.Home.Description }}</p>
-    {{ else if site.Params.description }}
-      <p id="description">{{ site.Params.description }}</p>
+    {{ if site.Params.showHeaderText }}
+      {{ if site.Params.headerText }}
+        <p id="description">{{ site.Params.headerText }}</p>
+      {{ else if site.Home.Description }}
+        <p id="description">{{ site.Home.Description }}</p>
+      {{ else if site.Params.description }}
+        <p id="description">{{ site.Params.description }}</p>
+      {{ end }}
     {{ end }}
   </div>
 </header>
