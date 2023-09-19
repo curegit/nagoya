@@ -27,6 +27,8 @@ div#middle {
 .column {
   display: grid;
   grid-auto-flow: row;
+  align-self: stretch;
+  align-content: start;
 }
 
 .pane {
