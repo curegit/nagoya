@@ -1,0 +1,7 @@
+.single .red {
+  color: #df0000;
+}
+
+.single :not(figure).bordered, .single figure.bordered > :not(figcaption) {
+  border: 1px solid #c6c6c6;
+}
