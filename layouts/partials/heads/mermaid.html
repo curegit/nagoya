@@ -1,5 +1,10 @@
 {{ if .Content }}
   {{ if .Page.Store.Get "hasMermaid" }}
-    <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    {{ $mermaid := "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" }}
+    {{ if site.Params.preBundle }}
+      <script defer src="{{ (resources.GetRemote $mermaid).RelPermalink }}"></script>
+    {{ else }}
+      <script defer src="{{ $mermaid }}"></script>
+    {{ end }}
   {{ end }}
 {{ end }}

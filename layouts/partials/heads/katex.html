@@ -1,6 +1,15 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+{{ $katex := "https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" }}
+{{ $autoRender := "https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" }}
+{{ if site.Params.preBundle }}
+  {{ $scripts := slice }}
+  {{ $scripts = $scripts | append (resources.GetRemote $katex) }}
+  {{ $scripts = $scripts | append (resources.GetRemote $autoRender) }}
+  {{ $script := $scripts | resources.Concat "katex.js" | minify | fingerprint }}
+  <script defer src="{{ $script.RelPermalink }}" onload="renderMathInElement(document.body);"></script>
+{{ else }}
+  <script defer src="{{ $katex }}"></script>
+  <script defer src="{{ $autoRender }}" onload="renderMathInElement(document.body);"></script>
+{{ end }}
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     renderMathInElement(document.body, {

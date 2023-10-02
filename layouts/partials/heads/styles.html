@@ -1,0 +1,20 @@
+{{ $csss := slice }}
+{{ $csss = $csss | append (resources.Get "font.css") }}
+{{ $csss = $csss | append (resources.Get "basic.css") }}
+{{ $csss = $csss | append (resources.Get "main.css") }}
+{{ $csss = $csss | append (resources.Get "color.css") }}
+{{ $csss = $csss | append (resources.Get "header.css") }}
+{{ $csss = $csss | append (resources.Get "header-image.css" | resources.ExecuteAsTemplate "image.css" .) }}
+{{ $csss = $csss | append (resources.Get "article.css") }}
+{{ $csss = $csss | append (resources.Get "article-auxiliary.css") }}
+{{ $csss = $csss | append (resources.Get "custom.css") }}
+{{ $katex := "https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" }}
+{{ if site.Params.preBundle }}
+  {{ $csss = $csss | append (resources.GetRemote $katex) }}
+  {{ $css := $csss | resources.Concat "bundle.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ else }}
+  {{ $css := $csss | resources.Concat "bundle.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  <link rel="stylesheet" href="{{ $katex }}">
+{{ end }}
