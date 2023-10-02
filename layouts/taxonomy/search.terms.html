@@ -1,0 +1,16 @@
+{{ define "main" }}
+  <div class="single">
+    <h1 class="list-title">{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="body">
+        {{ . }}
+      </div>
+    {{ end }}
+  </div>
+
+  {{ with partial "functions/filter-articles" site.RegularPages }}
+    {{ $data := resources.Get "pages.json" | resources.ExecuteAsTemplate "data.json" . | minify | fingerprint }}
+    {{ $data.RelPermalink }}
+  {{ end }}
+
+{{ end }}
