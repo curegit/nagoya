@@ -1,0 +1,3 @@
+header#top {
+  background-image: url("{{ "header.jpg" | relURL }}");
+}
