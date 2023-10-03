@@ -1,11 +1,26 @@
 # Nagoya
 
 **Nagoya (名古屋)** は、静的サイトジェネレーター **Hugo** 用の日本語テーマです。
-日本語のユーザーに最適化されて設計されており、i18n（国際化対応）は提供していません。
+日本語のユーザーに最適になるよう設計されています。
 
 デモサイト: <https://curegit.github.io/nagoya-example/>
 
 デモサイトのソース: <https://github.com/curegit/nagoya-example>
+
+## 主要機能
+
+- レスポンシブデザイン
+- サムネイル画像
+- ディレクトリツリーによる整理
+- 数式レンダリング (KaTeX)
+- ダイアグラム表示 (Mermaid)
+- パンくずリスト
+- Open Graph Protocol
+- 構造化データマークアップ (microdata)
+
+## 提供しない機能
+
+- i18n（国際化対応）
 
 ## インストール
 
