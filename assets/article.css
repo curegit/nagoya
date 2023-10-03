@@ -6,7 +6,7 @@ main h1 {
 .single {
   display: flex;
   flex-flow: column;
-  row-gap: 10px;
+  row-gap: 16px;
   container-type: inline-size;
 }
 
