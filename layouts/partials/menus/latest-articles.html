@@ -2,7 +2,7 @@
 {{ if $latest }}
   <nav class="pane">
     <header class="component-title">最新記事</header>
-    <ul>
+    <ul class="dense">
       {{ range $latest }}
         <li>
           <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>

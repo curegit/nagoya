@@ -93,7 +93,7 @@ ol.breadcrumb > li.page {
 .article-list {
   display: flex;
   flex-flow: column;
-  row-gap: 32px;
+  row-gap: 34px;
 }
 
 .article-list > * {
@@ -327,6 +327,11 @@ ul.tags, ul.terms {
   padding-left: 24px;
 }
 
+.dense li {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
 footer#bottom {
   padding: 32px 20px 44px;
   border-top-width: 16px;
@@ -392,6 +397,6 @@ footer#bottom span {
 
   .prev-next > a {
     padding: 16px;
-    border-radius: 12px 16px;
+    border-radius: 16px / 12px;
   }
 }
