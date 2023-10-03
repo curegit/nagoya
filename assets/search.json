@@ -1,0 +1,7 @@
+{{ $pages := slice }}
+{{ range . }}
+  {{ $body := (trim ((replace (.Plain | htmlUnescape) "\n" " ") | replaceRE " +" " ") " ") }}
+  {{ $text := printf "%s\t%s" .Title $body }}
+  {{ $pages = $pages | append (dict "link" .RelPermalink "title" .Title "text" $text) }}
+{{ end }}
+{{ jsonify $pages }}
