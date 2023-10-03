@@ -7,7 +7,7 @@
 {{ with $seeAlso }}
   <nav class="pane">
     <header class="component-title">次に読む</header>
-    <ul>
+    <ul class="dense">
       {{ range . }}
         <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
       {{ end }}

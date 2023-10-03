@@ -6,7 +6,7 @@ main h1 {
 .single {
   display: flex;
   flex-flow: column;
-  row-gap: 10px;
+  row-gap: 16px;
   container-type: inline-size;
 }
 
@@ -205,7 +205,7 @@ main h1 {
 }
 
 .single footer {
-  margin: 20px 0 16px;
+  margin: 16px 0 10px;
 }
 
 .single .taxonomy-table {

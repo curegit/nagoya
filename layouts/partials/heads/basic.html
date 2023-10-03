@@ -29,13 +29,6 @@
   <link rel="author" href="{{ site.Params.authorLink }}">
 {{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
-<link rel="stylesheet" href="{{ "font.css" | relURL }}">
-<link rel="stylesheet" href="{{ "basic.css" | relURL }}">
-<link rel="stylesheet" href="{{ "main.css" | relURL }}">
-<link rel="stylesheet" href="{{ "color.css" | relURL }}">
-<link rel="stylesheet" href="{{ "header.css" | relURL }}">
-<link rel="stylesheet" href="{{ "article.css" | relURL }}">
-<link rel="stylesheet" href="{{ "custom.css" | relURL }}">
 {{ with .OutputFormats.Get "rss" }}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $title | safeHTML }}
 {{ end }}
