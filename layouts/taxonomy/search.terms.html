@@ -7,10 +7,80 @@
       </div>
     {{ end }}
   </div>
+  <div class="search">
+    {{ with partial "functions/filter-articles" site.RegularPages }}
+      {{ $data := resources.Get "search.json" | resources.ExecuteAsTemplate "data.json" . | minify | fingerprint }}
+      {{ $searcher := resources.Get "searcher.js" | minify | fingerprint }}
 
-  {{ with partial "functions/filter-articles" site.RegularPages }}
-    {{ $data := resources.Get "pages.json" | resources.ExecuteAsTemplate "data.json" . | minify | fingerprint }}
-    {{ $data.RelPermalink }}
-  {{ end }}
+      <form class="search-form" method="get">
+        <input type="text" name="q" id="query">
+        <input type="submit" value="検索">
+      </form>
 
+
+      <script>
+        (function () {
+          const params = new URLSearchParams(window.location.search);
+          const query = params.get("q");
+          if (query) {
+            document.getElementById("query").value = query;
+          }
+          const data = "{{ $data.RelPermalink }}";
+          const searcher = "{{ $searcher.RelPermalink }}";
+
+          function split(query) {
+            const q = query.split(" ");
+            return q;
+          }
+
+          function val(arrays) {
+
+          }
+
+
+
+
+
+          async function search(query) {
+            const d = await fetch(data);
+            const buf = await d.arrayBuffer();
+
+            const bufcopy = buf.slice(0);
+            const w = new Worker(searcher);
+            const q = split(query);
+
+            const promise = new Promise(resolve => {
+              w.onmessage = function (e) {
+                resolve(e.data);
+              }
+            });
+
+
+            w.postMessage({
+              phrases: q,
+              articleBuffer: bufcopy,
+            }, [bufcopy]);
+
+            return promise;
+          }
+
+          if (window.Worker) {
+
+            const promise = search(query);
+            document.addEventListener("DOMContentLoaded", async function() {
+              const res = await promise;
+              document.getElementById("res").innerText = "" + res;
+            });
+          }
+        })();
+      </script>
+
+      <noscript>
+        <p>JavaScript を有効にしてください。</p>
+      </noscript>
+      <div id="res"></div>
+    {{ else }}
+      <p>検索対象のコンテンツがありません。</p>
+    {{ end }}
+  </div>
 {{ end }}
