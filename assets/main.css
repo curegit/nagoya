@@ -93,7 +93,7 @@ ol.breadcrumb > li.page {
 .article-list {
   display: flex;
   flex-flow: column;
-  row-gap: 34px;
+  row-gap: 38px;
 }
 
 .article-list > * {
