@@ -368,7 +368,7 @@ footer#bottom span {
 @container (min-width: 1140px) {
   div#middle {
     max-width: 1240px;
-    margin: 30px auto;
+    margin: 30px auto 36px;
     padding: 0 40px;
     grid-template-columns: minmax(300px, auto) 320px;
     column-gap: 30px;
