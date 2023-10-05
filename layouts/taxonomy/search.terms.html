@@ -25,6 +25,25 @@
           const searchForm = document.getElementById("search-form");
           const query_input = document.getElementById("query");
 
+          function htmlSpecialChars(text) {
+            const table = {
+              "&": "&amp;",
+              "'": "&apos;",
+              "\"": "&quot;",
+              "<": "&lt;",
+              ">": "&gt;",
+            };
+            return text.replace(/[&'"<>]/g, (match) => table[match]);
+          }
+
+          function htmlTemplate(strings, ...values) {
+            let html = strings[0];
+            values.forEach((val, i) => {
+              html += htmlSpecialChars("" + val) + strings[i + 1];
+            });
+            return html;
+          }
+
           function up_query_input() {
             const params = new URLSearchParams(window.location.search);
             const query = params.getAll("q").join(" ");
