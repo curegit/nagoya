@@ -1,6 +1,6 @@
 # Nagoya
 
-**Nagoya (名古屋)** は、静的サイトジェネレーター **Hugo** 用の日本語テーマです。
+**Nagoya (名古屋)** は、静的サイトジェネレーター **Hugo** 用の日本語ブログテーマです。
 日本語のユーザーに最適になるよう設計されています。
 
 デモサイト: <https://curegit.github.io/nagoya-example/>
