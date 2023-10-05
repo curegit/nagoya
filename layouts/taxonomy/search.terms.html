@@ -12,66 +12,137 @@
       {{ $data := resources.Get "search.json" | resources.ExecuteAsTemplate "data.json" . | minify | fingerprint }}
       {{ $searcher := resources.Get "searcher.js" | minify | fingerprint }}
 
-      <form class="search-form" method="get">
+      <form class="search-form" method="get" id="search-form">
         <input type="text" name="q" id="query">
         <input type="submit" value="検索">
       </form>
 
-
       <script>
         (function () {
-          const params = new URLSearchParams(window.location.search);
-          const query = params.get("q");
-          if (query) {
-            document.getElementById("query").value = query;
-          }
           const data = "{{ $data.RelPermalink }}";
           const searcher = "{{ $searcher.RelPermalink }}";
+
+          const searchForm = document.getElementById("search-form");
+          const query_input = document.getElementById("query");
+
+          function up_query_input() {
+            const params = new URLSearchParams(window.location.search);
+            const query = params.getAll("q").join(" ");
+
+            if (query) {
+              query_input.value = query;
+            }
+            return query;
+          }
 
           function split(query) {
             const q = query.split(" ");
             return q;
           }
 
-          function val(arrays) {
+          function val(arrays) {}
 
-          }
+          const datapromise = fetch(data).then((x) => x.arrayBuffer());
 
+          const domloadpromise = new Promise((resolve) => {
+            document.addEventListener("DOMContentLoaded", () => {
+              resolve();
+            });
+          });
 
+          const resultdom = domloadpromise.then((x) =>
+            document.getElementById("res"),
+          );
 
+          let worker = null;
 
+          let cancel = null;
+          let canceler = null;
 
           async function search(query) {
-            const d = await fetch(data);
-            const buf = await d.arrayBuffer();
+            if (worker !== null) {
+              worker.terminate();
+            }
+            if (cancel !== null) {
+              cancel();
+            }
+            if (canceler !== null) {
+              canceler();
+            }
+            worker = new Worker(searcher);
+
+            const cancelp = new Promise((resolve) => {
+              cancel = () => {
+                resolve(false);
+              };
+            });
+
+            const buf = await Promise.race([datapromise, cancelp]);
+
+            if (buf === false) {
+              console.log("cancel");
+              return false;
+            }
 
             const bufcopy = buf.slice(0);
-            const w = new Worker(searcher);
+
             const q = split(query);
 
-            const promise = new Promise(resolve => {
-              w.onmessage = function (e) {
+            const s_promise = new Promise((resolve) => {
+              worker.onmessage = function (e) {
                 resolve(e.data);
+              };
+
+              canceler = function () {
+                resolve(false);
+              };
+            });
+
+            worker.postMessage(
+              {
+                phrases: q,
+                articleBuffer: bufcopy,
+              },
+              [bufcopy],
+            );
+
+            return await s_promise;
+          }
+
+          async function main() {
+            const query = up_query_input();
+            if (window.Worker) {
+              if (query) {
+                const res = await search(query);
+                if (res !== false) {
+                  const ele = await resultdom;
+                  ele.innerText = "" + res;
+                }
               }
-            });
-
-
-            w.postMessage({
-              phrases: q,
-              articleBuffer: bufcopy,
-            }, [bufcopy]);
-
-            return promise;
+            } else {
+              (await resultdom).innerText = "";
+            }
           }
 
-          if (window.Worker) {
+          searchForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            // rewrite URL
 
-            const promise = search(query);
-            document.addEventListener("DOMContentLoaded", async function() {
-              const res = await promise;
-              document.getElementById("res").innerText = "" + res;
-            });
-          }
+            const q = query_input.value;
+
+            const params = new URLSearchParams(window.location.search);
+            params.set("q", q);
+
+            history.pushState("", "", "?" + params.toString());
+
+            main();
+          });
+
+          window.addEventListener("popstate", (e) => {
+            main();
+          });
+
+          main();
         })();
       </script>
 
