@@ -35,9 +35,39 @@
             return query;
           }
 
-          function split(query) {
-            const q = query.split(" ");
-            return q;
+          function parse(query) {
+            query = query.toLowerCase();
+            const phrases = [];
+            let buffer = "";
+            let quoted = false;
+            for (let i = 0; i < query.length; i++) {
+              const chara = query[i];
+              if (chara === " " || chara === "　") {
+                if (quoted) {
+                  buffer += chara;
+                } else if (buffer) {
+                  phrases.push(buffer);
+                  buffer = "";
+                }
+              } else if (chara === "\"") {
+                if (query[i + 1] === "\"") {
+                  buffer += "\"";
+                  i++;
+                } else {
+                  quoted = !quoted;
+                  if (buffer) {
+                    phrases.push(buffer);
+                    buffer = "";
+                  }
+                }
+              } else {
+                buffer += chara;
+              }
+            }
+            if (buffer) {
+              phrases.push(buffer);
+            }
+            return phrases;
           }
 
           function val(arrays) {}
