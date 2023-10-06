@@ -11,19 +11,15 @@
     {{ with partial "functions/filter-articles" site.RegularPages }}
       {{ $data := resources.Get "search.json" | resources.ExecuteAsTemplate "data.json" . | minify | fingerprint }}
       {{ $searcher := resources.Get "searcher.js" | minify | fingerprint }}
-
+      <div>AND</div>
       <form class="search-form" method="get" id="search-form">
         <input type="text" name="q" id="query">
         <input type="submit" value="検索">
       </form>
-
       <script>
         (function () {
           const data = "{{ $data.RelPermalink }}";
           const searcher = "{{ $searcher.RelPermalink }}";
-
-          const searchForm = document.getElementById("search-form");
-          const query_input = document.getElementById("query");
 
           function htmlSpecialChars(text) {
             const table = {
@@ -44,12 +40,38 @@
             return html;
           }
 
-          function up_query_input() {
-            const params = new URLSearchParams(window.location.search);
-            const query = params.getAll("q").join(" ");
+          const searchForm = document.getElementById("search-form");
+          const queryInput = document.getElementById("query");
 
-            if (query) {
-              query_input.value = query;
+          const contentLoadedPromise = new Promise((resolve) => {
+            if (document.readyState === "loading") {
+              document.addEventListener("DOMContentLoaded", () => resolve());
+            } else {
+              resolve();
+            }
+          });
+          const resultElementPromise = contentLoadedPromise.then(() =>
+            document.getElementById("search-result")
+          );
+
+          const dataPromise = fetch(data).then((response) => {
+            if (response.ok) {
+              return response.arrayBuffer();
+            } else {
+              throw new Error(response.statusText);
+            }
+          }).catch((error) => {
+            searchForm.outerHTML = htmlTemplate`
+              <p>Failed</p>
+            `;
+            throw error;
+          });
+
+          function getQuery(reflectOnForm = true) {
+            const params = new URL(window.location).searchParams;
+            const query = params.getAll("q").join(" ");
+            if (reflectOnForm) {
+              queryInput.value = query;
             }
             return query;
           }
@@ -89,101 +111,85 @@
             return phrases;
           }
 
-          function val(arrays) {}
-
-          const datapromise = fetch(data).then((x) => x.arrayBuffer());
-
-          const domloadpromise = new Promise((resolve) => {
-            document.addEventListener("DOMContentLoaded", () => {
-              resolve();
-            });
-          });
-
-          const resultdom = domloadpromise.then((x) =>
-            document.getElementById("res"),
-          );
-
           let worker = null;
+          let cancelFetch = null;
+          let cancelSearch = null;
 
-          let cancel = null;
-          let canceler = null;
-
-          async function search(query) {
+          async function search(phrases) {
             if (worker !== null) {
               worker.terminate();
             }
-            if (cancel !== null) {
-              cancel();
+            if (cancelFetch !== null) {
+              cancelFetch();
             }
-            if (canceler !== null) {
-              canceler();
+            if (cancelSearch !== null) {
+              cancelSearch();
             }
             worker = new Worker(searcher);
-
-            const cancelp = new Promise((resolve) => {
-              cancel = () => {
-                resolve(false);
-              };
-            });
-
-            const buf = await Promise.race([datapromise, cancelp]);
-
-            if (buf === false) {
-              console.log("cancel");
+            const maybeBuffer = await Promise.race([
+              dataPromise.catch(() => false),
+              new Promise((resolve) => {
+                cancelFetch = () => resolve(false);
+              })
+            ]);
+            if (maybeBuffer === false) {
               return false;
             }
-
-            const bufcopy = buf.slice(0);
-
-            const q = split(query);
-
-            const s_promise = new Promise((resolve) => {
-              worker.onmessage = function (e) {
+            const arrayBufferCopy = maybeBuffer.slice(0);
+            const searchPromise = new Promise((resolve) => {
+              worker.onmessage = (e) => {
                 resolve(e.data);
               };
-
-              canceler = function () {
+              cancelSearch = () => {
                 resolve(false);
               };
             });
-
-            worker.postMessage(
-              {
-                phrases: q,
-                articleBuffer: bufcopy,
-              },
-              [bufcopy],
-            );
-
-            return await s_promise;
+            const message = {
+              phrases: phrases,
+              articleBuffer: arrayBufferCopy,
+            };
+            worker.postMessage(message, [arrayBufferCopy]);
+            return await searchPromise;
           }
 
           async function main() {
-            const query = up_query_input();
             if (window.Worker) {
-              if (query) {
-                const res = await search(query);
-                if (res !== false) {
-                  const ele = await resultdom;
-                  ele.innerText = "" + res;
+              const query = getQuery();
+              const phrases = parse(query);
+              if (phrases.length > 0) {
+                const result = await search(phrases);
+                if (result !== false) {
+                  const element = await resultElementPromise;
+                  let html = `<h2>${
+                    phrases.map(x => htmlTemplate`<code>${x}</code>`).join("")
+                  }</h2>`;
+                  if (result.length > 0) {
+                    html += `<ul>${
+                      result.map(article => htmlTemplate`
+                        <li><a href="${article.link}">${article.title}</a></li>
+                      `).join("")
+                    }</ul>`;
+                  } else {
+                    html += "<p>記事なし</p>";
+                  }
+                  element.innerHTML = html;
                 }
+              } else {
+                const element = await resultElementPromise;
+                element.innerHTML = "";
               }
             } else {
-              (await resultdom).innerText = "";
+              const element = await resultElementPromise;
+              element.innerHTML = "<p>Web Worker を有効にしてください。</p>";
             }
           }
 
           searchForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            // rewrite URL
-
-            const q = query_input.value;
-
-            const params = new URLSearchParams(window.location.search);
-            params.set("q", q);
-
-            history.pushState("", "", "?" + params.toString());
-
+            const query = queryInput.value;
+            const params = new URL(window.location).searchParams;
+            params.set("q", query);
+            history.pushState({}, "", "?" + params.toString());
             main();
           });
 
@@ -194,11 +200,10 @@
           main();
         })();
       </script>
-
       <noscript>
         <p>JavaScript を有効にしてください。</p>
       </noscript>
-      <div id="res"></div>
+      <div id="search-result"></div>
     {{ else }}
       <p>検索対象のコンテンツがありません。</p>
     {{ end }}
