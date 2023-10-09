@@ -11,7 +11,11 @@
     {{ with partial "functions/filter-articles" site.RegularPages }}
       {{ $data := resources.Get "search.json" | resources.ExecuteAsTemplate "data.json" . | minify | fingerprint }}
       {{ $searcher := resources.Get "searcher.js" | minify | fingerprint }}
-      <div>AND</div>
+      <div>
+        スペースで区切ると AND 検索になります。<br>
+        ダブルクオートで囲んだフレーズは完全一致照合になります。<br>
+        大文字・小文字は区別されません。
+      </div>
       <form class="search-form" method="get" id="search-form">
         <input type="text" name="q" id="query">
         <input type="submit" value="検索">
@@ -62,7 +66,7 @@
             }
           }).catch((error) => {
             searchForm.outerHTML = htmlTemplate`
-              <p>Failed</p>
+              <p class="error">${"検索用データファイルをダウンロードできません。"}</p>
             `;
             throw error;
           });
@@ -170,7 +174,9 @@
                       `).join("")
                     }</ul>`;
                   } else {
-                    html += "<p>記事なし</p>";
+                    html += htmlTemplate`
+                      <p class="info">${"を含む記事は見つかりませんでした。"}</p>
+                    `;
                   }
                   element.innerHTML = html;
                 }
@@ -180,7 +186,9 @@
               }
             } else {
               const element = await resultElementPromise;
-              element.innerHTML = "<p>Web Worker を有効にしてください。</p>";
+              element.innerHTML = htmlTemplate`
+                <p class="warning">${"Web Worker を有効にしてください。"}</p>
+              `;
             }
           }
 
@@ -201,11 +209,11 @@
         })();
       </script>
       <noscript>
-        <p>JavaScript を有効にしてください。</p>
+        <p class="warning">JavaScript を有効にしてください。</p>
       </noscript>
       <div id="search-result"></div>
     {{ else }}
-      <p>検索対象のコンテンツがありません。</p>
+      <p class="warning">検索対象のコンテンツがありません。</p>
     {{ end }}
   </div>
 {{ end }}

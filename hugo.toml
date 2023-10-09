@@ -2,6 +2,7 @@
   showAuthor = true
   showLastmod = true
   treeRoot = ""
+  sidebarSearch = true
   newNum = 10
   relatedNum = 3
   randomNum = 2
