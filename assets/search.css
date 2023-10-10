@@ -3,11 +3,12 @@
 }
 
 .search h2 {
-  padding-bottom: 24px;
+  padding-bottom: 18px;
   font-size: 20px;
 }
 
 .search ul {
+  margin: 20px 12px;
   padding-left: 24px;
   list-style: square;
 }

@@ -14,7 +14,7 @@
       <div>
         スペースで区切ると AND 検索になります。<br>
         ダブルクオートで囲んだフレーズは完全一致照合になります。<br>
-        大文字・小文字は区別されません。
+        大文字・小文字は常に区別されません。
       </div>
       <form class="search-form" method="get" id="search-form">
         <input type="text" name="q" id="query">
@@ -168,6 +168,9 @@
                     phrases.map(x => htmlTemplate`<code>${x}</code>`).join("")
                   }</h2>`;
                   if (result.length > 0) {
+                    html += htmlTemplate`
+                      <p class="info">${"を含む記事が"} ${result.length} ${"件見つかりました。"}</p>
+                    `;
                     html += `<ul>${
                       result.map(article => htmlTemplate`
                         <li><a href="${article.link}">${article.title}</a></li>
