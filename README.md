@@ -73,6 +73,7 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
 | `showAuthor`     | Boolean         | 著者情報を記事に表示するか否かを設定します                     |
 | `showLastmod`    | Boolean         | 各記事の最終更新日を表示するか否かを設定します                 |
 | `treeRoot`       | String          | サイドバーのセクションナビゲーションの起点を指定します         |
+| `sidebarSearch`       | Boolean          | サイドバーに検索ボックスを表示するか否かを設定します         |
 | `newNum`         | Integer         | サイドバーに表示する最新記事の数を設定します                   |
 | `relatedNum`     | Integer         | 各記事下部に表示する関連記事の数を設定します                   |
 | `randomNum`      | Integer         | 各記事下部に表示するランダム記事の数を設定します               |
