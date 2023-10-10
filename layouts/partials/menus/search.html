@@ -1,0 +1,13 @@
+{{ $page := .Page }}
+{{ with site.GetPage "search" }}
+  {{ if site.Params.sidebarSearch }}
+    {{ if ne $page . }}
+      <nav class="pane">
+        <form class="sidebar-search-form" method="get" action="{{ .RelPermalink }}">
+          <input type="text" name="q" id="query">
+          <input type="submit" value="検索">
+        </form>
+      </nav>
+    {{ end }}
+  {{ end }}
+{{ end }}

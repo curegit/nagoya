@@ -1,0 +1,11 @@
+{{ $pages := slice }}
+{{ range . }}
+  {{ $description := partial "functions/description" . }}
+  {{ if not $description }}
+    {{ $description = "" }}
+  {{ end }}
+  {{ $body := (trim ((replace (.Plain | htmlUnescape) "\n" " ") | replaceRE " +" " ") " ") }}
+  {{ $text := printf "%s\t%s\t%s" .Title $description $body | lower }}
+  {{ $pages = $pages | append (dict "link" .RelPermalink "title" .Title "text" $text) }}
+{{ end }}
+{{ jsonify $pages }}
