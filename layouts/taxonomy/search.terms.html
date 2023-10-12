@@ -199,8 +199,13 @@
             e.preventDefault();
             const query = queryInput.value;
             const params = new URL(window.location).searchParams;
-            params.set("q", query);
-            history.pushState({}, "", "?" + params.toString());
+            if (query) {
+              params.set("q", query);
+            } else {
+              params.delete("q");
+            }
+            const paramStr = params.toString();
+            history.pushState({}, "", paramStr ? "?" + paramStr : ".");
             main();
           });
 
