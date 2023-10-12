@@ -2,7 +2,7 @@ header#top {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 200px;
+  min-height: 180px;
   border-bottom-width: 8px;
   border-bottom-style: solid;
   background-position: 80% 70%;
@@ -36,6 +36,10 @@ header#top #description {
 }
 
 @container (min-width: 540px) {
+  header#top {
+    min-height: 200px;
+  }
+
   header#top #site-title {
     font-size: 42px;
   }
