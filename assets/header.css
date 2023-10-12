@@ -14,7 +14,7 @@ header#top #header-grid {
   display: grid;
   grid-auto-rows: 0.8fr;
   gap: 10px;
-  padding: 48px 12px 0;
+  padding: 36px 12px 0;
 }
 
 header#top #site-title {
@@ -38,6 +38,10 @@ header#top #description {
 @container (min-width: 540px) {
   header#top {
     min-height: 200px;
+  }
+
+  header#top #header-grid {
+    padding-top: 48px;
   }
 
   header#top #site-title {
