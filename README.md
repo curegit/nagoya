@@ -80,6 +80,7 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
 | `shuffleSeeAlso` | Boolean         | 関連記事とランダム記事の順序をシャッフルするか否かを設定します |
 | `showHeaderText` | Boolean         | ヘッダーにサイトの概要テキストを表示するか否かを設定します     |
 | `headerText`     | String          | ヘッダーのサイト概要テキストを手動設定します                   |
+| `maxConcurrency` | Integer         | 検索機能で使う Web Worker の最大数を指定します                 |
 
 ## ページパラメータ
 

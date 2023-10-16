@@ -24,8 +24,7 @@
         (function () {
           const data = "{{ $data.RelPermalink }}";
           const searcher = "{{ $searcher.RelPermalink }}";
-
-          const maxConcurrency = 16;
+          const maxConcurrency = {{ site.Params.maxConcurrency }};
 
           function htmlSpecialChars(text) {
             const table = {

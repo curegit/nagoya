@@ -9,3 +9,4 @@
   shuffleSeeAlso = true
   showHeaderText = true
   headerText = ""
+  maxConcurrency = 16
