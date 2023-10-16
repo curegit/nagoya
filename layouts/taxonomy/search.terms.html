@@ -25,6 +25,8 @@
           const data = "{{ $data.RelPermalink }}";
           const searcher = "{{ $searcher.RelPermalink }}";
 
+          const maxConcurrency = 16;
+
           function htmlSpecialChars(text) {
             const table = {
               "&": "&amp;",
@@ -115,21 +117,36 @@
             return phrases;
           }
 
-          let worker = null;
+          function range(n) {
+            return [...Array(n).keys()];
+          }
+
+          function divideRangesFairly(len, n) {
+            const size = Math.floor(len / n);
+            const extra = len % n;
+            let ranges = [];
+            let start = 0;
+            for (let i = 0; i < n; i++) {
+              const end = start + size + (i < extra ? 1 : 0);
+              ranges.push({start, end});
+              start = end;
+            }
+            return ranges;
+          }
+
           let cancelFetch = null;
-          let cancelSearch = null;
+          let workers = [];
+          let cancelSearchFs = [];
 
           async function search(phrases) {
-            if (worker !== null) {
-              worker.terminate();
-            }
+            workers.forEach((w) => w.terminate());
             if (cancelFetch !== null) {
               cancelFetch();
             }
-            if (cancelSearch !== null) {
-              cancelSearch();
-            }
-            worker = new Worker(searcher);
+            cancelSearchFs.forEach((f) => f());
+            cancelSearchFs = [];
+            const concurrency = Math.min(navigator.hardwareConcurrency ?? 1, maxConcurrency);
+            workers = range(concurrency).map(() => new Worker(searcher));
             const maybeBuffer = await Promise.race([
               dataPromise.catch(() => false),
               new Promise((resolve) => {
@@ -139,20 +156,37 @@
             if (maybeBuffer === false) {
               return false;
             }
-            const arrayBufferCopy = maybeBuffer.slice(0);
-            const searchPromise = new Promise((resolve) => {
-              worker.onmessage = (e) => {
-                resolve(e.data);
-              };
-              cancelSearch = () => {
-                resolve(false);
-              };
+            const searchPromises = [];
+            for (let i = 0; i < workers.length; i++) {
+              const search = new Promise((resolve) => {
+                workers[i].onmessage = (e) => {
+                  resolve(e.data);
+                };
+                cancelSearchFs.push(() => {
+                  resolve(false);
+                });
+              });
+              searchPromises.push(search);
+            }
+            const searchPromise = Promise.all(searchPromises).then((xs) => {
+              if (xs.includes(false)) {
+                return false;
+              } else {
+                return xs.flat();
+              }
             });
-            const message = {
-              phrases: phrases,
-              articleBuffer: arrayBufferCopy,
-            };
-            worker.postMessage(message, [arrayBufferCopy]);
+            const articles = JSON.parse(new TextDecoder().decode(maybeBuffer));
+            const ranges = divideRangesFairly(articles.length, workers.length);
+            for (let i = 0; i < workers.length; i++) {
+              const arrayBufferCopy = maybeBuffer.slice(0);
+              const message = {
+                phrases: phrases,
+                start: ranges[i].start,
+                end: ranges[i].end,
+                articleBuffer: arrayBufferCopy,
+              };
+              workers[i].postMessage(message, [arrayBufferCopy]);
+            }
             return await searchPromise;
           }
 
