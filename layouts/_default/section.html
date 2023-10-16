@@ -1,3 +1,9 @@
+{{ define "robots" }}
+  {{ if not .Content }}
+    <meta name="robots" content="noindex">
+  {{ end }}
+{{ end }}
+
 {{ define "children" }}
   {{ with .Sections }}
     <nav class="pane">
