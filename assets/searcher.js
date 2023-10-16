@@ -13,7 +13,7 @@ onmessage = function (e) {
   const arrayBuffer = e.data.articleBuffer;
   const articles = JSON.parse(new TextDecoder().decode(arrayBuffer));
   const resultArticles = [];
-  for (let i = 0; i < articles.length; i++) {
+  for (let i = e.data.start; i < e.data.end; i++) {
     const article = articles[i];
     if (contains(article, phrases)) {
       resultArticles.push({
