@@ -123,7 +123,7 @@
           function divideRangesFairly(len, n) {
             const size = Math.floor(len / n);
             const extra = len % n;
-            let ranges = [];
+            const ranges = [];
             let start = 0;
             for (let i = 0; i < n; i++) {
               const end = start + size + (i < extra ? 1 : 0);
