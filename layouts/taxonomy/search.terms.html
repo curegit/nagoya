@@ -22,9 +22,12 @@
       </form>
       <script>
         (function () {
-          const data = "{{ $data.RelPermalink }}";
           const searcher = "{{ $searcher.RelPermalink }}";
+          const data = "{{ $data.RelPermalink }}";
+          const articleCount = {{ len . }};
           const maxConcurrency = {{ site.Params.maxConcurrency }};
+
+          const prefConcurrency = Math.max(1, Math.min(maxConcurrency, Math.ceil(articleCount / 8)));
 
           function htmlSpecialChars(text) {
             const table = {
@@ -144,7 +147,7 @@
             }
             cancelSearchFs.forEach((f) => f());
             cancelSearchFs = [];
-            const concurrency = Math.min(navigator.hardwareConcurrency ?? 1, maxConcurrency);
+            const concurrency = Math.min(navigator.hardwareConcurrency ?? 1, prefConcurrency);
             workers = range(concurrency).map(() => new Worker(searcher));
             const maybeBuffer = await Promise.race([
               dataPromise.catch(() => false),
@@ -174,8 +177,7 @@
                 return xs.flat();
               }
             });
-            const articles = JSON.parse(new TextDecoder().decode(maybeBuffer));
-            const ranges = divideRangesFairly(articles.length, workers.length);
+            const ranges = divideRangesFairly(articleCount, workers.length);
             for (let i = 0; i < workers.length; i++) {
               const arrayBufferCopy = maybeBuffer.slice(0);
               const message = {
@@ -189,11 +191,15 @@
             return await searchPromise;
           }
 
+          let prevQuery = "";
+
           async function main() {
             if (window.Worker) {
               const query = getQuery();
               const phrases = parse(query);
-              if (phrases.length > 0) {
+              if (prevQuery === query) {
+                return;
+              } else if (phrases.length > 0) {
                 const result = await search(phrases);
                 if (result !== false) {
                   const element = await resultElementPromise;
@@ -215,10 +221,12 @@
                     `;
                   }
                   element.innerHTML = html;
+                  prevQuery = query;
                 }
               } else {
                 const element = await resultElementPromise;
                 element.innerHTML = "";
+                prevQuery = query;
               }
             } else {
               const element = await resultElementPromise;
