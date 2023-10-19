@@ -29,7 +29,7 @@
 Git submodule による導入を推奨します。
 
 ```sh
-git submodule add https://github.com/curegit/nagoya.git themes/nagoya
+git submodule add --name nagoya https://github.com/curegit/nagoya.git themes/nagoya
 ```
 
 ## サムネイル画像の設定方法
