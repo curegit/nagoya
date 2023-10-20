@@ -85,6 +85,8 @@
             return query;
           }
 
+          const whiteSpaces = ["\t", "\n", "\u000b", "\f", "\r", " ", "", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "　"];
+
           function parse(query) {
             query = query.toLowerCase();
             const phrases = [];
@@ -92,7 +94,7 @@
             let quoted = false;
             for (let i = 0; i < query.length; i++) {
               const chara = query[i];
-              if (chara === " " || chara === "　") {
+              if (whiteSpaces.includes(chara)) {
                 if (quoted) {
                   buffer += chara;
                 } else if (buffer) {
