@@ -93,6 +93,10 @@ main h1 {
   text-decoration: none;
 }
 
+.single a:has(code) {
+  text-decoration: none;
+}
+
 .single img {
   margin: 16px 0;
 }
