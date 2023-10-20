@@ -86,8 +86,15 @@
       </table>
     {{ end }}
     {{ if site.Params.showAuthor }}
-      {{ $author := .Params.author | default site.Params.author | default false }}
-      {{ $authorLink := .Params.authorLink | default site.Params.authorLink | default false }}
+      {{ $author := false }}
+      {{ $authorLink := false }}
+      {{ if .Params.author }}
+        {{ $author = .Params.author }}
+        {{ $authorLink = .Params.authorLink | default $authorLink }}
+      {{ else if site.Params.author }}
+        {{ $author = site.Params.author }}
+        {{ $authorLink = site.Params.authorLink | default $authorLink }}
+      {{ end }}
       {{ if or $author $authorLink }}
         <div class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
           {{ if and $author $authorLink }}

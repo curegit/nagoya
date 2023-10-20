@@ -20,13 +20,14 @@
 {{ hugo.Generator }}
 {{ if .Params.author }}
   <meta name="author" content="{{ .Params.author }}">
+  {{ if .Params.authorLink }}
+    <link rel="author" href="{{ .Params.authorLink }}">
+  {{ end }}
 {{ else if site.Params.author }}
   <meta name="author" content="{{ site.Params.author }}">
-{{ end }}
-{{ if .Params.authorLink }}
-  <link rel="author" href="{{ .Params.authorLink }}">
-{{ else if site.Params.authorLink }}
-  <link rel="author" href="{{ site.Params.authorLink }}">
+  {{ if site.Params.authorLink }}
+    <link rel="author" href="{{ site.Params.authorLink }}">
+  {{ end }}
 {{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 {{ with .OutputFormats.Get "rss" }}
