@@ -1,6 +1,8 @@
-function contains(article, phrases) {
+function contains(article, phrases, normalize = "NFKC") {
+  const src = article.text.normalize(normalize);
   for (let i = 0; i < phrases.length; i++) {
-    const occurrence = article.text.indexOf(phrases[i]);
+    const p = phrases[i].normalize(normalize);
+    const occurrence = src.indexOf(p);
     if (occurrence < 0) {
       return false;
     }

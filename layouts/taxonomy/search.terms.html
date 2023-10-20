@@ -12,9 +12,9 @@
       {{ $data := resources.Get "search.json" | resources.ExecuteAsTemplate "data.json" . | minify | fingerprint }}
       {{ $searcher := resources.Get "searcher.js" | minify | fingerprint }}
       <div>
-        スペースで区切ると AND 検索になります。<br>
-        ダブルクオートで囲んだフレーズは完全一致照合になります。<br>
-        大文字・小文字は常に区別されません。
+        スペースで区切ると AND 検索として分解されます。<br>
+        ダブルクオートで囲んだフレーズは分解されません。<br>
+        大文字・小文字は区別されません。
       </div>
       <form class="search-form" method="get" id="search-form">
         <input type="text" name="q" id="query">
@@ -29,15 +29,16 @@
 
           const prefConcurrency = Math.max(1, Math.min(maxConcurrency, Math.ceil(articleCount / 8)));
 
+          const htmlSpecialCharsTable = {
+            "&": "&amp;",
+            "'": "&apos;",
+            "\"": "&quot;",
+            "<": "&lt;",
+            ">": "&gt;",
+          };
+
           function htmlSpecialChars(text) {
-            const table = {
-              "&": "&amp;",
-              "'": "&apos;",
-              "\"": "&quot;",
-              "<": "&lt;",
-              ">": "&gt;",
-            };
-            return text.replace(/[&'"<>]/g, (match) => table[match]);
+            return text.replace(/[&'"<>]/g, (match) => htmlSpecialCharsTable[match]);
           }
 
           function htmlTemplate(strings, ...values) {
@@ -84,6 +85,8 @@
             return query;
           }
 
+          const whiteSpaces = ["\t", "\n", "\u000b", "\f", "\r", " ", "", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "　"];
+
           function parse(query) {
             query = query.toLowerCase();
             const phrases = [];
@@ -91,7 +94,7 @@
             let quoted = false;
             for (let i = 0; i < query.length; i++) {
               const chara = query[i];
-              if (chara === " " || chara === "　") {
+              if (whiteSpaces.includes(chara)) {
                 if (quoted) {
                   buffer += chara;
                 } else if (buffer) {
