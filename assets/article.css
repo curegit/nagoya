@@ -42,7 +42,7 @@ main h1 {
   text-align: center;
   color: #000000b5;
   font-size: 1.05em;
-  text-decoration: underline;
+  text-decoration-line: underline;
   text-underline-offset: 4px;
 }
 
@@ -86,15 +86,19 @@ main h1 {
 }
 
 .single a {
-  text-decoration: underline;
-}
-
-.single .toc a {
-  text-decoration: none;
+  text-decoration-line: underline;
 }
 
 .single a:has(code) {
-  text-decoration: none;
+  text-decoration-line: none;
+}
+
+.single .toc a {
+  text-decoration-line: none;
+}
+
+.single .toc a:hover {
+  text-decoration-line: underline;
 }
 
 .single img {
@@ -198,6 +202,10 @@ main h1 {
   font-size: 96%;
 }
 
+a.footnote-ref {
+  text-decoration-line: none;
+}
+
 .footnote-ref::before {
   display: inline;
   content: "[";
@@ -210,6 +218,10 @@ main h1 {
 
 .single footer {
   margin: 16px 0 10px;
+}
+
+.single footer a {
+  text-decoration-line: none;
 }
 
 .single .taxonomy-table {
