@@ -4,7 +4,7 @@
     {{ if ne $page . }}
       <nav class="pane">
         <form class="sidebar-search-form" method="get" action="{{ .RelPermalink }}">
-          <input required type="text" name="q" id="query">
+          <input required type="search" name="q" id="query">
           <input type="submit" value="検索">
         </form>
       </nav>
