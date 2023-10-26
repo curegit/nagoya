@@ -15,7 +15,7 @@
         大文字・小文字は区別されません。
       </div>
       <form class="search-form" method="get" id="search-form">
-        <input type="text" name="q" id="query">
+        <input type="search" name="q" id="query">
         <input type="submit" value="検索">
       </form>
       {{ $script := resources.Get "search.js" | resources.ExecuteAsTemplate "search.js" . | minify }}
