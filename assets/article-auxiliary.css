@@ -2,6 +2,6 @@
   color: #df0000;
 }
 
-.single :not(figure).bordered, .single figure.bordered > :not(figcaption) {
+.single :not(figure, a).bordered, .single figure.bordered > :not(a, figcaption), .single figure.bordered > a > :not(figcaption) {
   border: 1px solid #c6c6c6;
 }
