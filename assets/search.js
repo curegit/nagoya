@@ -7,6 +7,7 @@
   const maxConcurrency = {{ site.Params.maxConcurrency }};
 
   const prefConcurrency = Math.max(1, Math.min(maxConcurrency, Math.ceil(articleCount / 8)));
+  const timeoutSec = 10;
 
   const htmlSpecialCharsTable = {
     "&": "&amp;",
@@ -42,7 +43,12 @@
     document.getElementById("search-result")
   );
 
-  const dataPromise = fetch(data).then((response) => {
+  const fetchPromise = fetch(data);
+  const timeoutPromise = new Promise((_, reject) => setTimeout(reject, timeoutSec * 1000));
+  const dataPromise = Promise.race([
+    fetchPromise,
+    timeoutPromise,
+  ]).then((response) => {
     if (response.ok) {
       return response.arrayBuffer();
     } else {
