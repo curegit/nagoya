@@ -119,14 +119,6 @@ ol.breadcrumb > li.page {
   text-indent: 12px;
 }
 
-.read-more {
-  padding: 5px 4px 2px 8px;
-  float: right;
-  font-size: 20px;
-  text-decoration-line: underline;
-  text-underline-offset: 4px;
-}
-
 @container (min-width: 620px) {
   .thumbnail {
     min-width: 10%;
