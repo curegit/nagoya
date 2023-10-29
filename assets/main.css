@@ -41,7 +41,7 @@ div#middle {
   text-decoration-color: color-mix(in srgb, transparent 25%, currentColor);
 }
 
-.pane a:hover, .pane a:active {
+.pane a[href]:hover, .pane a[href]:active {
   text-decoration-line: underline;
 }
 

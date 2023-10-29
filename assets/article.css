@@ -85,19 +85,19 @@ main h1 {
   margin-top: 0;
 }
 
-.single a {
+.single a[href] {
   text-decoration-line: underline;
 }
 
-.single a:has(code) {
+.single a[href]:has(code) {
   text-decoration-line: none;
 }
 
-.single .toc a {
+.single .toc a[href] {
   text-decoration-line: none;
 }
 
-.single .toc a:hover {
+.single .toc a[href]:hover {
   text-decoration-line: underline;
 }
 
@@ -192,6 +192,56 @@ main h1 {
   padding-right: 4px;
 }
 
+.single .link-card {
+  display: inline-flex;
+  flex-flow: column;
+  width: 540px;
+  max-width: 100%;
+  margin: 12px 0;
+  border: 1px solid #d7dfe5;
+  border-radius: 14px;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+.single a.link-card[href] {
+  text-decoration-line: none;
+  color: inherit;
+}
+
+.single a.link-card[href]:hover .title, .single a.link-card[href]:active .title {
+  text-decoration-line: underline;
+}
+
+.single .link-card .image {
+  height: 0;
+  padding-top: 56%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.single .link-card .text {
+  padding: 6px 10px 10px;
+}
+
+.single .link-card .title, .single .link-card .desc {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.single .link-card .title {
+  font-weight: bold;
+}
+
+.single .link-card .desc {
+  font-size: 0.94em;
+  text-indent: 0.2em;
+  opacity: 0.8;
+}
+
 .footnotes {
   margin-top: 40px;
 }
@@ -202,7 +252,7 @@ main h1 {
   font-size: 96%;
 }
 
-a.footnote-ref {
+a[href].footnote-ref {
   text-decoration-line: none;
 }
 
@@ -220,7 +270,7 @@ a.footnote-ref {
   margin: 16px 0 10px;
 }
 
-.single footer a {
+.single footer a[href] {
   text-decoration-line: none;
 }
 
