@@ -195,7 +195,7 @@ main h1 {
 .single .link-card {
   display: inline-flex;
   flex-flow: column;
-  width: 540px;
+  width: 480px;
   max-width: 100%;
   margin: 12px 0;
   border: 1px solid #d7dfe5;
@@ -222,14 +222,14 @@ main h1 {
 }
 
 .single .link-card .text {
-  padding: 6px 10px 10px;
+  padding: 8px 10px 10px;
 }
 
 .single .link-card .title, .single .link-card .desc {
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .single .link-card .title {
