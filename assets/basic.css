@@ -23,7 +23,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 1px 0 6px;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 1.4;
 }
 
@@ -105,7 +105,7 @@ table {
 }
 
 th {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 th, td {
@@ -148,7 +148,7 @@ dl {
 }
 
 dt {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 dd {

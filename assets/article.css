@@ -1,6 +1,6 @@
 main h1 {
   font-size: 26px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .single {
@@ -233,7 +233,7 @@ main h1 {
 }
 
 .single .link-card .title {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .single .link-card .desc {

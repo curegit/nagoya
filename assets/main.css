@@ -268,7 +268,7 @@ a.page-link[href]:hover {
   padding-left: 4px;
   padding-bottom: 3px;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 #sidebar .component-title {

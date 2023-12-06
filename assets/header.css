@@ -24,7 +24,7 @@ header#top #site-title {
   line-height: 1.5;
   word-spacing: -2px;
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 800;
   text-shadow: 1px 1px #000000c4;
 }
 
@@ -32,6 +32,7 @@ header#top #description {
   margin: 0;
   text-align: center;
   font-size: 18px;
+  font-weight: 500;
   text-shadow: 1px 1px #000000c4;
 }
 
