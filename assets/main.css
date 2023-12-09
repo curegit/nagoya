@@ -212,6 +212,7 @@ ol.breadcrumb > li.page {
   gap: 10px;
   padding: 0;
   font-size: 19px;
+  font-weight: 500;
 }
 
 .page-item {
