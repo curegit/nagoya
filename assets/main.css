@@ -361,6 +361,10 @@ footer#bottom span {
   main.pane {
     padding: 28px 38px 36px;
   }
+
+  #content .pane:not(#breadcrumb, main) {
+    border-right: 1px solid #6363631c;
+  }
 }
 
 @container (min-width: 1140px) {
@@ -383,6 +387,10 @@ footer#bottom span {
 
   main.pane {
     padding: 30px 44px 42px;
+  }
+
+  #content .pane:not(#breadcrumb, main) {
+    border-right: none;
   }
 
   .paginator {
