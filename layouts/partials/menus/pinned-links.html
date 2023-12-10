@@ -1,9 +1,11 @@
 {{ $pinned := where site.RegularPages "Params.pin" "==" true }}
 <nav class="pane">
   <ul>
-    <li>
-      <a href="{{ site.Home.RelPermalink }}">ホーム</a>
-    </li>
+    {{ with site.Home }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .LinkTitle | default "ホーム" }}</a>
+      </li>
+    {{ end }}
     {{ range $pinned }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>

@@ -7,7 +7,7 @@
     {{ end }}
     {{ $i := $scratch.Get "position" }}
     {{ if .IsHome }}
-      <li><a href="{{ .RelPermalink }}">ホーム</a></li>
+      <li><a href="{{ .RelPermalink }}">{{ .LinkTitle | default "ホーム" }}</a></li>
     {{ else if not .IsPage }}
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <a href="{{ .RelPermalink }}" itemprop="item">
