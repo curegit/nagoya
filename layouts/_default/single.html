@@ -9,13 +9,13 @@
     {{ if or $prev $next }}
       <nav class="prev-next">
         {{ with $next }}
-          <a class="next" href="{{ .RelPermalink }}">
-            <div>« 次の記事: {{ .LinkTitle }}</div>
+          <a class="next" href="{{ .RelPermalink }}" title="次の記事: {{ .LinkTitle }}">
+            <div>« {{ .LinkTitle }}</div>
           </a>
         {{ end }}
         {{ with $prev }}
-          <a class="prev" href="{{ .RelPermalink }}">
-            <div>» 前の記事: {{ .LinkTitle }}</div>
+          <a class="prev" href="{{ .RelPermalink }}" title="前の記事: {{ .LinkTitle }}">
+            <div>» {{ .LinkTitle }}</div>
           </a>
         {{ end }}
       </nav>
