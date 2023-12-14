@@ -32,6 +32,10 @@ div#middle {
   align-content: start;
 }
 
+.column > * {
+  overflow-x: auto;
+}
+
 .pane {
   padding: 18px 24px 20px;
   background-color: #fff6;

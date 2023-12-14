@@ -37,6 +37,7 @@
 
 .sidebar-search-form {
   margin: 5px 0;
+  justify-content: center;
 }
 
 .search code {
