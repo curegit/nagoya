@@ -171,18 +171,19 @@ ol.breadcrumb > li.page {
 .tag-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
   gap: 6px 50px;
   padding: 0;
   list-style: none;
 }
 
 .tag-list li {
-  padding-left: 26px;
+  padding-left: 24.5px;
   background-image: var(--tag-icon);
   background-repeat: no-repeat;
   background-position: left 6px;
   background-size: auto 18px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .tag-list li a {
