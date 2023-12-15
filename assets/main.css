@@ -97,6 +97,7 @@ ol.breadcrumb > li.page {
   background-repeat: no-repeat;
   background-position: top left;
   background-size: auto 34px;
+  line-height: 1.4;
 }
 
 .article-list {
@@ -155,6 +156,7 @@ ol.breadcrumb > li.page {
   background-repeat: no-repeat;
   background-position: left 4px;
   background-size: auto 28px;
+  line-height: 1.4;
 }
 
 .list-title-taxonomy {
@@ -169,17 +171,19 @@ ol.breadcrumb > li.page {
 .tag-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-around;
   gap: 6px 50px;
   padding: 0;
   list-style: none;
 }
 
 .tag-list li {
-  padding-left: 26px;
+  padding-left: 24.5px;
   background-image: var(--tag-icon);
   background-repeat: no-repeat;
-  background-position: left 8px;
+  background-position: left 6px;
   background-size: auto 18px;
+  line-height: 1.65;
 }
 
 .tag-list li a {
@@ -296,16 +300,17 @@ ul.folders {
 }
 
 .folder {
-  padding-left: 32px;
+  padding-left: 31px;
   background-image: var(--folder-icon);
   background-repeat: no-repeat;
-  background-position: left 1px;
+  background-position: left 1.25px;
   background-size: auto 23px;
+  line-height: 1.7;
 }
 
 .folder a {
-  margin-left: -32px;
-  padding-left: 32px;
+  margin-left: -31px;
+  padding-left: 31px;
 }
 
 ul.tags, ul.terms {
@@ -322,6 +327,7 @@ ul.tags, ul.terms {
   background-repeat: no-repeat;
   background-position: left 6px;
   background-size: auto 17px;
+  line-height: 1.7;
 }
 
 .tag a {
