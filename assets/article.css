@@ -213,6 +213,10 @@ main h1 {
   text-decoration-line: underline;
 }
 
+.single a.link-card[href]:hover .image {
+  opacity: 0.85;
+}
+
 .single .link-card .image {
   height: 0;
   padding-top: 53%;
