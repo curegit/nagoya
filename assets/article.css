@@ -77,11 +77,11 @@ main h1 {
   text-indent: 6px;
 }
 
-.single p:has(img) {
+.single p:has(img, video) {
   text-indent: 0;
 }
 
-.single p:first-child:has(img) {
+.single p:first-child:has(img, video) {
   margin-top: 0;
 }
 
@@ -101,7 +101,7 @@ main h1 {
   text-decoration-line: underline;
 }
 
-.single img {
+.single img, .single video {
   margin: 16px 0;
 }
 
@@ -112,13 +112,17 @@ main h1 {
   margin: 16px 0;
 }
 
-.single figure img {
+.single figure img, .single figure video {
   margin: 0;
 }
 
 .single figure figcaption {
   font-size: 95%;
   font-style: italic;
+}
+
+.single figure figcaption:not(:has(p)) {
+  margin: 10px 0;
 }
 
 .single figure figcaption p {
