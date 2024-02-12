@@ -10,7 +10,7 @@
 ## 主要機能
 
 - レスポンシブデザイン
-- サムネイル画像
+- サムネイル画像の表示
 - ディレクトリツリーによる整理
 - テキストマッチングによる記事の簡易全文検索
 - 数式レンダリング (KaTeX)
@@ -35,12 +35,12 @@ git submodule add --name nagoya https://github.com/curegit/nagoya.git themes/nag
 ## 基本設計
 
 Hugo のページバンドルによるコンテンツ整理に従っており、任意の深さのセクションツリーを作成できます。
-このテーマでは、リーフバンドルを記事扱いします。
+このテーマでは、リーフバンドルを通常の記事として扱います。
 
 ## サムネイル画像の設定方法
 
 Hugo 自体の挙動に似せており、フロントマターの `images` の値があればそれをサムネイルとして使用します。
-それがなければ、バンドル内でファイル名に feature, cover, thumbnail が含まれる画像がサムネイルとして使われます。
+それがない場合は、バンドル内でファイル名に feature, cover, thumbnail が含まれる画像がサムネイルとして使われます。
 
 ## Taxonomies（タグやカテゴリ）
 
@@ -70,24 +70,24 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
 
 以下は、`hugo.toml` に設定できるサイト全体に効果がある `params` です。
 
-| キー             | 型              | 説明                                                                       |
-| ---------------- | --------------- | -------------------------------------------------------------------------- |
-| `author`         | String          | サイト全体の著者名を指定します                                             |
-| `authorLink`     | String          | 著者ページまたはメールアドレスのハイパーリンクを設定します                 |
-| `description`    | String          | サイトの概要を設定します                                                   |
-| `keywords`       | Array of String | サイト全体のキーワードを設定します                                         |
-| `showAuthor`     | Boolean         | 著者情報を記事に表示するか否かを設定します                                 |
-| `showLastmod`    | Boolean         | 各記事の最終更新日を表示するか否かを設定します                             |
-| `showTreeCount`  | Boolean         | サイドバーのセクションナビゲーションにページ数を表示するか否かを設定します |
-| `treeRoot`       | String          | サイドバーのセクションナビゲーションの起点を指定します                     |
-| `sidebarSearch`  | Boolean         | サイドバーに検索ボックスを表示するか否かを設定します                       |
-| `newNum`         | Integer         | サイドバーに表示する最新記事の数を設定します                               |
-| `relatedNum`     | Integer         | 各記事下部に表示する関連記事の数を設定します                               |
-| `randomNum`      | Integer         | 各記事下部に表示するランダム記事の数を設定します                           |
-| `shuffleSeeAlso` | Boolean         | 関連記事とランダム記事の順序をシャッフルするか否かを設定します             |
-| `showHeaderText` | Boolean         | ヘッダーにサイトの概要テキストを表示するか否かを設定します                 |
-| `headerText`     | String          | ヘッダーのサイト概要テキストを手動設定します                               |
-| `maxConcurrency` | Integer         | 検索機能で使う Web Worker の最大数を指定します                             |
+| キー             | 型              | 説明                                                                   |
+| ---------------- | --------------- | ---------------------------------------------------------------------- |
+| `author`         | String          | サイト全体の著者名を指定します                                         |
+| `authorLink`     | String          | 著者ページまたはメールアドレスのハイパーリンクを設定します             |
+| `description`    | String          | サイトの概要を設定します                                               |
+| `keywords`       | Array of String | サイト全体のキーワードを設定します                                     |
+| `showAuthor`     | Boolean         | 著者情報を記事に表示するか否かを設定します                             |
+| `showLastmod`    | Boolean         | 各記事の最終更新日を表示するか否かを設定します                         |
+| `showTreeCount`  | Boolean         | サイドバーのディレクトリツリーに計ページ数を表示するか否かを設定します |
+| `treeRoot`       | String          | サイドバーのディレクトリツリーの起点を指定します                       |
+| `sidebarSearch`  | Boolean         | サイドバーに検索ボックスを表示するか否かを設定します                   |
+| `newNum`         | Integer         | サイドバーに表示する最新記事の数を設定します                           |
+| `relatedNum`     | Integer         | 各記事下部に表示する関連記事の数を設定します                           |
+| `randomNum`      | Integer         | 各記事下部に表示するランダム記事の数を設定します                       |
+| `shuffleSeeAlso` | Boolean         | 関連記事とランダム記事の順序をシャッフルするか否かを設定します         |
+| `showHeaderText` | Boolean         | ヘッダーにサイトの概要テキストを表示するか否かを設定します             |
+| `headerText`     | String          | ヘッダーのサイト概要テキストを手動設定します                           |
+| `maxConcurrency` | Integer         | 検索機能で使う Web Worker の最大数を指定します                         |
 
 ## ページパラメータ
 
