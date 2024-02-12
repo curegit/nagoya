@@ -7,7 +7,7 @@
             <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
           </header>
           <ul>
-            {{ range .Pages }}
+            {{ range partial "functions/sort-terms" (dict "context" .Pages "fullTitle" false) }}
               <li>
                 <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
               </li>

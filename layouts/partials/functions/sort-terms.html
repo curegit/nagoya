@@ -1,0 +1,17 @@
+{{ $full := .fullTitle }}
+{{ $weightedPages := where .context "Weight" "<>" 0 }}
+{{ $defaultPages := where .context "Weight" "==" 0 }}
+{{ $sorted := slice }}
+{{ range $weightedPages.GroupBy "Weight" }}
+  {{ if $full }}
+    {{ $sorted = $sorted | append .Pages.ByTitle }}
+  {{ else }}
+    {{ $sorted = $sorted | append .Pages.ByLinkTitle }}
+  {{ end }}
+{{ end }}
+{{ if $full }}
+  {{ $sorted = $sorted | append $defaultPages.ByTitle }}
+{{ else }}
+  {{ $sorted = $sorted | append $defaultPages.ByLinkTitle }}
+{{ end }}
+{{ return $sorted }}
