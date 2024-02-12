@@ -6,16 +6,14 @@
           <header class="component-title">
             <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
           </header>
-        {{ end }}
-        <ul>
-          {{ range $term, $pages := $terms }}
-            <li>
-              {{ with site.GetPage (path.Join $taxonomy $term) }}
+          <ul>
+            {{ range partial "functions/sort-terms" (dict "context" .Pages "fullTitle" false) }}
+              <li>
                 <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-              {{ end }}
-            </li>
-          {{ end }}
-        </ul>
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
       </nav>
     {{ end }}
   {{ end }}
