@@ -5,7 +5,7 @@
         {{ $n := len .RegularPagesRecursive }}
         <li class="folder">
           <a href="{{ .RelPermalink }}">
-            {{ .LinkTitle }}{{ if $n }} ({{ $n }}) {{ end }}
+            {{ .LinkTitle }}{{ if and site.Params.showTreeCount $n }} ({{ $n }}) {{ end }}
           </a>
           {{ template "section-tree" . }}
         </li>

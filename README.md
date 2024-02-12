@@ -70,23 +70,24 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
 
 以下は、`hugo.toml` に設定できるサイト全体に効果がある `params` です。
 
-| キー             | 型              | 説明                                                           |
-| ---------------- | --------------- | -------------------------------------------------------------- |
-| `author`         | String          | サイト全体の著者名を指定します                                 |
-| `authorLink`     | String          | 著者ページまたはメールアドレスのハイパーリンクを設定します     |
-| `description`    | String          | サイトの概要を設定します                                       |
-| `keywords`       | Array of String | サイト全体のキーワードを設定します                             |
-| `showAuthor`     | Boolean         | 著者情報を記事に表示するか否かを設定します                     |
-| `showLastmod`    | Boolean         | 各記事の最終更新日を表示するか否かを設定します                 |
-| `treeRoot`       | String          | サイドバーのセクションナビゲーションの起点を指定します         |
-| `sidebarSearch`  | Boolean         | サイドバーに検索ボックスを表示するか否かを設定します           |
-| `newNum`         | Integer         | サイドバーに表示する最新記事の数を設定します                   |
-| `relatedNum`     | Integer         | 各記事下部に表示する関連記事の数を設定します                   |
-| `randomNum`      | Integer         | 各記事下部に表示するランダム記事の数を設定します               |
-| `shuffleSeeAlso` | Boolean         | 関連記事とランダム記事の順序をシャッフルするか否かを設定します |
-| `showHeaderText` | Boolean         | ヘッダーにサイトの概要テキストを表示するか否かを設定します     |
-| `headerText`     | String          | ヘッダーのサイト概要テキストを手動設定します                   |
-| `maxConcurrency` | Integer         | 検索機能で使う Web Worker の最大数を指定します                 |
+| キー             | 型              | 説明                                                                       |
+| ---------------- | --------------- | -------------------------------------------------------------------------- |
+| `author`         | String          | サイト全体の著者名を指定します                                             |
+| `authorLink`     | String          | 著者ページまたはメールアドレスのハイパーリンクを設定します                 |
+| `description`    | String          | サイトの概要を設定します                                                   |
+| `keywords`       | Array of String | サイト全体のキーワードを設定します                                         |
+| `showAuthor`     | Boolean         | 著者情報を記事に表示するか否かを設定します                                 |
+| `showLastmod`    | Boolean         | 各記事の最終更新日を表示するか否かを設定します                             |
+| `showTreeCount`  | Boolean         | サイドバーのセクションナビゲーションにページ数を表示するか否かを設定します |
+| `treeRoot`       | String          | サイドバーのセクションナビゲーションの起点を指定します                     |
+| `sidebarSearch`  | Boolean         | サイドバーに検索ボックスを表示するか否かを設定します                       |
+| `newNum`         | Integer         | サイドバーに表示する最新記事の数を設定します                               |
+| `relatedNum`     | Integer         | 各記事下部に表示する関連記事の数を設定します                               |
+| `randomNum`      | Integer         | 各記事下部に表示するランダム記事の数を設定します                           |
+| `shuffleSeeAlso` | Boolean         | 関連記事とランダム記事の順序をシャッフルするか否かを設定します             |
+| `showHeaderText` | Boolean         | ヘッダーにサイトの概要テキストを表示するか否かを設定します                 |
+| `headerText`     | String          | ヘッダーのサイト概要テキストを手動設定します                               |
+| `maxConcurrency` | Integer         | 検索機能で使う Web Worker の最大数を指定します                             |
 
 ## ページパラメータ
 
