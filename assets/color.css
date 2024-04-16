@@ -40,6 +40,10 @@ a[href] {
   color: #0053d4;
 }
 
+.single h2 {
+  border-left-color: #14aae0;
+}
+
 .single thead tr {
   background-color: #e5e4f7;
 }
