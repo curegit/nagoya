@@ -3,6 +3,12 @@
   --tag-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256.313 256.313'><path fill='rgb(16,148,170)' d='M163.854 250.072c-8.365 8.322-21.87 8.322-30.192 0L16.047 139.762c-6.576-6.168-14.414-17.856-14.979-26.853-1.512-24.34-.446-70.947.294-95.657C1.628 8.246 9.2.696 18.212.489c31.568-.734 98.452-1.518 104.669 4.705l129.52 117.179c8.316 8.322.772 29.371-7.609 37.736l-80.938 89.963zM60.789 36.284c-7.054-7.038-18.46-7.038-25.52 0-7.038 7.06-7.038 18.46 0 25.498 7.065 7.044 18.471 7.044 25.52 0 7.044-7.038 7.044-18.444 0-25.498z'/></svg>");
 }
 
+@property --props-width {
+  syntax: "<length>";
+  initial-value: 0px;
+  inherits: true;
+}
+
 html, body {
   overscroll-behavior: none auto;
 }
@@ -23,6 +29,7 @@ div#middle {
   grid-template-columns: 1fr;
   align-items: start;
   font-size: 18px;
+  --props-width: 100cqw;
 }
 
 .column {

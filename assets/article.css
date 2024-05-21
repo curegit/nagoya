@@ -353,8 +353,16 @@ a[href].footnote-ref {
   text-align: right;
 }
 
-@container (min-width: 600px) {
-  .toc {
-    margin: 16px 36px 28px;
+@media (max-width: 640px) {
+  .single pre {
+    margin-block: 24px;
+    margin-inline: calc((100% - var(--props-width)) / 2);
+    border-radius: 0;
+  }
+
+  .single img, .single video {
+    width: var(--props-width);
+    max-width: var(--props-width);
+    margin-inline: calc((100% - var(--props-width)) / 2);
   }
 }
