@@ -114,11 +114,15 @@ main h1 {
   margin: 16px 0;
 }
 
+.single p:last-child :is(img, video):last-child {
+  margin-bottom: 0;
+}
+
 .single figure {
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin: 16px 0;
+  margin: 18px 0;
 }
 
 .single figure img, .single figure video {
