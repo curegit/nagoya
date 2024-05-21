@@ -148,6 +148,15 @@ main h1 {
   padding-right: 0;
 }
 
+.single li:has(input[type="checkbox"]) {
+  list-style-type: none;
+}
+
+.single input[type="checkbox"] {
+  margin: 0 3px 1px -10px;
+  vertical-align: middle;
+}
+
 .single :not(pre) > code {
   padding: 0.2rem 0.4rem;
   border-radius: 5px;
