@@ -45,7 +45,13 @@ div#middle {
   text-decoration-color: color-mix(in srgb, transparent 25%, currentColor);
 }
 
-.pane a[href]:hover, .pane a[href]:active {
+@media (any-hover: hover) {
+  .pane a[href]:hover {
+    text-decoration-line: underline;
+  }
+}
+
+.pane a[href]:active {
   text-decoration-line: underline;
 }
 
@@ -68,6 +74,7 @@ main.pane > * {
 
 nav#breadcrumb {
   padding: 12px 24px;
+  line-height: 1.65;
 }
 
 ol.breadcrumb {
@@ -143,6 +150,16 @@ ol.breadcrumb > li.page {
   .thumbnail-link + .summary {
     padding-left: 28px;
     text-indent: 0;
+  }
+}
+
+.thumbnail-link:focus-visible img {
+  opacity: 0.85;
+}
+
+@media (any-hover: hover) {
+  .thumbnail-link:hover img {
+    opacity: 0.85;
   }
 }
 
@@ -243,8 +260,14 @@ a.page-link[href] {
   cursor: revert;
 }
 
-a.page-link[href]:hover {
+a.page-link[href]:focus-visible {
   background-color: #fff6;
+}
+
+@media (any-hover: hover) {
+  a.page-link[href]:hover {
+    background-color: #fff6;
+  }
 }
 
 .prev-next {
@@ -261,8 +284,14 @@ a.page-link[href]:hover {
   border-radius: 8px;
 }
 
-.prev-next > a:hover {
+.prev-next > a:focus-visible {
   background-color: #fff6;
+}
+
+@media (any-hover: hover) {
+  .prev-next > a:hover {
+    background-color: #fff6;
+  }
 }
 
 .prev-next > a.next {

@@ -8,6 +8,7 @@ main h1 {
   flex-flow: column;
   row-gap: 16px;
   container-type: inline-size;
+  line-height: 1.8;
 }
 
 .single h1.title {
@@ -97,8 +98,10 @@ main h1 {
   text-decoration-line: none;
 }
 
-.single .toc a[href]:hover {
-  text-decoration-line: underline;
+@media (any-hover: hover) {
+  .single .toc a[href]:hover {
+    text-decoration-line: underline;
+  }
 }
 
 .single img, .single video {
@@ -222,12 +225,28 @@ main h1 {
   color: inherit;
 }
 
-.single a.link-card[href]:hover .title, .single a.link-card[href]:active .title {
+.single a.link-card[href]:focus-visible .title {
   text-decoration-line: underline;
 }
 
-.single a.link-card[href]:hover .image {
+@media (any-hover: hover) {
+  .single a.link-card[href]:hover .title {
+    text-decoration-line: underline;
+  }
+}
+
+.single a.link-card[href]:active .title {
+  text-decoration-line: underline;
+}
+
+.single a.link-card[href]:focus-visible .image {
   opacity: 0.85;
+}
+
+@media (any-hover: hover) {
+  .single a.link-card[href]:hover .image {
+    opacity: 0.85;
+  }
 }
 
 .single .link-card .image {
