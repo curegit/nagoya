@@ -71,6 +71,21 @@ small {
   font-size: 85%;
 }
 
+mark {
+  background-color: #fff900;
+  color: currentColor;
+}
+
+del {
+  background-color: #ffebe9;
+  text-decoration: none;
+}
+
+ins {
+  background-color: #dafbe1;
+  text-decoration: none;
+}
+
 a {
   text-decoration: none;
 }
