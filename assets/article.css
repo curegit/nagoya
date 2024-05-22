@@ -353,16 +353,29 @@ a[href].footnote-ref {
   text-align: right;
 }
 
-@media (max-width: 640px) {
-  .single pre {
+@media (max-width: 600px) {
+  .single > .body > .highlight > pre {
     margin-block: 24px;
     margin-inline: calc((100% - var(--props-width)) / 2);
+    padding-inline: 20px;
     border-radius: 0;
   }
 
-  .single img, .single video {
-    width: var(--props-width);
+  :is(.single > .body, .single > .body > :where(p, figure)):has(img, video):not(:has(> :not(img, video, figcaption))) > :is(img, video) {
     max-width: var(--props-width);
     margin-inline: calc((100% - var(--props-width)) / 2);
+  }
+
+  :is(.single > .body, .single > .body > :where(p, figure)):has(img, video):not(:has(> :not(img, video, figcaption))) {
+    text-align: center;
+  }
+
+  :is(.single > .body, .single > .body > :where(p, figure)):has(img):not(:has(> :not(img, picture, figcaption))) > picture > img {
+    max-width: var(--props-width);
+    margin-inline: calc((100% - var(--props-width)) / 2);
+  }
+
+  :is(.single > .body, .single > .body > :where(p, figure)):has(img):not(:has(> :not(img, picture, figcaption))) {
+    text-align: center;
   }
 }

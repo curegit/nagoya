@@ -59,6 +59,10 @@ img, video {
   margin: 10px 0;
 }
 
+picture {
+  display: contents;
+}
+
 p {
   margin: 8px 0;
 }
