@@ -69,7 +69,7 @@ main h1 {
 }
 
 .single h4, .single h5, .single h6 {
-  margin-top: 8px;
+  margin-top: 10px;
   padding-left: 6px;
 }
 
@@ -82,6 +82,10 @@ main h1 {
   padding-left: 4px;
   padding-right: 4px;
   text-indent: 6px;
+}
+
+.single p:has(+ p) {
+  margin-bottom: 18px;
 }
 
 .single p:has(img, video) {
