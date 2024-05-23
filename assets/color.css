@@ -25,6 +25,10 @@ footer#bottom {
   color: #fff;
 }
 
+:root {
+  --pane-tint: #fff6;
+}
+
 .component-title {
   color: #494da4;
 }

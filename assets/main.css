@@ -45,7 +45,7 @@ div#middle {
 
 .pane {
   padding: 18px 24px 20px;
-  background-color: #fff6;
+  background-color: var(--pane-tint, #fff6);
 }
 
 .pane a {
@@ -401,8 +401,20 @@ footer#bottom span {
 
 @container (min-width: 840px) {
   div#middle {
+    grid-template-rows: auto 1fr;
     grid-template-columns: minmax(300px, auto) 300px;
     font-size: 16px;
+  }
+
+  div#middle > *:first-child {
+    grid-row: span 2;
+  }
+
+  div#middle::after {
+    display: block;
+    content: "";
+    align-self: stretch;
+    background: var(--pane-tint);
   }
 
   main.pane {
@@ -422,6 +434,10 @@ footer#bottom span {
     grid-template-columns: minmax(300px, auto) 320px;
     column-gap: 30px;
     font-size: 16px;
+  }
+
+  div#middle::after {
+    display: none;
   }
 
   .column {
