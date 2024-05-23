@@ -31,6 +31,7 @@
 
   const searchForm = document.getElementById("search-form");
   const queryInput = document.getElementById("query");
+  const caseInput = document.getElementById("case");
 
   const contentLoadedPromise = new Promise((resolve) => {
     if (document.readyState === "loading") {
@@ -64,17 +65,18 @@
   function getQuery(reflectOnForm = true) {
     const params = new URL(window.location).searchParams;
     const query = params.getAll("q").join(" ");
+    const cases = !!+(params.get("c") ?? 0);
     if (reflectOnForm) {
       queryInput.value = query;
+      caseInput.checked = cases;
     }
-    return query;
+    return [query, cases];
   }
 
   // サロゲートペアの範囲の文字は追加しないでください
   const whiteSpaces = ["\t", "\n", "\u000b", "\f", "\r", " ", "", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "　"];
 
   function parse(query) {
-    query = query.toLowerCase();
     const phrases = [];
     let buffer = "";
     let quoted = false;
@@ -129,7 +131,7 @@
   let workers = [];
   let cancelSearchFs = [];
 
-  async function search(phrases) {
+  async function search(phrases, caseSensitive) {
     workers.forEach((w) => w.terminate());
     if (cancelFetch !== null) {
       cancelFetch();
@@ -171,6 +173,7 @@
       const arrayBufferCopy = maybeBuffer.slice(0);
       const message = {
         phrases: phrases,
+        caseSensitive: caseSensitive,
         start: ranges[i].start,
         end: ranges[i].end,
         articleBuffer: arrayBufferCopy,
@@ -181,19 +184,20 @@
   }
 
   let prevQuery = "";
+  let prevCases = undefined;
 
   async function main() {
     if (window.Worker) {
-      const query = getQuery();
+      const [query, cases] = getQuery();
       const phrases = parse(query);
-      if (prevQuery === query) {
+      if (prevQuery === query && cases === prevCases) {
         return;
       } else if (phrases.length > 0) {
-        const result = await search(phrases);
+        const result = await search(phrases, cases);
         if (result !== false) {
           const element = await resultElementPromise;
           let html = `<h2>${
-            phrases.map(x => htmlTemplate`<code>${x}</code>`).join("")
+            phrases.map(x => htmlTemplate`<code>${cases ? x : x.toLowerCase()}</code>`).join("")
           }</h2>`;
           if (result.length > 0) {
             html += htmlTemplate`
@@ -211,11 +215,13 @@
           }
           element.innerHTML = html;
           prevQuery = query;
+          prevCases = cases;
         }
       } else {
         const element = await resultElementPromise;
         element.innerHTML = "";
         prevQuery = query;
+        prevCases = cases;
       }
     } else {
       const element = await resultElementPromise;
@@ -228,11 +234,17 @@
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const query = queryInput.value;
+    const cases = caseInput.checked;
     const params = new URL(window.location).searchParams;
     if (query) {
       params.set("q", query);
     } else {
       params.delete("q");
+    }
+    if (cases) {
+      params.set("c", "1");
+    } else {
+      params.delete("c");
     }
     const paramStr = params.toString();
     history.pushState({}, "", paramStr ? "?" + paramStr : ".");

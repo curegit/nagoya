@@ -11,10 +11,12 @@
     {{ with partial "functions/filter-articles" site.RegularPages }}
       <div>
         スペースで区切ると AND 検索として分解されます。<br>
-        ダブルクオートで囲んだフレーズは分解されません。<br>
-        大文字・小文字は区別されません。
+        ダブルクオートで囲んだフレーズは分解されません。
       </div>
       <form class="search-form" method="get" id="search-form">
+        <div>
+          <label><input type="checkbox" name="c" value="1" id="case">大/小文字を区別</label>
+        </div>
         <input type="search" name="q" id="query">
         <input type="submit" value="検索">
       </form>

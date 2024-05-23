@@ -5,7 +5,7 @@
     {{ $description = "" }}
   {{ end }}
   {{ $body := (trim ((replace (.Plain | htmlUnescape) "\n" " ") | replaceRE " +" " ") " ") }}
-  {{ $text := printf "%s\t%s\t%s" .Title $description $body | lower }}
+  {{ $text := printf "%s\t%s\t%s" .Title $description $body }}
   {{ $pages = $pages | append (dict "link" .RelPermalink "title" .Title "text" $text) }}
 {{ end }}
 {{ jsonify $pages }}

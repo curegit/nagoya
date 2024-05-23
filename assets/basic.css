@@ -132,6 +132,11 @@ th, td {
   padding: 1px;
 }
 
+input[type=checkbox] {
+  margin-bottom: 1px;
+  vertical-align: middle;
+}
+
 pre {
   overflow-x: auto;
   white-space: pre-wrap;

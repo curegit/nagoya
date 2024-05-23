@@ -21,7 +21,16 @@
 .search .search-form, .sidebar-search-form {
   display: grid;
   grid-template-columns: 1fr 60px;
+  row-gap: 10px;
   column-gap: 8px;
+}
+
+.search .search-form div {
+  grid-column: span 2;
+}
+
+.search .search-form input[type=checkbox] {
+  margin-right: 6px;
 }
 
 .search .search-form input, .sidebar-search-form input {

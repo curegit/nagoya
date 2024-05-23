@@ -166,8 +166,8 @@ main h1 {
 }
 
 .single input[type="checkbox"] {
-  margin: 0 3px 1px -10px;
-  vertical-align: middle;
+  margin-left: -10px;
+  margin-right: 3px;
 }
 
 .single :not(pre) > code {
