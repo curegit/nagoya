@@ -77,6 +77,10 @@ main h1 {
   margin-top: 4px;
 }
 
+.single p + :is(h4, h5, h6) {
+  margin-top: 20px;
+}
+
 .single p {
   margin: 12px 0;
   padding-left: 4px;
