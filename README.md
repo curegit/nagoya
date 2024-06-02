@@ -69,6 +69,13 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
   search = "search"
 ```
 
+## メニューとウィジェット
+
+Hugo の Menu Templates 機能には対応していません。
+`/layouts/partials/widgets/` 内の該当部分のパーシャルレイアウトをオーバーライドしてメニューを作成します。
+
+`/layouts/partials/widgets/` 内のオーバーライドは、カスタムウィジェットの作成にも利用できます。
+
 ## サイトパラメータ
 
 以下は、`hugo.toml` に設定できるサイト全体に効果がある `params` です。
@@ -117,15 +124,10 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
 
 ## その他備考
 
-- Hugo の Menu Templates 機能は使用していません。
-  該当部分のパーシャルレイアウトを上書きしてメニューを作成します。
 - CDN 経由で読み込まれるリソース (KaTeX, Mermaid) を事前バンドルする場合は、リソースをダウンロードして配置し、読み込み部分のパーシャルレイアウトを上書きしてください。
 - トップページ内容の始まり部分は、コンテンツルートの `_index.md` で制御できます。
   タイトルを空にすることもできます。
-- Hugo site configuration の `disableKinds` によって、無効化できるものは以下に限ります。
-  - `404`
-  - `robotstxt`
-  - `rss`
+- Hugo site configuration の `disableKinds` において、テーマ設計と整合的に無効化できるものは `404`, `robotstxt`, `rss` に限ります。
 
 ## ライセンス
 
