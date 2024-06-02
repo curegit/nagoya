@@ -59,7 +59,7 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
 
 なお、Taxonomy を日本語化するためには、該当するセクション（archives や categories）に `_index.md` ファイルを作成し、その中で `title` パラメータを設定してください。
 
-### 設定例
+### 設定例: `hugo.toml`
 
 ```toml
 [taxonomies]
@@ -67,6 +67,14 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
   tag = "tags"
   archive = "archives"
   search = "search"
+```
+
+### 設定例: `/content/categories/_index.md`
+
+```md
+---
+title: カテゴリ
+---
 ```
 
 ## メニューとウィジェット
