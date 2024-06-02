@@ -23,7 +23,7 @@
 
 - i18n（国際化対応）
 
-  このテーマは Monolingual project のみ対応します
+  このテーマは Monolingual project のみ対応します。
 
 - ソーシャルメディアのリンク表示
 
@@ -45,7 +45,7 @@ Hugo のページバンドルによるコンテンツ整理に従っており、
 Hugo 自体の挙動に似せており、フロントマターの `images` の値があればそれをサムネイルとして使用します。
 それがない場合は、バンドル内でファイル名に feature, cover, thumbnail が含まれる画像がサムネイルとして使われます。
 
-## Taxonomies（タグやカテゴリ）
+## タグやカテゴリ (Taxonomies)
 
 このテーマでは tag と archive と search が特別扱いされます。
 
@@ -72,7 +72,7 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
 ## メニューとウィジェット
 
 Hugo の Menu Templates 機能には対応していません。
-`/layouts/partials/widgets/` 内の該当部分のパーシャルレイアウトをオーバーライドしてメニューを作成します。
+`/layouts/partials/widgets/` 内にある、配置したい該当場所部分のパーシャルレイアウトをオーバーライドしてメニューを作成します。
 
 `/layouts/partials/widgets/` 内のオーバーライドは、カスタムウィジェットの作成にも利用できます。
 
@@ -127,7 +127,7 @@ Hugo の Menu Templates 機能には対応していません。
 - CDN 経由で読み込まれるリソース (KaTeX, Mermaid) を事前バンドルする場合は、リソースをダウンロードして配置し、読み込み部分のパーシャルレイアウトを上書きしてください。
 - トップページ内容の始まり部分は、コンテンツルートの `_index.md` で制御できます。
   タイトルを空にすることもできます。
-- Hugo site configuration の `disableKinds` において、テーマ設計と整合的に無効化できるものは `404`, `robotstxt`, `rss` に限ります。
+- Hugo サイト設定の `disableKinds` において、テーマ設計と整合的に無効化できるものは `404`, `robotstxt`, `rss` に限ります。
 
 ## ライセンス
 
