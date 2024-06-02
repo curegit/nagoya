@@ -33,3 +33,8 @@
 {{ with .OutputFormats.Get "rss" }}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $title | safeHTML }}
 {{ end }}
+{{ with .Sitemap }}
+  {{ if not .Disable }}
+    <link rel="sitemap" type="application/xml" href="{{ .Filename | relURL }}">
+  {{ end }}
+{{ end }}
