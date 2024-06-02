@@ -98,7 +98,7 @@
       {{ if or $author $authorLink }}
         <div class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
           {{ if and $author $authorLink }}
-            <a href="{{ $authorLink }}" itemprop="url"><span itemprop="name">{{ $author }}</span></a>
+            <a rel="author" href="{{ $authorLink }}" itemprop="url"><span itemprop="name">{{ $author }}</span></a>
           {{ else if $author }}
             <span itemprop="name">{{ $author }}</span>
           {{ else if $authorLink }}
