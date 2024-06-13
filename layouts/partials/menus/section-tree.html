@@ -14,10 +14,18 @@
   {{ end }}
 {{ end }}
 
-<nav class="pane">
-  {{ if site.Params.treeRoot }}
-    {{ template "section-tree" (site.GetPage site.Params.treeRoot) }}
-  {{ else }}
-    {{ template "section-tree" site }}
+{{ if site.Params.treeRoot }}
+  {{ with site.GetPage site.Params.treeRoot }}
+    {{ if .Sections }}
+      <nav class="pane">
+        {{ template "section-tree" . }}
+      </nav>
+    {{ end }}
   {{ end }}
-</nav>
+{{ else }}
+  {{ if site.Sections }}
+    <nav class="pane">
+      {{ template "section-tree" site }}
+    </nav>
+  {{ end }}
+{{ end }}
