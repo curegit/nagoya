@@ -163,9 +163,11 @@ blockquote pre, blockquote code {
 }
 
 hr {
-  margin: 1.5em auto;
-  border: 1px inset #cfcfcf;
+  height: 0.2em;
+  margin: 1.8em auto;
+  border: none;
   overflow: hidden;
+  background-color: #cfcfcf;
 }
 
 dl {
