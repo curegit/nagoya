@@ -281,6 +281,7 @@ a.page-link[href]:focus-visible {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
+  margin-block: 4px;
   padding: 15px;
   line-height: 1.65;
 }

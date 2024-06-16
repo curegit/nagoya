@@ -6,7 +6,7 @@ main h1 {
 .single {
   display: flex;
   flex-flow: column;
-  row-gap: 16px;
+  row-gap: 18px;
   container-type: inline-size;
   line-height: 1.8;
 }
@@ -69,8 +69,16 @@ main h1 {
 }
 
 .single h4, .single h5, .single h6 {
-  margin-top: 10px;
+  margin-top: 12px;
   padding-left: 6px;
+}
+
+.single h3:has(+ :is(div, img, video, figure, blockquote, table)) {
+  margin-top: 30px;
+}
+
+.single h4:has(+ :is(div, img, video, figure, blockquote, table)) {
+  margin-top: 16px;
 }
 
 .single h2:first-child {
@@ -297,7 +305,7 @@ main h1 {
 }
 
 .footnotes {
-  margin-top: 40px;
+  margin-top: 54px;
 }
 
 .footnote-ref {
