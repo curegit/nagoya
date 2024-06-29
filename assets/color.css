@@ -33,6 +33,11 @@ footer#bottom {
   color: #494da4;
 }
 
+:root {
+  --folder-icon-color: #14aae0;
+  --tag-icon-color: #1094aa;
+}
+
 .toc {
   background-color: #4b8bbe1f;
 }

@@ -1,6 +1,6 @@
 :root {
-  --folder-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='rgb(20,170,224)' d='M96.429,37.5v39.286c0,3.423-1.228,6.361-3.684,8.817c-2.455,2.455-5.395,3.683-8.816,3.683H16.071 c-3.423,0-6.362-1.228-8.817-3.683c-2.456-2.456-3.683-5.395-3.683-8.817V23.214c0-3.422,1.228-6.362,3.683-8.817 c2.455-2.456,5.394-3.683,8.817-3.683h17.857c3.422,0,6.362,1.228,8.817,3.683c2.455,2.455,3.683,5.395,3.683,8.817V25h37.5 c3.422,0,6.361,1.228,8.816,3.683C95.201,31.138,96.429,34.078,96.429,37.5z'/></svg>");
-  --tag-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256.313 256.313'><path fill='rgb(16,148,170)' d='M163.854 250.072c-8.365 8.322-21.87 8.322-30.192 0L16.047 139.762c-6.576-6.168-14.414-17.856-14.979-26.853-1.512-24.34-.446-70.947.294-95.657C1.628 8.246 9.2.696 18.212.489c31.568-.734 98.452-1.518 104.669 4.705l129.52 117.179c8.316 8.322.772 29.371-7.609 37.736l-80.938 89.963zM60.789 36.284c-7.054-7.038-18.46-7.038-25.52 0-7.038 7.06-7.038 18.46 0 25.498 7.065 7.044 18.471 7.044 25.52 0 7.044-7.038 7.044-18.444 0-25.498z'/></svg>");
+  --folder-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='rgb(0,0,0)' d='M96.429,37.5v39.286c0,3.423-1.228,6.361-3.684,8.817c-2.455,2.455-5.395,3.683-8.816,3.683H16.071 c-3.423,0-6.362-1.228-8.817-3.683c-2.456-2.456-3.683-5.395-3.683-8.817V23.214c0-3.422,1.228-6.362,3.683-8.817 c2.455-2.456,5.394-3.683,8.817-3.683h17.857c3.422,0,6.362,1.228,8.817,3.683c2.455,2.455,3.683,5.395,3.683,8.817V25h37.5 c3.422,0,6.361,1.228,8.816,3.683C95.201,31.138,96.429,34.078,96.429,37.5z'/></svg>");
+  --tag-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256.313 256.313'><path fill='rgb(0,0,0)' d='M163.854 250.072c-8.365 8.322-21.87 8.322-30.192 0L16.047 139.762c-6.576-6.168-14.414-17.856-14.979-26.853-1.512-24.34-.446-70.947.294-95.657C1.628 8.246 9.2.696 18.212.489c31.568-.734 98.452-1.518 104.669 4.705l129.52 117.179c8.316 8.322.772 29.371-7.609 37.736l-80.938 89.963zM60.789 36.284c-7.054-7.038-18.46-7.038-25.52 0-7.038 7.06-7.038 18.46 0 25.498 7.065 7.044 18.471 7.044 25.52 0 7.044-7.038 7.044-18.444 0-25.498z'/></svg>");
 }
 
 @property --props-width {
@@ -106,12 +106,22 @@ ol.breadcrumb > li.page {
 }
 
 .section-title {
+  position: relative;
   padding-left: 44px;
-  background-image: var(--folder-icon);
-  background-repeat: no-repeat;
-  background-position: top left;
-  background-size: auto 34px;
   line-height: 1.4;
+}
+
+.section-title::before {
+  display: block;
+  content: "";
+  position: absolute;
+  mask: var(--folder-icon) top left / auto 34px no-repeat;
+  inset: 0;
+  background-color: var(--folder-icon-color, #14aae0);
+}
+
+.section-title > * {
+  position: relative;
 }
 
 .article-list {
@@ -175,12 +185,22 @@ ol.breadcrumb > li.page {
 }
 
 .list-title-tag {
+  position: relative;
   padding-left: 40px;
-  background-image: var(--tag-icon);
-  background-repeat: no-repeat;
-  background-position: left 4px;
-  background-size: auto 28px;
   line-height: 1.4;
+}
+
+.list-title-tag::before {
+  display: block;
+  content: "";
+  position: absolute;
+  inset: 0;
+  mask: var(--tag-icon) left 4px / auto 28px no-repeat;
+  background-color: var(--tag-icon-color, #1094aa);
+}
+
+.list-title-tag > * {
+  position: relative;
 }
 
 .list-title-taxonomy {
@@ -202,12 +222,22 @@ ol.breadcrumb > li.page {
 }
 
 .tag-list li {
+  position: relative;
   padding-left: 24.5px;
-  background-image: var(--tag-icon);
-  background-repeat: no-repeat;
-  background-position: left 6px;
-  background-size: auto 18px;
   line-height: 1.65;
+}
+
+.tag-list li::before {
+  display: block;
+  content: "";
+  position: absolute;
+  inset: 0;
+  mask: var(--tag-icon) left 6px / auto 18px no-repeat;
+  background-color: var(--tag-icon-color, #1094aa);
+}
+
+.tag-list li > * {
+  position: relative;
 }
 
 .tag-list li a {
@@ -338,12 +368,22 @@ ul.folders {
 }
 
 .folder {
+  position: relative;
   padding-left: 31px;
-  background-image: var(--folder-icon);
-  background-repeat: no-repeat;
-  background-position: left 1.25px;
-  background-size: auto 23px;
   line-height: 1.7;
+}
+
+.folder::before {
+  display: block;
+  content: "";
+  position: absolute;
+  inset: 0;
+  mask: var(--folder-icon) left 1.25px / auto 23px no-repeat;
+  background-color: var(--folder-icon-color, #14aae0);
+}
+
+.folder > * {
+  position: relative;
 }
 
 .folder a {
@@ -360,12 +400,22 @@ ul.tags, ul.terms {
 }
 
 .tag {
+  position: relative;
   padding-left: 24px;
-  background-image: var(--tag-icon);
-  background-repeat: no-repeat;
-  background-position: left 6px;
-  background-size: auto 17px;
   line-height: 1.7;
+}
+
+.tag::before {
+  display: block;
+  content: "";
+  position: absolute;
+  inset: 0;
+  mask: var(--tag-icon) left 6px / auto 17px no-repeat;
+  background-color: var(--tag-icon-color, #1094aa);
+}
+
+.tag > * {
+  position: relative;
 }
 
 .tag a {
