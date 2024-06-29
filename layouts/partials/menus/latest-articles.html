@@ -1,7 +1,7 @@
 {{ $latest := partial "functions/filter-articles" site.RegularPages | first site.Params.newNum }}
 {{ if $latest }}
   <nav class="pane">
-    <header class="component-title">最新記事</header>
+    <header class="component-title">{{ site.Params.newText | default "最新記事" }}</header>
     <ul class="dense">
       {{ range $latest }}
         <li>

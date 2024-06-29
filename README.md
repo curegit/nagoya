@@ -103,8 +103,10 @@ Hugo の Menu Templates 機能には対応していません。
 | `treeRoot`       | String          | サイドバーのディレクトリツリーの起点を指定します                       |
 | `sidebarSearch`  | Boolean         | サイドバーに検索ボックスを表示するか否かを設定します                   |
 | `newNum`         | Integer         | サイドバーに表示する最新記事の数を設定します                           |
-| `relatedNum`     | Integer         | 各記事下部に表示する関連記事の数を設定します                           |
-| `randomNum`      | Integer         | 各記事下部に表示するランダム記事の数を設定します                       |
+| `newText` | String |   サイドバーに表示する最新記事領域のタイトルを設定します |
+| `readNextText`       | String          |   各記事下部に表示する記事リスト領域のタイトルを設定します                |
+| `relatedNum`     | Integer         | 各記事下部に表示する記事リストにおける関連記事の数を設定します                           |
+| `randomNum`      | Integer         | 各記事下部に表示する記事リストにおけるランダム記事の数を設定します                       |
 | `shuffleSeeAlso` | Boolean         | 関連記事とランダム記事の順序をシャッフルするか否かを設定します         |
 | `showHeaderText` | Boolean         | ヘッダーにサイトの概要テキストを表示するか否かを設定します             |
 | `headerText`     | String          | ヘッダーのサイト概要テキストを手動設定します                           |
