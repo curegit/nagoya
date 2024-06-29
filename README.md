@@ -35,6 +35,8 @@ Git submodule による導入を推奨します。
 git submodule add --name nagoya https://github.com/curegit/nagoya.git themes/nagoya
 ```
 
+SCSS 拡張 (Hugo extended edition) は不要です。
+
 ## 基本設計
 
 Hugo のページバンドルによるコンテンツ整理に従っており、任意の深さのセクションツリーを作成できます。
