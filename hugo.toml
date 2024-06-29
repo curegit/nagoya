@@ -1,6 +1,7 @@
 [params]
   showAuthor = true
   showLastmod = true
+  showSummary = true
   showTreeCount = true
   treeRoot = ""
   sidebarSearch = true

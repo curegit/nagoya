@@ -17,7 +17,7 @@
         </a>
       {{ end }}
       {{ $summary := (trim (.Summary | plainify) " \n") }}
-      {{ if $summary }}
+      {{ if and site.Params.showSummary $summary }}
         <div class="summary">
           {{ if .Truncated }}
             {{ printf "%s&nbsp;…" $summary | safeHTML }}

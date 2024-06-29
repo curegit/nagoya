@@ -98,6 +98,7 @@ Hugo の Menu Templates 機能には対応していません。
 | `keywords`       | Array of String | サイト全体のキーワードを設定します                                     |
 | `showAuthor`     | Boolean         | 著者情報を記事に表示するか否かを設定します                             |
 | `showLastmod`    | Boolean         | 各記事の最終更新日を表示するか否かを設定します                         |
+| `showSummary`    | Boolean         | リストページに Summary を表示するか否かを設定します             |
 | `showTreeCount`  | Boolean         | サイドバーのディレクトリツリーに計ページ数を表示するか否かを設定します |
 | `treeRoot`       | String          | サイドバーのディレクトリツリーの起点を指定します                       |
 | `sidebarSearch`  | Boolean         | サイドバーに検索ボックスを表示するか否かを設定します                   |
