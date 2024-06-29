@@ -10,5 +10,4 @@
   randomNum = 2
   shuffleSeeAlso = true
   showHeaderText = true
-  headerText = ""
   maxConcurrency = 16
