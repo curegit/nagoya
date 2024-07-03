@@ -82,7 +82,7 @@ mark {
 
 del {
   background-color: #ffebe9;
-  text-decoration: none;
+  text-decoration: line-through;
 }
 
 ins {
