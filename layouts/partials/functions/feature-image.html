@@ -17,8 +17,12 @@
       {{ $image = $featured.RelPermalink }}
     {{ else }}
       {{ if $fallbackGlobal }}
-        {{ with site.Params.images }}
-          {{ $image = index . 0 | relURL }}
+        {{ with .Parent }}
+          {{ $image = partial "functions/feature-image" (dict "context" . "fallbackGlobal" $fallbackGlobal "preferOriginal" $preferOriginal) }}
+        {{ else }}
+          {{ with site.Params.images }}
+            {{ $image = index . 0 | relURL }}
+          {{ end }}
         {{ end }}
       {{ end }}
     {{ end }}
