@@ -1,5 +1,6 @@
 {{ $data := resources.Get "search.json" | resources.ExecuteAsTemplate "data.json" . | minify | fingerprint }}
 {{ $searcher := resources.Get "searcher.js" | minify | fingerprint }}
+
 (function () {
   const searcher = "{{ $searcher.RelPermalink }}";
   const data = "{{ $data.RelPermalink }}";
