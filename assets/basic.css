@@ -80,13 +80,17 @@ mark {
   color: currentColor;
 }
 
+ins {
+  background-color: #dafbe1;
+  text-decoration: none;
+}
+
 del {
-  background-color: #ffebe9;
   text-decoration: line-through;
 }
 
-ins {
-  background-color: #dafbe1;
+code del {
+  background-color: #ffebe9;
   text-decoration: none;
 }
 
