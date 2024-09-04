@@ -1,5 +1,5 @@
 {{ if .Content }}
   {{ if .Page.Store.Get "hasMermaid" }}
-    <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    {{ partial "heads/mermaid-src" . }}
   {{ end }}
 {{ end }}
