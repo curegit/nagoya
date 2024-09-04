@@ -135,6 +135,7 @@ ol.breadcrumb > li.page {
 }
 
 .article-list article header time {
+  padding-left: 1.5px;
   color: #4d4d4d;
   font-size: 14px;
 }
@@ -264,7 +265,7 @@ ol.breadcrumb > li.page {
 }
 
 .paginator {
-  padding: 14px 16px;
+  padding: 21px 16px;
 }
 
 .pagination {
@@ -500,7 +501,7 @@ footer#bottom span {
   }
 
   main.pane {
-    padding: 30px 44px 42px;
+    padding: 30px 44px 52px;
   }
 
   #content .pane:not(#breadcrumb, main) {
@@ -508,7 +509,7 @@ footer#bottom span {
   }
 
   .paginator {
-    padding: 2px 16px;
+    padding: 3px 16px;
   }
 
   .prev-next {
