@@ -1,0 +1,8 @@
+{{ with .TableOfContents }}
+  {{ if (trim (. | plainify) " \n") }}
+    <div class="toc">
+      <div class="toc-title">目次</div>
+      {{ . }}
+    </div>
+  {{ end }}
+{{ end }}
