@@ -15,6 +15,7 @@
 - テキストマッチングによる記事の簡易全文検索
 - 数式レンダリング (KaTeX)
 - ダイアグラム表示 (Mermaid)
+- 目次の自動挿入オプション
 - パンくずリスト
 - Open Graph Protocol
 - 構造化データマークアップ (microdata)
@@ -29,13 +30,13 @@
 
 ## インストール
 
-Git submodule による導入を推奨します。
+Git submodule による導入を推奨しています。
 
 ```sh
 git submodule add --name nagoya https://github.com/curegit/nagoya.git themes/nagoya
 ```
 
-SCSS 拡張 (Hugo extended edition) は不要です。
+Hugo の SCSS 拡張 (Hugo extended edition) および、何らかのビルド操作は不要です。
 
 ## 基本設計
 

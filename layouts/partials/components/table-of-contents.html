@@ -1,7 +1,7 @@
 {{ with .TableOfContents }}
   {{ if (trim (. | plainify) " \n") }}
     <div class="toc">
-      <div class="toc-title">目次</div>
+      <div class="toc-title">{{ site.Params.tocHeaderText | default "目次" }}</div>
       {{ . }}
     </div>
   {{ end }}

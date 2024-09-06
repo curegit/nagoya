@@ -2,6 +2,8 @@
   showAuthor = true
   showLastmod = true
   showSummary = true
+  toc = false
+  tocAfterSummary = false
   showTreeCount = true
   treeRoot = ""
   sidebarSearch = true

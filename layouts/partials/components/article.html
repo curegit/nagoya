@@ -21,7 +21,18 @@
     {{ end }}
   </header>
   <div class="body">
-    {{ .Content }}
+    {{ if .Param "toc" }}
+      {{ if and (.Param "tocAfterSummary") .Truncated }}
+        {{ .Summary }}
+        {{ partial "components/table-of-contents" . }}
+        {{ .ContentWithoutSummary }}
+      {{ else }}
+        {{ partial "components/table-of-contents" . }}
+        {{ .Content }}
+      {{ end }}
+    {{ else }}
+      {{ .Content }}
+    {{ end }}
   </div>
   <footer>
     {{ $hasTerms := false }}
