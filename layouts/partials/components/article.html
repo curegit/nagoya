@@ -21,7 +21,7 @@
     {{ end }}
   </header>
   <div class="body">
-    {{ if .Param "toc" }}
+    {{ if and (.Param "toc") (not (.HasShortcode "toc")) }}
       {{ if and (.Param "tocAfterSummary") .Truncated }}
         {{ .Summary }}
         {{ partial "components/table-of-contents" . }}
