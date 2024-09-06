@@ -39,6 +39,10 @@ main h1 {
   border-radius: 16px;
 }
 
+.toc:has(+ h1, + h2) {
+  margin-bottom: 14px;
+}
+
 .toc-title {
   text-align: center;
   color: #000000b5;
