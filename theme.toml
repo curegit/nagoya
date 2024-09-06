@@ -1,9 +1,8 @@
-name = "curegit"
-homepage = "https://github.com/curegit/nagoya"
-demosite = "https://curegit.github.io/nagoya-example/"
+name = "Nagoya"
 license = "MIT"
 licenselink = "https://github.com/curegit/nagoya/blob/master/LICENSE"
-min_version = "0.125.0"
+homepage = "https://github.com/curegit/nagoya"
+demosite = "https://curegit.github.io/nagoya-example/"
 
 [author]
   name = "curegit"
