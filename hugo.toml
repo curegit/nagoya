@@ -13,3 +13,8 @@
   shuffleSeeAlso = true
   showHeaderText = true
   maxConcurrency = 16
+
+[module]
+  [module.hugoVersion]
+  min = "0.134.1"
+  extended = false
