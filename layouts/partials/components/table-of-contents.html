@@ -1,7 +1,10 @@
 {{ with .TableOfContents }}
   {{ if (trim (. | plainify) " \n") }}
     <div class="toc">
-      <div class="toc-title">{{ site.Params.tocHeaderText | default "目次" }}</div>
+      {{ $tocLabel := site.Params.tocHeaderText }}
+      {{ if not (eq $tocLabel false) }}
+        <div class="toc-title">{{ cond (eq $tocLabel true) "" $tocLabel | default "目次" }}</div>
+      {{ end }}
       {{ . }}
     </div>
   {{ end }}
