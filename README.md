@@ -48,7 +48,7 @@ Hugo のページバンドルによるコンテンツ整理に従っており、
 ## サムネイル画像の設定方法
 
 Hugo 自体の挙動に似せており、フロントマターの `images` の値があればそれをサムネイルとして使用します。
-それがない場合は、バンドル内でファイル名に feature, cover, thumbnail が含まれる画像がサムネイルとして使われます。
+それがない場合は、ページバンドル内でファイル名に feature, cover, thumbnail が含まれる画像がサムネイルとして使われます。
 
 ## タグやカテゴリ (Taxonomies)
 
@@ -120,7 +120,7 @@ Hugo の Menu Templates 機能には対応していません。
 | `headerText`      | String          | ヘッダーのサイト概要テキストを手動設定します                                                                                  |
 | `maxConcurrency`  | Integer         | 検索機能で使う Web Worker の上限数を指定します                                                                                |
 | `toc`             | Boolean         | コンテンツへの目次の自動挿入を有効化します（目次 Shortcode がコンテンツ内に存在している場合は、追加挿入されません）           |
-| `tocAfterSummary` | Boolean         | 目次の自動挿入位置をコンテンツ上部ではなく、Summary の後ろにします（コンテンツが Truncated されていない場合は上部のままです） |
+| `tocAfterSummary` | Boolean         | 目次の自動挿入位置をコンテンツ上部ではなく、Summary の後にします（コンテンツが Truncated されていない場合は上部のままです） |
 | `tocHeaderText`   | String          | 目次領域のタイトルを設定します                                                                                                |
 
 ## ページパラメータ
@@ -134,8 +134,8 @@ Hugo の Menu Templates 機能には対応していません。
 | `lang`            | String  | このページの言語を明示し、サイト全体の言語設定を上書きします                   |
 | `pin`             | Boolean | このページへのリンクをサイドバーにピン留めします（リーフバンドル専用）         |
 | `page`            | Boolean | このページを記事ではなく、固定ページとして扱います（リーフバンドル専用）       |
-| `toc`             | Boolean | サイトパラメータ `toc` をこのページについてのみ上書き設定します                |
-| `tocAfterSummary` | Boolean | サイトパラメータ `tocAfterSummary` をこのページについてのみ上書き設定します    |
+| `toc`             | Boolean | [サイトパラメータ](#サイトパラメータ) `toc` をこのページについてのみ上書き設定します                |
+| `tocAfterSummary` | Boolean | [サイトパラメータ](#サイトパラメータ) `tocAfterSummary` をこのページについてのみ上書き設定します    |
 
 Hugo 組み込みのフロントマター項目で、以下のものは設定するとやや特殊な効果を持ちます。
 
