@@ -103,9 +103,12 @@ Hugo の Menu Templates 機能には対応していません。
 | `keywords`        | Array of String | サイト全体のキーワードを設定します                                                                                            |
 | `showAuthor`      | Boolean         | 著者情報を記事に表示するか否かを設定します                                                                                    |
 | `showLastmod`     | Boolean         | 各記事の最終更新日を表示するか否かを設定します                                                                                |
+| `lastmodLabelText`     |  String         | 最終更新日を表すラベルのテキストを変更します                                                                                |
+| `dateLabelText`     | String         |          公開日を表すラベルのテキストを変更します                                                                       |
 | `showSummary`     | Boolean         | リストページに Summary を表示するか否かを設定します                                                                           |
-| `showTreeCount`   | Boolean         | サイドバーのディレクトリツリーに計ページ数を表示するか否かを設定します                                                        |
+| `sectionLabelText`   | String         |      セクションを表すラベルのテキストを変更します                                                   |
 | `treeRoot`        | String          | サイドバーのディレクトリツリーの起点を指定します                                                                              |
+| `showTreeCount`   | Boolean         | サイドバーのディレクトリツリーに計ページ数を表示するか否かを設定します                                                        |
 | `sidebarSearch`   | Boolean         | サイドバーに検索ボックスを表示するか否かを設定します                                                                          |
 | `newNum`          | Integer         | サイドバーに表示する最新記事の数を設定します                                                                                  |
 | `newText`         | String          | サイドバーに表示する最新記事領域のタイトルを設定します                                                                        |

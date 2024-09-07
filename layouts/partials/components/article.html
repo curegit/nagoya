@@ -1,12 +1,14 @@
 {{ $created := .Date.Format "2006/01/02" }}
 {{ $lastmod := .Lastmod.Format "2006/01/02" }}
+{{ $dateLabel := site.Params.dateLabelText | default "公開" }}
+{{ $lastmodLabel := site.Params.lastmodLabelText | default "更新" }}
 <article class="single">
   <header>
     <h1 class="title" itemprop="headline">{{ .Title }}</h1>
     {{ if .Params.page }}
       {{ if site.Params.showLastmod }}
         <div class="time">
-          <div>更新: <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ $lastmod }}</time></div>
+          <div>{{ $lastmodLabel }}: <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ $lastmod }}</time></div>
         </div>
       {{ end }}
     {{ else }}
@@ -14,8 +16,8 @@
         {{ if or (not site.Params.showLastmod) (eq $created $lastmod) }}
           <div><time datetime="{{ .Date.Format "2006-01-02" }}"> {{ $created }}</time></div>
         {{ else }}
-          <div>公開: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ $created }}</time></div>
-          <div>更新: <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ $lastmod }}</time></div>
+          <div>{{ $dateLabel }}: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ $created }}</time></div>
+          <div>{{ $lastmodLabel }}: <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ $lastmod }}</time></div>
         {{ end }}
       </div>
     {{ end }}
@@ -57,7 +59,7 @@
         <tbody>
           {{ with $section }}
             <tr>
-              <th>セクション:</th>
+              <th>{{ site.Params.sectionLabelText | default "セクション" }}:</th>
               <td>
                 <div class="folder">
                   <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
