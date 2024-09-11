@@ -179,6 +179,14 @@ ol.breadcrumb > li.page {
   .thumbnail-link:hover img {
     opacity: 0.85;
   }
+
+  article:has(a[href]:hover) .thumbnail-link img {
+    opacity: 0.85;
+  }
+
+  article:has(.thumbnail-link:hover) a[href] {
+    text-decoration-line: underline;
+  }
 }
 
 .list-title {
