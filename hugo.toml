@@ -2,6 +2,8 @@
   showAuthor = true
   showLastmod = true
   showSummary = true
+  toc = false
+  tocAfterSummary = false
   showTreeCount = true
   treeRoot = ""
   sidebarSearch = true
@@ -11,3 +13,8 @@
   shuffleSeeAlso = true
   showHeaderText = true
   maxConcurrency = 16
+
+[module]
+  [module.hugoVersion]
+  min = "0.134.1"
+  extended = false

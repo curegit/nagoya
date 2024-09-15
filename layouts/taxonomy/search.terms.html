@@ -17,7 +17,7 @@
         <div>
           <label><input type="checkbox" name="c" value="1" id="case">大/小文字を区別</label>
         </div>
-        <input type="search" name="q" id="query">
+        <input type="search" name="q" id="query" aria-label="検索クエリ">
         <input type="submit" value="検索">
       </form>
       {{ $script := resources.Get "search.js" | resources.ExecuteAsTemplate "search.js" . | minify }}
