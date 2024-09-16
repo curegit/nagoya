@@ -39,7 +39,7 @@ main h1 {
   border-radius: 16px;
 }
 
-.toc:has(+ h1, + h2) {
+.toc:has(+ h2) {
   margin-bottom: 14px;
 }
 
