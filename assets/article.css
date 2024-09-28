@@ -306,6 +306,12 @@ main h1 {
   line-height: 1.6;
 }
 
+.single .link-card .title:not(:has(~ .desc)) {
+  font-size: 1.05em;
+  padding-left: 3px;
+  white-space: inherit;
+}
+
 .single .link-card .title {
   font-weight: 600;
 }
