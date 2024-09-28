@@ -1,13 +1,3 @@
-<a class="link-card"{{ with .Get "href" }} href="{{ . }}"{{ end }}>
-  {{ with .Get "img" | default (.Get "image") }}
-    <div class="image" style="background-image: url('{{ . }}');"></div>
-  {{ end }}
-  <div class="text">
-    {{ with .Get "title" }}
-      <div class="title">{{ . }}</div>
-    {{ end }}
-    {{ with .Get "desc" | default (.Get "description") }}
-      <div class="desc">{{ . }}</div>
-    {{ end }}
-  </div>
-</a>
+{{ $img := .Get "img" | default (.Get "image") }}
+{{ $desc := .Get "desc" | default (.Get "description") }}
+{{ partial "components/link-card" (dict "href" (.Get "href") "image" $img "title" (.Get "title") "desc" $desc) }}

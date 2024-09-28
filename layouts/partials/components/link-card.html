@@ -1,0 +1,17 @@
+{{ $href := .href }}
+{{ $title := .title }}
+{{ $description := .desc }}
+{{ $image := .image }}
+<a class="link-card"{{ with $href }} href="{{ . }}"{{ end }}>
+  {{ with $image }}
+    <div class="image" style="background-image: url('{{ . }}');"></div>
+  {{ end }}
+  <div class="text">
+    {{ with $title }}
+      <div class="title">{{ . }}</div>
+    {{ end }}
+    {{ with $description }}
+      <div class="desc">{{ . }}</div>
+    {{ end }}
+  </div>
+</a>

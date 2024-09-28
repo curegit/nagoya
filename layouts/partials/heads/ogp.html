@@ -6,12 +6,8 @@
   <meta property="og:type" content="website">
 {{ end }}
 <meta property="og:site_name" content="{{ site.Title }}">
-{{ if .IsHome }}
-  <meta property="og:title" content="{{ site.Title }}">
-{{ else if .IsPage }}
-  <meta property="og:title" content="{{ .Title }}">
-{{ else }}
-  <meta property="og:title" content="{{ printf "%s | %s" .Title site.Title }}">
+{{ with partial "functions/title" . }}
+  <meta property="og:title" content="{{ . }}">
 {{ end }}
 {{ with partial "functions/description" . }}
   <meta property="og:description" content="{{ . }}">

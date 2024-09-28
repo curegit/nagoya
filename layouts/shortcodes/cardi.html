@@ -1,0 +1,10 @@
+{{ $ref := false }}
+{{ with .Get "ref" | default (.Get 0) }}
+  {{ $ref = . }}
+{{ end }}
+{{ $checkedRef := relref . $ref }}
+{{ $page := .Page.GetPage (urls.Parse $ref).Path }}
+{{ $image := partial "functions/feature-image" (dict "context" $page "fallbackGlobal" true "preferOriginal" false) }}
+{{ $title := partial "functions/title" $page }}
+{{ $desc := partial "functions/description" $page }}
+{{ partial "components/link-card" (dict "href" $checkedRef "image" $image "title" $title "desc" $desc) }}
