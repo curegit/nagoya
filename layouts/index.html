@@ -1,5 +1,9 @@
-{{ define "main" }}
+{{ define "eager-paginate" }}
   {{ $paginator := .Paginate (partial "functions/filter-articles" site.RegularPages) }}
+{{ end }}
+
+{{ define "main" }}
+  {{ $paginator := .Paginator }}
   {{ if eq $paginator.PageNumber 1 }}
     {{ if or .Title .Content }}
       <div class="single">

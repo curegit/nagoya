@@ -1,3 +1,11 @@
+{{ define "eager-paginate" }}
+  {{ $paginator := .Paginate .RegularPagesRecursive }}
+{{ end }}
+
+{{ define "rel-seq" }}
+  {{ partial "heads/pagination" . }}
+{{ end }}
+
 {{ define "robots" }}
   {{ if not .Content }}
     <meta name="robots" content="noindex">
@@ -19,7 +27,7 @@
 {{ end }}
 
 {{ define "main" }}
-  {{ $paginator := .Paginate .RegularPagesRecursive }}
+  {{ $paginator := .Paginator }}
   <div class="single">
     <header>
       <h1 class="section-title">{{ .Title }}</h1>
