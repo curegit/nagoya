@@ -10,9 +10,11 @@
     {{ $currentPageNumber := .PageNumber }}
     {{ with .First }}
       {{ if ne $currentPageNumber .PageNumber }}
-        <li class="page-item">
-          <a href="{{ .URL }}" aria-label="First" class="page-link"><span aria-hidden="true">&laquo;&laquo;</span></a>
-        </li>
+        {{ if and .Next (ne $currentPageNumber .Next.PageNumber) }}
+          <li class="page-item">
+            <a href="{{ .URL }}" aria-label="First" class="page-link"><span aria-hidden="true">&laquo;&laquo;</span></a>
+          </li>
+        {{ end }}
       {{ end }}
     {{ end }}
     {{ with .Prev }}
@@ -45,9 +47,11 @@
     {{ end }}
     {{ with .Last }}
       {{ if ne $currentPageNumber .PageNumber }}
-        <li class="page-item">
-          <a href="{{ .URL }}" aria-label="Last" class="page-link"><span aria-hidden="true">&raquo;&raquo;</span></a>
-        </li>
+        {{ if and .Prev (ne $currentPageNumber .Prev.PageNumber) }}
+          <li class="page-item">
+            <a href="{{ .URL }}" aria-label="Last" class="page-link"><span aria-hidden="true">&raquo;&raquo;</span></a>
+          </li>
+        {{ end }}
       {{ end }}
     {{ end }}
   </ul>
