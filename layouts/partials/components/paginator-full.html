@@ -1,0 +1,70 @@
+{{ $slots := site.Params.paginationSlots }}
+{{ $paginator := .Paginator }}
+{{ with $paginator }}
+  {{ if eq $slots true }}
+    {{ $slots = 5 }}
+  {{ else if eq $slots false }}
+    {{ $slots = .TotalPages }}
+  {{ end }}
+  <ul class="pagination">
+    {{ $currentPageNumber := .PageNumber }}
+    {{ with .First }}
+      {{ if ne $currentPageNumber .PageNumber }}
+        <li class="page-item">
+          <a href="{{ .URL }}" aria-label="First" class="page-link"><span aria-hidden="true">&laquo;&laquo;</span></a>
+        </li>
+      {{ else }}
+        <li class="page-item disabled">
+          <a aria-disabled="true" aria-label="First" class="page-link" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+        </li>
+      {{ end }}
+    {{ end }}
+    {{ with .Prev }}
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="Previous" class="page-link"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+    {{ else }}
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Previous" class="page-link" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+    {{ end }}
+    {{ if $slots }}
+      {{ $start := math.Max 1 (sub .PageNumber (math.Floor (div $slots 2))) }}
+      {{ $end := math.Min .TotalPages (sub (add $start $slots) 1) }}
+      {{ if lt (add (sub $end $start) 1) $slots }}
+        {{ $start = math.Max 1 (add (sub $end $slots) 1) }}
+      {{ end }}
+      {{ range $k := seq $start $end }}
+        {{ if eq $paginator.PageNumber $k }}
+          <li class="page-item active">
+            <a aria-current="page" aria-label="Page {{ $k }}" class="page-link">{{ $k }}</a>
+          </li>
+        {{ else }}
+          <li class="page-item">
+            <a href="{{ (index $paginator.Pagers (sub $k 1)).URL }}" aria-label="Page {{ $k }}" class="page-link">{{ $k }}</a>
+          </li>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ with .Next }}
+      <li class="page-item">
+        <a href="{{ .URL }}" aria-label="Next" class="page-link"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+    {{ else }}
+      <li class="page-item disabled">
+        <a aria-disabled="true" aria-label="Next" class="page-link" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+    {{ end }}
+    {{ with .Last }}
+      {{ if ne $currentPageNumber .PageNumber }}
+        <li class="page-item">
+          <a href="{{ .URL }}" aria-label="Last" class="page-link"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        </li>
+      {{ else }}
+        <li class="page-item disabled">
+          <a aria-disabled="true" aria-label="Last" class="page-link" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+{{ end }}

@@ -4,6 +4,8 @@
   showSummary = true
   toc = false
   tocAfterSummary = false
+  tersePagination = false
+  paginationSlots = true
   showTreeCount = true
   treeRoot = ""
   sidebarSearch = true
