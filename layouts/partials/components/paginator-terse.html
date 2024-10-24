@@ -6,7 +6,7 @@
   {{ else if eq $slots false }}
     {{ $slots = .TotalPages }}
   {{ end }}
-  <ul class="pagination">
+  <ol class="pagination">
     {{ $currentPageNumber := .PageNumber }}
     {{ with .First }}
       {{ if ne $currentPageNumber .PageNumber }}
