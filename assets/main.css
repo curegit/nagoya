@@ -400,6 +400,16 @@ ul.folders {
   padding-left: 31px;
 }
 
+ul.collapsed::after, ol.collapsed::after {
+  display: inline-block;
+  content: "…";
+}
+
+.collapse-text {
+  padding-top: 4px;
+  text-align: right;
+}
+
 ul.tags, ul.terms {
   display: flex;
   flex-flow: row wrap;

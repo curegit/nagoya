@@ -9,6 +9,7 @@
   showTreeCount = true
   treeRoot = ""
   sidebarSearch = true
+  sidebarTagThreshold = 0
   newNum = 10
   relatedNum = 3
   randomNum = 2

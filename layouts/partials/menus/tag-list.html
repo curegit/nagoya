@@ -1,17 +1,35 @@
+{{ $collapsedText := site.Params.tagCollapsedText }}
+{{ if eq $collapsedText true }}
+  {{ $collapsedText = "" }}
+{{ end }}
 {{ $terms := index site.Taxonomies "tags" }}
 {{ if $terms }}
-  <nav class="pane">
-    {{ with site.GetPage "tags" }}
-      <header class="component-title">
-        <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-      </header>
-      <ul class="tags">
-        {{ range partial "functions/sort-terms" (dict "context" .Pages "fullTitle" false) }}
-          <li class="tag">
-            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-          </li>
+  {{ with site.GetPage "tags" }}
+    {{ $tagPage := . }}
+    {{ $fullLen := len .Pages }}
+    {{ $filtered := where .Pages "Pages.Len" ">=" site.Params.sidebarTagThreshold }}
+    {{ $showLen := len $filtered }}
+    {{ $collapsed := lt $showLen $fullLen }}
+    {{ with $filtered }}
+      <nav class="pane">
+        <header class="component-title">
+          <a href="{{ $tagPage.RelPermalink }}">{{ $tagPage.LinkTitle }}</a>
+        </header>
+        <ul class="tags{{ if $collapsed }} collapsed{{ end }}">
+          {{ range partial "functions/sort-terms" (dict "context" . "fullTitle" false) }}
+            <li class="tag">
+              <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            </li>
+          {{ end }}
+        </ul>
+        {{ if and $collapsed (ne $collapsedText false) }}
+          <footer>
+            <div class="collapse-text">
+              <a href="{{ $tagPage.RelPermalink }}">{{ with $collapsedText }}{{ . }}{{ else }}すべての{{ $tagPage.LinkTitle }}一覧{{ end }}</a>
+            </div>
+          </footer>
         {{ end }}
-      </ul>
+      </nav>
     {{ end }}
-  </nav>
+  {{ end }}
 {{ end }}
