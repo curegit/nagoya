@@ -7,7 +7,7 @@
       </div>
     {{ end }}
   </div>
-  <ul class="term-list {{ if eq .Data.Plural "tags" }}tag-list{{ end }}">
+  <ul class="term-list{{ if eq .Data.Plural "tags" }} tag-list{{ end }}">
     {{ range partial "functions/sort-terms" (dict "context" .Pages "fullTitle" true) }}
       {{ $n := len .Pages }}
       <li>
