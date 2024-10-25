@@ -29,7 +29,7 @@
     {{ end }}
     {{ $i := $scratch.Get "position" }}
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" {{ if .IsPage }}{{ "class=\"page\"" | safeHTMLAttr }}{{ end }}>
-      <span itemprop="name">{{ .LinkTitle }}</span>
+      <a aria-current="location"><span itemprop="name">{{ .LinkTitle }}</span></a>
       <meta itemprop="position" content="{{ $i }}">
     </li>
   </ol>
