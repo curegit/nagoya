@@ -1,6 +1,6 @@
-{{ $collapsedText := site.Params.tagCollapsedText }}
-{{ if eq $collapsedText true }}
-  {{ $collapsedText = "" }}
+{{ $ellipsizedText := site.Params.tagEllipsizedText }}
+{{ if eq $ellipsizedText true }}
+  {{ $ellipsizedText = "" }}
 {{ end }}
 {{ $terms := index site.Taxonomies "tags" }}
 {{ if $terms }}
@@ -22,10 +22,10 @@
             </li>
           {{ end }}
         </ul>
-        {{ if and $collapsed (ne $collapsedText false) }}
+        {{ if and $collapsed (ne $ellipsizedText false) }}
           <footer>
             <div class="collapse-text">
-              <a href="{{ $tagPage.RelPermalink }}">{{ with $collapsedText }}{{ . }}{{ else }}すべての{{ $tagPage.LinkTitle }}一覧{{ end }}</a>
+              <a href="{{ $tagPage.RelPermalink }}">{{ with $ellipsizedText }}{{ . }}{{ else }}すべての{{ $tagPage.LinkTitle }}一覧{{ end }}</a>
             </div>
           </footer>
         {{ end }}

@@ -113,7 +113,7 @@ Hugo の Menu Templates 機能には対応していません。
 | `showTreeCount`       | Boolean            | サイドバーのディレクトリツリーに計ページ数を表示するか否かを設定します                                                                |
 | `sidebarSearch`       | Boolean            | サイドバーに検索ボックスを表示するか否かを設定します                                                                                  |
 | `sidebarTagThreshold` | Integer            | 属するページ数がこの数に満たないタグをサイドバーのタグ一覧から割愛する                                                                |
-| `tagCollapsedText`    | String or Boolean  | タグ割愛時に表示するすべてのタグ一覧ページへのリンクテキストを設定します（`false` を設定すると何も表示しません）                      |
+| `tagEllipsizedText`   | String or Boolean  | タグ割愛時に表示するすべてのタグ一覧ページへのリンクテキストを設定します（`false` を設定すると何も表示しません）                      |
 | `newNum`              | Integer            | サイドバーに表示する最新記事の数を設定します                                                                                          |
 | `newText`             | String             | サイドバーに表示する最新記事領域のタイトルを設定します                                                                                |
 | `readNextText`        | String             | 各記事下部に表示する記事リスト領域のタイトルを設定します                                                                              |
