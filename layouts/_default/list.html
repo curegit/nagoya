@@ -19,12 +19,17 @@
       {{ if eq .Page.Kind "term" }}
         {{ $taxonomy := .Data.Plural }}
         {{ if eq $taxonomy "tags" }}
-          <h1 class="list-title list-title-tag">{{ .Title }}</h1>
+          <h1 class="list-title list-title-tag">
+            <span>{{ .Title }}</span>
+          </h1>
         {{ else }}
-          <h1 class="list-title"><span class="list-title-taxonomy">{{ (site.GetPage $taxonomy).Title }}:</span> {{ .Title }}</h1>
+          <h1 class="list-title">
+            <span class="list-title-taxonomy">{{ (site.GetPage $taxonomy).Title }}:</span>
+            <span>{{ .Title }}</span>
+          </h1>
         {{ end }}
       {{ else }}
-        <h1 class="list-title">{{ .Title }}</h1>
+        <h1 class="list-title"><span>{{ .Title }}</span></h1>
       {{ end }}
       {{ if gt $paginator.TotalPages 1 }}
         <small class="page-num">

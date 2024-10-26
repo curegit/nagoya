@@ -30,7 +30,7 @@
   {{ $paginator := .Paginator }}
   <div class="single">
     <header>
-      <h1 class="section-title">{{ .Title }}</h1>
+      <h1 class="section-title"><span>{{ .Title }}</span></h1>
       {{ if or (gt $paginator.PageNumber 1) (and (not .Content) (gt $paginator.TotalPages 1)) }}
         <small class="page-num">
           {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }} ページ
