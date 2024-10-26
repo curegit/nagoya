@@ -10,9 +10,7 @@
       <li><a href="{{ .RelPermalink }}">{{ .LinkTitle | default "ホーム" }}</a></li>
     {{ else if not .IsPage }}
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="{{ .RelPermalink }}" itemprop="item">
-          <span itemprop="name">{{ .LinkTitle }}</span>
-        </a>
+        <a href="{{ .RelPermalink }}" itemprop="item"><span itemprop="name">{{ .LinkTitle }}</span></a>
         <meta itemprop="position" content="{{ $i }}">
       </li>
     {{ end }}
