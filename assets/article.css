@@ -338,7 +338,7 @@ a[href].footnote-ref {
 
 .footnote-ref::before {
   display: inline;
-  content: "[";
+  content: "\2060[";
 }
 
 .footnote-ref::after {
