@@ -277,8 +277,9 @@ ol.breadcrumb > li.page {
 }
 
 .pagination {
-  display: flex;
-  flex-flow: row wrap;
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fit, 44px);
   justify-content: center;
   gap: 10px;
   padding: 0;
@@ -288,8 +289,25 @@ ol.breadcrumb > li.page {
 
 .page-item {
   display: block;
-  min-width: 44px;
+  justify-self: center;
+  min-width: 100%;
+  max-width: calc(100% + 10px);
+  margin: 0;
+  padding: 0;
   text-align: center;
+  white-space: nowrap;
+}
+
+.page-item.next {
+  grid-column: -2 / -1;
+}
+
+.page-item.next:has(+ .last) {
+  grid-column: -3 / -2;
+}
+
+.page-item.last {
+  grid-column: -2 / -1;
 }
 
 a.page-link {

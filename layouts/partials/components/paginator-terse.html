@@ -11,14 +11,14 @@
     {{ with .First }}
       {{ if ne $currentPageNumber .PageNumber }}
         {{ if and .Next (ne $currentPageNumber .Next.PageNumber) }}
-          <li class="page-item">
+          <li class="page-item first">
             <a href="{{ .URL }}" aria-label="最初のページ" class="page-link"><span aria-hidden="true">&laquo;&laquo;</span></a>
           </li>
         {{ end }}
       {{ end }}
     {{ end }}
     {{ with .Prev }}
-      <li class="page-item">
+      <li class="page-item prev">
         <a href="{{ .URL }}" aria-label="前のページ" class="page-link"><span aria-hidden="true">&laquo;</span></a>
       </li>
     {{ end }}
@@ -41,14 +41,14 @@
       {{ end }}
     {{ end }}
     {{ with .Next }}
-      <li class="page-item">
+      <li class="page-item next">
         <a href="{{ .URL }}" aria-label="次のページ" class="page-link"><span aria-hidden="true">&raquo;</span></a>
       </li>
     {{ end }}
     {{ with .Last }}
       {{ if ne $currentPageNumber .PageNumber }}
         {{ if and .Prev (ne $currentPageNumber .Prev.PageNumber) }}
-          <li class="page-item">
+          <li class="page-item last">
             <a href="{{ .URL }}" aria-label="最後のページ" class="page-link"><span aria-hidden="true">&raquo;&raquo;</span></a>
           </li>
         {{ end }}
