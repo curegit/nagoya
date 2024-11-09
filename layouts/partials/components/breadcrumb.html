@@ -1,8 +1,8 @@
 {{ define "breadcrumb" }}
-  {{ $scratch := .scratch }}
+  {{ $scratch := .scratchPad }}
   {{ with .context }}
     {{ if .Parent }}
-      {{ template "breadcrumb" (dict "context" .Parent "scratch" $scratch) }}
+      {{ template "breadcrumb" (dict "context" .Parent "scratchPad" $scratch) }}
       {{ $scratch.Add "position" 1 }}
     {{ end }}
     {{ $i := $scratch.Get "position" }}
@@ -22,7 +22,7 @@
   {{ $scratch.Set "position" 0 }}
   <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
     {{ if .Parent }}
-      {{ template "breadcrumb" (dict "context" .Parent "scratch" $scratch) }}
+      {{ template "breadcrumb" (dict "context" .Parent "scratchPad" $scratch) }}
       {{ $scratch.Add "position" 1 }}
     {{ end }}
     {{ $i := $scratch.Get "position" }}
