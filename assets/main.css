@@ -506,7 +506,7 @@ footer#bottom span {
   }
 
   main.pane {
-    padding: 28px 38px 36px;
+    padding: 28px 38px 46px;
   }
 
   #content .pane:not(#breadcrumb, main) {
