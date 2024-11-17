@@ -281,6 +281,7 @@ ol.breadcrumb > li.page {
   grid-auto-flow: row;
   grid-template-columns: repeat(auto-fit, 44px);
   justify-content: center;
+  justify-items: normal;
   gap: 10px;
   padding: 0;
   font-size: 19px;
@@ -289,7 +290,6 @@ ol.breadcrumb > li.page {
 
 .page-item {
   display: block;
-  justify-self: center;
   min-width: 100%;
   max-width: calc(100% + 10px);
   margin: 0;
