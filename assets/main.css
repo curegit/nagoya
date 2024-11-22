@@ -436,13 +436,13 @@ ul.tags, ul.terms {
   list-style: none;
 }
 
-.tag {
+.tagged {
   position: relative;
   padding-left: 24px;
   line-height: 1.7;
 }
 
-.tag::before {
+.tagged::before {
   display: block;
   content: "";
   position: absolute;
@@ -451,11 +451,11 @@ ul.tags, ul.terms {
   background-color: var(--tag-icon-color, #1094aa);
 }
 
-.tag > * {
+.tagged > * {
   position: relative;
 }
 
-.tag a {
+.tagged a {
   margin-left: -24px;
   padding-left: 24px;
 }

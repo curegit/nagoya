@@ -17,7 +17,7 @@
         </header>
         <ul class="tags{{ if $collapsed }} collapsed{{ end }}">
           {{ range partial "functions/sort-terms" (dict "context" . "fullTitle" false) }}
-            <li class="tag">
+            <li class="tagged">
               <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
             </li>
           {{ end }}
