@@ -368,6 +368,18 @@ a.page-link[href]:focus-visible {
   grid-column: 2;
 }
 
+.prev-next > a.next::before {
+  content: "« ";
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.prev-next > a.prev::before {
+  content: "» ";
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
 .component-title {
   padding-left: 4px;
   padding-bottom: 3px;
