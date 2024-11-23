@@ -66,7 +66,7 @@ main.pane {
   display: flex;
   flex-flow: column;
   row-gap: 30px;
-  padding: 24px 28px 34px;
+  padding: 24px 26px 34px;
   background-color: #fff;
   container-type: inline-size;
 }
