@@ -357,7 +357,7 @@ a.page-link[href]:focus-visible {
 .prev-next > a {
   display: block;
   background: linear-gradient(0deg, #ffffff70, #ffffffbf);
-  padding: 10px 10px 10px 13px;
+  padding: 10px 10px 15px 13px;
   border-radius: 8px;
 }
 
@@ -580,7 +580,7 @@ footer#bottom span {
   }
 
   .prev-next > a {
-    padding: 16px;
+    padding: 14px 16px 16px;
     border-radius: 16px / 12px;
   }
 }
