@@ -43,7 +43,9 @@
       </div>
     {{ end }}
   </div>
-  {{ partial "components/article-list" $paginator.Pages }}
+  {{ with $paginator.Pages }}
+    {{ partial "components/article-list" . }}
+  {{ end }}
 {{ end }}
 
 {{ define "page-nav" }}
