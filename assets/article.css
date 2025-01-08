@@ -71,9 +71,13 @@ main h1 {
 }
 
 .single h3 {
-  margin-top: 24px;
+  margin-top: 28px;
   margin-bottom: 2px;
   padding-left: 4px;
+}
+
+.single h2 + h3 {
+  margin-top: 22px;
 }
 
 .single h4, .single h5, .single h6 {
