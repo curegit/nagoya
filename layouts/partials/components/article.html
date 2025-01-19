@@ -99,27 +99,34 @@
         </tbody>
       </table>
     {{ end }}
-    {{ if site.Params.showAuthor }}
-      {{ $author := false }}
-      {{ $authorLink := false }}
-      {{ if .Params.author }}
-        {{ $author = .Params.author }}
-        {{ $authorLink = .Params.authorLink | default $authorLink }}
-      {{ else if site.Params.author }}
-        {{ $author = site.Params.author }}
-        {{ $authorLink = site.Params.authorLink | default $authorLink }}
-      {{ end }}
-      {{ if or $author $authorLink }}
-        <div class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-          {{ if and $author $authorLink }}
+    {{ $author := false }}
+    {{ $authorLink := false }}
+    {{ if .Params.author }}
+      {{ $author = .Params.author }}
+      {{ $authorLink = .Params.authorLink | default $authorLink }}
+    {{ else if site.Params.author }}
+      {{ $author = site.Params.author }}
+      {{ $authorLink = site.Params.authorLink | default $authorLink }}
+    {{ end }}
+    {{ if or $author $authorLink }}
+      <div class="author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+        {{ if and $author $authorLink }}
+          {{ if site.Params.showAuthor }}
             <a rel="author" href="{{ $authorLink }}" itemprop="url"><span itemprop="name">{{ $author }}</span></a>
-          {{ else if $author }}
-            <span itemprop="name">{{ $author }}</span>
-          {{ else if $authorLink }}
+          {{ else }}
+            <meta itemprop="name" content="{{ $author }}">
             <meta itemprop="url" content="{{ $authorLink }}">
           {{ end }}
-        </div>
-      {{ end }}
+        {{ else if $author }}
+          {{ if site.Params.showAuthor }}
+            <span itemprop="name">{{ $author }}</span>
+          {{ else }}
+            <meta itemprop="name" content="{{ $author }}">
+          {{ end }}
+        {{ else if $authorLink }}
+          <meta itemprop="url" content="{{ $authorLink }}">
+        {{ end }}
+      </div>
     {{ end }}
   </footer>
 </article>
