@@ -109,8 +109,9 @@ Hugo の Menu Templates 機能には対応していません。
 | `tersePagination`     | Boolean            | ページ送りにおいて冗長な矢印要素を除いたフォーマットを利用します                                                                                    |
 | `paginationSlots`     | Boolean or Integer | ページ送りに表示するページ番号リンクの個数を設定します（`true` を設定するとフォーマット固有のデフォルト定数、`false` を設定すると無制限にできます） |
 | `sectionLabelText`    | String             | セクションを表すラベルのテキストを変更します                                                                                                        |
+| `recursiveListing`    | Boolean            | セクションに含まれるページを再帰的に表示するか否かを設定します                                                                                      |
+| `showTreeCount`       | Boolean            | 含まれるページ数をサイドバーのディレクトリツリーに表示するか否かを設定します                                                                        |
 | `treeRoot`            | String             | サイドバーのディレクトリツリーの起点を指定します                                                                                                    |
-| `showTreeCount`       | Boolean            | サイドバーのディレクトリツリーに計ページ数を表示するか否かを設定します                                                                              |
 | `sidebarSearch`       | Boolean            | サイドバーに検索ボックスを表示するか否かを設定します                                                                                                |
 | `sidebarTagThreshold` | Integer            | 属するページ数がこの数に満たないタグをサイドバーのタグ一覧から割愛する                                                                              |
 | `tagEllipsizedText`   | String or Boolean  | タグ割愛時に表示するすべてのタグ一覧ページへのリンクテキストを設定します（`false` を設定すると何も表示しません）                                    |

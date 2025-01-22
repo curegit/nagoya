@@ -6,6 +6,7 @@
   tocAfterSummary = false
   tersePagination = false
   paginationSlots = true
+  recursiveListing = true
   showTreeCount = true
   treeRoot = ""
   sidebarSearch = true
