@@ -226,6 +226,18 @@ main h1 {
   display: inline-block;
 }
 
+.single .highlight {
+  position: relative;
+}
+
+.single .highlight::before {
+  content: attr(title);
+  display: block;
+  position: absolute;
+  top: -0.9lh;
+  left: 8px;
+}
+
 .single blockquote .highlight {
   margin-left: 10px;
 }
