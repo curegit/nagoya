@@ -157,7 +157,7 @@ pre, code {
 
 blockquote {
   margin: 12px;
-  padding: 2px 13px 2px 9px;
+  padding: 2px 13px 2px 10px;
   border-left: 4px solid #cbd1da;
   font-style: italic;
 }
@@ -169,6 +169,11 @@ blockquote blockquote {
 
 blockquote pre, blockquote code {
   font-style: normal;
+}
+
+blockquote hr {
+  height: .1em;
+  margin-block: 1.2em;
 }
 
 hr {
