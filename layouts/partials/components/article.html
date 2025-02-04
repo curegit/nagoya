@@ -3,6 +3,7 @@
 {{ $dateLabel := site.Params.dateLabelText | default "公開" }}
 {{ $lastmodLabel := site.Params.lastmodLabelText | default "更新" }}
 <article class="single">
+  {{ partial "widgets/article-header-ante" . }}
   <header>
     <h1 class="title" itemprop="headline">{{ .Title }}</h1>
     {{ if .Params.page }}
@@ -22,6 +23,7 @@
       </div>
     {{ end }}
   </header>
+  {{ partial "widgets/article-header-post" . }}
   <div class="body">
     {{ if and (.Param "toc") (not (.HasShortcode "toc")) }}
       {{ if and (.Param "tocAfterSummary") .Truncated }}
@@ -36,6 +38,7 @@
       {{ .Content }}
     {{ end }}
   </div>
+  {{ partial "widgets/article-footer-ante" . }}
   <footer>
     {{ $hasTerms := false }}
     {{ $section := false }}
@@ -122,4 +125,5 @@
       {{ end }}
     {{ end }}
   </footer>
+  {{ partial "widgets/article-footer-post" . }}
 </article>
