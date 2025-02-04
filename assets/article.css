@@ -220,6 +220,7 @@ main h1 {
   padding: 12px 16px;
   border-radius: 6px;
   overflow-x: auto;
+  background-color: var(--code-bg);
 }
 
 .single pre > code:first-child:not(:has(+ *)) {
@@ -233,6 +234,7 @@ main h1 {
 .single th, .single td {
   padding: 5px 10px;
   border: 1px solid #d1d8df;
+  border-color: var(--table-border);
 }
 
 .single dl {

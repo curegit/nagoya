@@ -1,10 +1,10 @@
 html, body {
-  background-color: #474a8a;
-  accent-color: #474a8a;
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 header#top {
-  border-bottom-color: #4b8bbe;
+  border-bottom-color: var(--header-border);
 }
 
 header#top #site-title a {
@@ -16,12 +16,12 @@ header#top #description {
 }
 
 div#container {
-  background-color: #acc3ea;
+  background-color: var(--container-bg);
 }
 
 footer#bottom {
-  background-color: #474a8a;
-  border-top-color: #3ea7ac;
+  background-color: var(--bg-color);
+  border-top-color: var(--footer-border);
   color: #fff;
 }
 
@@ -56,4 +56,25 @@ a[href] {
 
 .single tr:nth-child(2n) {
   background-color: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1b2e;
+    --text-color: #e4e4e4;
+    --link-color: #7c9fff;
+    --single-link-color: #89a9ff;
+    --border-color: #3f4149;
+    --code-bg: #2a2b3d;
+    --blockquote-border: #4f5159;
+    --table-border: #3f4149;
+    --table-alt-bg: #2a2b3d;
+    --thead-bg: #2f3042;
+    --search-border: #9a9a9a;
+    --pane-bg: #242538;
+    --container-bg: #2f3042;
+    --header-border: #3d6d99;
+    --footer-border: #2d7a7e;
+    --desc-color: #9f8fd6;
+  }
 }
