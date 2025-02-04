@@ -45,6 +45,7 @@
 }
 
 .sidebar-search-form {
+  max-width: 500px;
   margin: 5px 0;
   justify-content: center;
 }
