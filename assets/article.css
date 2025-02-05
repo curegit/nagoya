@@ -226,6 +226,10 @@ main h1 {
   overflow-x: auto;
 }
 
+.single pre:has(> code) {
+  background-color: #e5e9ec;
+}
+
 .single pre > code:first-child:not(:has(+ *)) {
   display: inline-block;
 }
