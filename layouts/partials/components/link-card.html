@@ -2,7 +2,7 @@
 {{ $title := .title }}
 {{ $description := .desc }}
 {{ $image := .image }}
-<a class="link-card"{{ with $href }} href="{{ . }}"{{ end }}>
+<a class="link-card"{{ with $href }} href="{{ . }}"{{ end }}{{ with $title }} title="{{ . }}"{{ end }}>
   {{ with $image }}
     <div class="image" style="background-image: url('{{ . }}');"></div>
   {{ end }}
