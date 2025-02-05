@@ -16,6 +16,7 @@
 - テキストマッチングによる記事の簡易全文検索
 - 数式レンダリング (KaTeX)
 - ダイアグラム表示 (Mermaid)
+- リンクカード Shortcode
 - 目次の自動挿入オプションおよび手動挿入用 Shortcode
 - パンくずリスト
 - Open Graph Protocol
