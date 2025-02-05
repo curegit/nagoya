@@ -7,7 +7,7 @@
   tersePagination = false
   paginationSlots = true
   showTreeCount = true
-  treeRoot = ""
+  treeRoot = "/"
   sidebarSearch = true
   sidebarTagThreshold = 0
   newNum = 10

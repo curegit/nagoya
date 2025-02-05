@@ -70,7 +70,7 @@
           {{ end }}
           {{ with $tagTerms }}
             <tr>
-              <th>{{ (site.GetPage $taxonomyTag).LinkTitle }}:</th>
+              <th>{{ (site.GetPage (printf "/%s" $taxonomyTag)).LinkTitle }}:</th>
               <td>
                 <ul class="tags">
                   {{ range . }}
@@ -84,7 +84,7 @@
             {{ if not (in (slice "tags" "archives") $taxonomy) }}
               {{ with $.GetTerms $taxonomy }}
                 <tr>
-                  <th>{{ (site.GetPage $taxonomy).LinkTitle }}:</th>
+                  <th>{{ (site.GetPage (printf "/%s" $taxonomy)).LinkTitle }}:</th>
                   <td>
                     <ul class="terms">
                       {{ range . }}
