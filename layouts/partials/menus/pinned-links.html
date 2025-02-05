@@ -11,12 +11,12 @@
         <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
       </li>
     {{ end }}
-    {{ with site.GetPage "archives" }}
+    {{ with site.GetPage "/archives" }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
       </li>
     {{ end }}
-    {{ with site.GetPage "search" }}
+    {{ with site.GetPage "/search" }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
       </li>
