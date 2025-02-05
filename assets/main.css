@@ -381,7 +381,7 @@ a.page-link[href]:focus-visible {
 
 .prev-next > a.next::before {
   content: "\0023EA\00FE0E";
-  margin-right: 0.5ch;
+  margin-right: 0.6ch;
   font-size: 1.2em;
   font-weight: bold;
   font-variant-emoji: text;
@@ -389,7 +389,7 @@ a.page-link[href]:focus-visible {
 
 .prev-next > a.prev::before {
   content: "\0023E9\00FE0E";
-  margin-right: 0.5ch;
+  margin-right: 0.6ch;
   font-size: 1.2em;
   font-weight: bold;
   font-variant-emoji: text;
@@ -580,7 +580,7 @@ footer#bottom span {
   }
 
   .prev-next > a {
-    padding: 14px 16px 16px;
+    padding: 14px 18px 16px;
     border-radius: 16px / 12px;
   }
 }
