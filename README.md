@@ -3,9 +3,10 @@
 **Nagoya (名古屋)** は、静的サイトジェネレーター **Hugo** 用の日本語ブログテーマです。
 日本語のユーザーに最適になるよう設計されています。
 
-デモサイト: <https://curegit.github.io/nagoya-example/>
+- デモサイト: <https://curegit.github.io/nagoya-example/>
+- ソース: <https://github.com/curegit/nagoya-example>
 
-デモサイトのソース: <https://github.com/curegit/nagoya-example>
+運営ブログ例: <https://blog.curegit.jp/>
 
 ## 主要機能
 
