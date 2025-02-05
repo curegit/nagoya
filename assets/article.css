@@ -232,17 +232,19 @@ main h1 {
 
 .single div[title]:has(> pre > code) {
   position: relative;
+  top: 12px;
+  padding-bottom: 6px;
 }
 
 .single div[title]:has(> pre > code)::before {
   content: attr(title);
   display: block;
   position: absolute;
-  top: -0.9lh;
-  right: 8px;
-  width: calc(100% - 8px);
+  top: -0.95lh;
+  left: 10px;
+  width: calc(100% - 10px);
   overflow-x: hidden;
-  text-align: right;
+  text-align: left;
   white-space: nowrap;
   text-overflow: ellipsis;
   user-select: text;
