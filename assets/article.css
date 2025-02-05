@@ -242,6 +242,7 @@ main h1 {
   right: 8px;
   width: calc(100% - 8px);
   overflow: hidden;
+  text-align: right;
   white-space: nowrap;
   text-overflow: ellipsis;
   user-select: text;
