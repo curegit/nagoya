@@ -230,7 +230,26 @@ main h1 {
   display: inline-block;
 }
 
-.single blockquote .highlight {
+.single div[title]:has(> pre > code) {
+  position: relative;
+}
+
+.single div[title]:has(> pre > code)::before {
+  content: attr(title);
+  display: block;
+  position: absolute;
+  top: -0.9lh;
+  right: 8px;
+  width: calc(100% - 8px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  user-select: text;
+  font-family: "Menlo", "Monaco", "Osaka-Mono", "Consolas", "Inconsolata", monospace;
+  font-size: 0.9em;
+}
+
+.single blockquote > div:has(> pre), .single blockquote > pre {
   margin-left: 10px;
 }
 
@@ -392,7 +411,7 @@ a[href].footnote-ref {
 }
 
 @media (max-width: 600px) {
-  .single > .body > .highlight > pre {
+  :is(.single > .body, .single > .body > div) > pre {
     margin-block: 24px;
     margin-inline: calc((100% - var(--props-width)) / 2);
     padding-inline: 20px;
