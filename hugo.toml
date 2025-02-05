@@ -8,7 +8,7 @@
   paginationSlots = true
   recursiveListing = true
   showTreeCount = true
-  treeRoot = ""
+  treeRoot = "/"
   sidebarSearch = true
   sidebarTagThreshold = 0
   newNum = 10

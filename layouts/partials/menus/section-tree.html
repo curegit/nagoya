@@ -19,18 +19,10 @@
   {{ end }}
 {{ end }}
 
-{{ if site.Params.treeRoot }}
-  {{ with site.GetPage site.Params.treeRoot }}
-    {{ if .Sections }}
-      <nav class="pane">
-        {{ template "section-tree" . }}
-      </nav>
-    {{ end }}
-  {{ end }}
-{{ else }}
-  {{ if site.Sections }}
+{{ with site.GetPage (site.Params.treeRoot | default "/") }}
+  {{ if .Sections }}
     <nav class="pane">
-      {{ template "section-tree" site }}
+      {{ template "section-tree" . }}
     </nav>
   {{ end }}
 {{ end }}
