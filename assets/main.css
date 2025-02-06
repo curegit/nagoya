@@ -134,10 +134,16 @@ ol.breadcrumb > li.page {
   width: 100%;
 }
 
+.article-list h2 {
+  margin-bottom: 4px;
+}
+
 .article-list article header time {
+  display: block;
   padding-left: 1.5px;
   color: #4d4d4d;
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .thumbnail {
