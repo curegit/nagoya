@@ -2,6 +2,7 @@
   showAuthor = true
   showLastmod = true
   showSummary = true
+  showThumbnail = true
   toc = false
   tocAfterSummary = false
   tersePagination = false
