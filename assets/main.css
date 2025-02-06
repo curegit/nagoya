@@ -134,7 +134,7 @@ ol.breadcrumb > li.page {
   width: 100%;
 }
 
-.article-list h2 {
+.article-list article header h2 {
   margin-bottom: 4px;
 }
 
