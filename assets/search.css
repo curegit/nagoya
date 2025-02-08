@@ -40,12 +40,9 @@
   appearance: auto;
 }
 
-.search .search-form input[type=submit] {
-  font-size: 15px;
-}
-
 :is(.search .search-form, .sidebar-search-form) input[type=submit] {
   background-color: #efefef;
+  font-size: 0.9em;
 }
 
 .sidebar-search-form {
