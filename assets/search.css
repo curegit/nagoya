@@ -35,8 +35,10 @@
 
 :is(.search .search-form, .sidebar-search-form) input {
   padding: 2px;
+  background-color: #fff;
   border: 1px solid #656565;
   border-radius: 3px;
+  color: currentColor;
   appearance: auto;
 }
 
