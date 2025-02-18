@@ -3,6 +3,7 @@
 <html lang="{{ with .Params.lang }}{{ . }}{{ else }}{{ site.Language.LanguageCode }}{{ end }}" itemscope itemtype="{{ if and .IsPage (not .Params.page) }}{{ "https://schema.org/BlogPosting" }}{{ else }}{{ "http://schema.org/WebPage" }}{{ end }}">
   <head prefix="og: http://ogp.me/ns#">
     {{ partial "heads/basic" . }}
+    {{ partial "heads/custom-eager" . }}
     {{ block "rel-seq" . }}{{ end }}
     {{ block "robots" . }}{{ end }}
     {{ partial "heads/styles" . }}
