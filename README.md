@@ -97,9 +97,13 @@ Hugo の Menu Templates 機能には対応していません。
 
 このテーマには、以下のショートコードが含まれています。
 
-### `{{< card href="" img="" title="" desc="" >}}`
+### `card`
 
 `card` ショートコードは、リンクカードを挿入します。
+
+```md
+{{< card href="https://example.com/" img="https://example.com/ogp.png" title="EXAMPLE" desc="EXAMPLE" >}}
+```
 
 - `href`: リンク先の URL
 - `img` または `image`: カードに表示する画像の URL
