@@ -99,10 +99,13 @@ Hugo の Menu Templates 機能には対応していません。
 
 ### `card`
 
-`card` ショートコードは、リンクカードを挿入します。
+リンクカードを挿入します。
 
 ```md
-{{< card href="https://example.com/" img="https://example.com/ogp.png" title="EXAMPLE" desc="EXAMPLE" >}}
+{{< card href="https://example.com/"
+         img="https://example.com/ogp.png"
+         title="EXAMPLE"
+         desc="EXAMPLE" >}}
 ```
 
 - `href`: リンク先の URL
@@ -110,26 +113,40 @@ Hugo の Menu Templates 機能には対応していません。
 - `title`: リンクタイトル
 - `desc` または `description`: リンク先の説明
 
-### `{{< cardi ref="" >}}`
+### `cardi`
 
-`cardi` ショートコードは、内部リンクカードを挿入します。
+内部用リンクカードを挿入します。
 サムネイル画像などもあれば挿入されます。
 単一引数のショートコードです。
 
+```md
+{{< cardi ref="../../ref/another/post" >}}
+```
+
 - `ref` または第一引数: 内部ページのパス（Hugo の `ref` ショートコードと同じ指定方法）
 
-### `{{% fold "タイトル" %}} ... {{% /fold %}}`
+### `fold`
 
-`fold` ショートコードは、折りたたみ可能な詳細ブロックを挿入します。
+折りたたみ可能な詳細ブロックを挿入します。
+
+```md
+{{% fold "TITLE" true %}}
+...
+{{% /fold %}}
+```
 
 - 第一引数: 折りたたみブロックのタイトル
 - 第二引数: `true` を指定すると、デフォルトで開いた状態になります
 - 内包要素: 折りたたまれる詳細内容
 
-### `{{< toc >}}`
+### `toc`
 
-`toc` ショートコードは、ページの目次を挿入します。
+ページの目次を挿入します。
 引数はありません。
+
+```md
+{{< toc >}}
+```
 
 ## サイトパラメータ
 
