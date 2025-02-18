@@ -99,13 +99,13 @@ Hugo の Menu Templates 機能には対応していません。
 
 ### `card`
 
-リンクカードを挿入します。
+リンクカードを挿入します（主に外部サイト用）。
 
 ```md
 {{< card href="https://example.com/"
          img="https://example.com/ogp.png"
-         title="EXAMPLE"
-         desc="EXAMPLE" >}}
+         title="EXAMPLE SITE"
+         desc="THIS IS AN EXAMPLE" >}}
 ```
 
 - `href`: リンク先の URL
@@ -116,7 +116,7 @@ Hugo の Menu Templates 機能には対応していません。
 ### `cardi`
 
 内部用リンクカードを挿入します。
-サムネイル画像などもあれば表示されます。
+サムネイル画像などもあれば参照され表示されます。
 単一引数のショートコードです。
 
 ```md
