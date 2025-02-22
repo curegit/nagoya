@@ -1,0 +1,20 @@
+:root {
+  --nagoya-background-color: initial;
+  --nagoya-accent-color: initial;
+  --nagoya-header-border-color: initial;
+  --nagoya-site-title-color: initial;
+  --nagoya-site-description-color: initial;
+  --nagoya-container-background-color: initial;
+  --nagoya-footer-background-color: initial;
+  --nagoya-footer-border-color: initial;
+  --nagoya-footer-text-color: initial;
+  --nagoya-pane-tint-color: initial;
+  --nagoya-component-title-color: initial;
+  --nagoya-folder-icon-color: initial;
+  --nagoya-tag-icon-color: initial;
+  --nagoya-toc-background-tint-color: initial;
+  --nagoya-link-color: initial;
+  --nagoya-article-link-color: initial;
+  --nagoya-thead-background-color: initial;
+  --nagoya-table-even-row-background-color: initial;
+}
