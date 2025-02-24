@@ -9,6 +9,7 @@
 {{ $csss = $csss | append (resources.Get "article-auxiliary.css") }}
 {{ $csss = $csss | append (resources.Get "katex-auxiliary.css") }}
 {{ $csss = $csss | append (resources.Get "search.css") }}
+{{ $csss = $csss | append (resources.Get "custom-color.css") }}
 {{ $csss = $csss | append (resources.Get "custom.css") }}
 {{ $css := $csss | resources.Concat "bundle.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
