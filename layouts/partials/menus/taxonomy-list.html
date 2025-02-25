@@ -2,7 +2,7 @@
   {{ if not (in (slice "tags" "archives") $taxonomy) }}
     {{ if $terms }}
       <nav class="pane">
-        {{ with site.GetPage $taxonomy }}
+        {{ with site.GetPage (printf "/%s" $taxonomy) }}
           <header class="component-title">
             <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
           </header>

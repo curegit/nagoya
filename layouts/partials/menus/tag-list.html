@@ -4,7 +4,7 @@
 {{ end }}
 {{ $terms := index site.Taxonomies "tags" }}
 {{ if $terms }}
-  {{ with site.GetPage "tags" }}
+  {{ with site.GetPage "/tags" }}
     {{ $tagPage := . }}
     {{ $fullLen := len .Pages }}
     {{ $filtered := where .Pages "Pages.Len" ">=" site.Params.sidebarTagThreshold }}

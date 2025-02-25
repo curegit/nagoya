@@ -24,7 +24,7 @@
           </h1>
         {{ else }}
           <h1 class="list-title">
-            <span class="list-title-taxonomy">{{ (site.GetPage $taxonomy).Title }}:</span>
+            <span class="list-title-taxonomy">{{ (site.GetPage (printf "/%s" $taxonomy)).Title }}:</span>
             <span>{{ .Title }}</span>
           </h1>
         {{ end }}

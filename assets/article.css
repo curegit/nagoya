@@ -71,9 +71,13 @@ main h1 {
 }
 
 .single h3 {
-  margin-top: 24px;
+  margin-top: 28px;
   margin-bottom: 2px;
   padding-left: 4px;
+}
+
+.single h2 + h3 {
+  margin-top: 22px;
 }
 
 .single h4, .single h5, .single h6 {
@@ -199,7 +203,7 @@ main h1 {
 }
 
 .single :not(pre) > code {
-  padding: 0.2rem 0.4rem;
+  padding: 0.21em 0.42em;
   border-radius: 5px;
   background-color: #e5e9ec;
   font-size: 95%;
@@ -222,11 +226,15 @@ main h1 {
   overflow-x: auto;
 }
 
+.single pre:has(> code) {
+  background-color: #e5e9ec;
+}
+
 .single pre > code:first-child:not(:has(+ *)) {
   display: inline-block;
 }
 
-.single blockquote .highlight {
+.single blockquote > div:has(> pre), .single blockquote > pre {
   margin-left: 10px;
 }
 
@@ -347,7 +355,7 @@ a[href].footnote-ref {
 }
 
 .single footer {
-  margin: 16px 0 10px;
+  margin: 16px 0 8px;
 }
 
 .single footer a[href] {
@@ -388,7 +396,7 @@ a[href].footnote-ref {
 }
 
 @media (max-width: 600px) {
-  .single > .body > .highlight > pre {
+  :is(.single > .body, .single > .body > div) > pre {
     margin-block: 24px;
     margin-inline: calc((100% - var(--props-width)) / 2);
     padding-inline: 20px;

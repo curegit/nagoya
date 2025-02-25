@@ -1,5 +1,5 @@
 {{ $page := .Page }}
-{{ with site.GetPage "search" }}
+{{ with site.GetPage "/search" }}
   {{ if site.Params.sidebarSearch }}
     {{ if ne $page . }}
       <nav class="pane">
