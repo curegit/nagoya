@@ -1,9 +1,15 @@
 body {
   font-family: "Hiragino Sans", "Meiryo", sans-serif;
+  font-kerning: normal;
+  font-feature-settings: "pkna" 1;
+  text-spacing-trim: normal;
 }
 
 pre, code {
   font-family: "Osaka-Mono", "Consolas", monospace;
+  font-kerning: none;
+  font-feature-settings: "pkna" 0;
+  text-spacing-trim: space-all;
 }
 
 @font-face {
