@@ -18,6 +18,7 @@ body {
   overflow-x: auto;
   word-break: normal;
   overflow-wrap: anywhere;
+  text-wrap: pretty;
 }
 
 div#container {

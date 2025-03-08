@@ -19,6 +19,7 @@ body {
   font-size: 16px;
   line-height: 1.75;
   text-underline-offset: 3px;
+  text-wrap: stable;
   text-rendering: optimizeLegibility;
 }
 
