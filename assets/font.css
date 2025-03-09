@@ -1,6 +1,6 @@
 body {
   font-family: "Hiragino Sans", "Meiryo", sans-serif;
-  font-kerning: normal;
+  font-kerning: auto;
   font-feature-settings: "pkna" 1;
   text-spacing-trim: normal;
 }
