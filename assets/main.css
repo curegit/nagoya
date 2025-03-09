@@ -364,7 +364,7 @@ a.page-link[href]:focus-visible {
 .prev-next > a {
   display: block;
   background: linear-gradient(0deg, #ffffff70, #ffffffbf);
-  padding: 10px 10px 15px 13px;
+  padding: 10px 11px 15px 13px;
   border-radius: 8px;
 }
 
