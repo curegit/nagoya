@@ -368,6 +368,21 @@ a.page-link[href]:focus-visible {
   border-radius: 8px;
 }
 
+@container (min-width: 1120px) {
+  .prev-next {
+    padding: 0;
+  }
+
+  .prev-next > a {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    justify-items: start;
+    padding: 13px 18px 16px 17px;
+    border-radius: 16px / 12px;
+  }
+}
+
 .prev-next > a:focus-visible {
   background-color: #fff6;
 }
@@ -580,14 +595,5 @@ footer#bottom span {
 
   .paginator {
     padding: 3px 16px;
-  }
-
-  .prev-next {
-    padding: 0;
-  }
-
-  .prev-next > a {
-    padding: 14px 17px 16px;
-    border-radius: 16px / 12px;
   }
 }
