@@ -403,6 +403,8 @@ a.page-link[href]:focus-visible {
 
 .prev-next > a.next::before {
   content: "\0023EA\00FE0E";
+  position: relative;
+  top: 1px;
   margin-right: 0.6ch;
   font-size: 1.2em;
   font-weight: bold;
@@ -411,6 +413,8 @@ a.page-link[href]:focus-visible {
 
 .prev-next > a.prev::before {
   content: "\0023E9\00FE0E";
+  position: relative;
+  top: 1px;
   margin-right: 0.6ch;
   font-size: 1.2em;
   font-weight: bold;
