@@ -371,6 +371,7 @@ a.page-link[href]:focus-visible {
 @container (min-width: 1120px) {
   .prev-next {
     padding: 0;
+    text-spacing-trim: trim-start;
   }
 
   .prev-next > a {
