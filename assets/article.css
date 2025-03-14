@@ -180,6 +180,10 @@ main h1 {
   font-style: normal;
 }
 
+.single :is(ul, ol) ::marker {
+  color: color-mix(in srgb, transparent 20%, currentColor);
+}
+
 .single ul, .single ol {
   margin-top: 14px;
   margin-bottom: 14px;
