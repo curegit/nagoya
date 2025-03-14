@@ -8,7 +8,7 @@ main h1 {
   flex-flow: column;
   row-gap: 18px;
   container-type: inline-size;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .single h1.title {
@@ -62,12 +62,13 @@ main h1 {
 }
 
 .single h2 {
-  margin-top: 40px;
+  margin-top: 42px;
   margin-bottom: 16px;
   padding-bottom: 3.5px;
   padding-left: 2px;
   border-bottom: 1px solid #d1d8df;
   font-size: 24px;
+  line-height: 1.35;
 }
 
 .single h3 {
