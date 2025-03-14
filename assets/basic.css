@@ -205,7 +205,7 @@ kbd {
   box-shadow: 0 1px 1px #00000033, 0 2px 0 0 #ffffffb3 inset;
   background-color: #eee;
   font-size: 85%;
-  line-height: 1;
+  vertical-align: middle;
   white-space: nowrap;
 }
 
