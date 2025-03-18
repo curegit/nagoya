@@ -103,6 +103,10 @@ a {
   text-decoration: none;
 }
 
+a:has(> img:first-child:last-child) {
+  height: fit-content;
+}
+
 ul, ol {
   padding-left: 21px;
   list-style-position: outside;
