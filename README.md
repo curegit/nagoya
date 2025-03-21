@@ -178,6 +178,7 @@ CONTENT
 | `readNextText`        | String             | 各記事下部に表示する記事リスト領域のタイトルを設定します                                                                                            |
 | `relatedNum`          | Integer            | 各記事下部に表示する記事リストにおける関連記事の数を設定します                                                                                      |
 | `randomNum`           | Integer            | 各記事下部に表示する記事リストにおけるランダム記事の数を設定します                                                                                  |
+| `randomNumFillTo`           | Integer or Boolean            | 各記事下部に表示する記事リストがこの数になるまでランダム記事で埋めます                                                                                |
 | `shuffleSeeAlso`      | Boolean            | 関連記事とランダム記事の順序をシャッフルするか否かを設定します                                                                                      |
 | `showHeaderText`      | Boolean            | ヘッダーにサイトの概要テキストを表示するか否かを設定します                                                                                          |
 | `headerText`          | String             | ヘッダーのサイト概要テキストを手動設定します                                                                                                        |

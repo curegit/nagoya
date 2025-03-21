@@ -1,5 +1,9 @@
 {{ $related := partial "functions/filter-articles" (site.RegularPages.Related .) | first site.Params.relatedNum }}
-{{ $random := shuffle (complement $related (partial "functions/filter-articles" site.RegularPages)) | first site.Params.randomNum }}
+{{ $randomNum := site.Params.randomNum }}
+{{ with cond (eq site.Params.randomNumFillTo true) (add $randomNum site.Params.relatedNum) site.Params.randomNumFillTo }}
+  {{ $randomNum = math.Max $randomNum (sub . (len $related)) }}
+{{ end }}
+{{ $random := shuffle (complement $related (partial "functions/filter-articles" site.RegularPages)) | first $randomNum }}
 {{ $seeAlso := $related | append $random }}
 {{ if site.Params.shuffleSeeAlso }}
   {{ $seeAlso = shuffle $seeAlso }}

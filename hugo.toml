@@ -15,6 +15,7 @@
   newNum = 10
   relatedNum = 3
   randomNum = 2
+  randomNumFillTo = false
   shuffleSeeAlso = true
   showHeaderText = true
   maxConcurrency = 16
