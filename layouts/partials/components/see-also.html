@@ -4,7 +4,7 @@
 {{ with cond (eq site.Params.randomNumFillTo true) (add $randomNum site.Params.relatedNum) site.Params.randomNumFillTo }}
   {{ $randomNum = math.Max $randomNum (sub . (len $related)) }}
 {{ end }}
-{{ $random := shuffle (complement $related (partial "functions/filter-articles" site.RegularPages)) | first $randomNum }}
+{{ $random := shuffle (complement $related (slice .) (partial "functions/filter-articles" site.RegularPages)) | first $randomNum }}
 {{ $seeAlso := $related | append $random }}
 {{ if site.Params.shuffleSeeAlso }}
   {{ $seeAlso = shuffle $seeAlso }}
