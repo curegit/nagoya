@@ -1,4 +1,5 @@
-{{ $related := partial "functions/filter-articles" (site.RegularPages.Related .) | first site.Params.relatedNum }}
+{{ $relatedNum := site.Params.relatedNum }}
+{{ $related := (partial "functions/filter-articles" site.RegularPages).Related . | first $relatedNum }}
 {{ $randomNum := site.Params.randomNum }}
 {{ with cond (eq site.Params.randomNumFillTo true) (add $randomNum site.Params.relatedNum) site.Params.randomNumFillTo }}
   {{ $randomNum = math.Max $randomNum (sub . (len $related)) }}
