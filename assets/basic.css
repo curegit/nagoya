@@ -19,7 +19,12 @@ body {
   font-size: 16px;
   line-height: 1.75;
   text-underline-offset: 3px;
+  text-wrap: stable;
   text-rendering: optimizeLegibility;
+}
+
+hgroup {
+  display: contents;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -98,6 +103,10 @@ a {
   text-decoration: none;
 }
 
+a:has(> img:first-child:last-child) {
+  height: fit-content;
+}
+
 ul, ol {
   padding-left: 21px;
   list-style-position: outside;
@@ -174,6 +183,7 @@ blockquote pre, blockquote code {
 blockquote hr {
   height: .1em;
   margin-block: 1.2em;
+  margin-inline: 0.4em;
 }
 
 hr {
@@ -203,7 +213,7 @@ kbd {
   box-shadow: 0 1px 1px #00000033, 0 2px 0 0 #ffffffb3 inset;
   background-color: #eee;
   font-size: 85%;
-  line-height: 1;
+  vertical-align: middle;
   white-space: nowrap;
 }
 

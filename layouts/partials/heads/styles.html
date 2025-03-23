@@ -2,6 +2,7 @@
 {{ $csss = $csss | append (resources.Get "font.css") }}
 {{ $csss = $csss | append (resources.Get "basic.css") }}
 {{ $csss = $csss | append (resources.Get "main.css") }}
+{{ $csss = $csss | append (resources.Get "font-palt.css") }}
 {{ $csss = $csss | append (resources.Get "color.css") }}
 {{ $csss = $csss | append (resources.Get "header.css") }}
 {{ $csss = $csss | append (resources.Get "header-image.css" | resources.ExecuteAsTemplate "image.css" .) }}
