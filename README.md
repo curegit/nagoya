@@ -153,40 +153,40 @@ CONTENT
 
 以下は、`hugo.toml` に設定できるサイト全体に効果がある `params` です。
 
-| キー                  | 型                 | 説明                                                                                                                                                |
-| --------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `author`              | String             | サイト全体の著者名を指定します                                                                                                                      |
-| `authorLink`          | String             | 著者ページまたはメールアドレスのハイパーリンクを設定します                                                                                          |
-| `description`         | String             | サイトの概要を設定します                                                                                                                            |
-| `keywords`            | Array of String    | サイト全体のキーワードを設定します                                                                                                                  |
-| `showAuthor`          | Boolean            | 著者情報を記事に表示するか否かを設定します                                                                                                          |
-| `showLastmod`         | Boolean            | 各記事の最終更新日を表示するか否かを設定します                                                                                                      |
-| `lastmodLabelText`    | String             | 最終更新日を表すラベルのテキストを変更します                                                                                                        |
-| `dateLabelText`       | String             | 公開日を表すラベルのテキストを変更します                                                                                                            |
-| `showSummary`         | Boolean            | リストページに Summary を表示するか否かを設定します                                                                                                 |
-| `showThumbnail` | Boolean | リストページにサムネイル画像を表示するか否かを設定します |
-| `tersePagination`     | Boolean            | ページ送りにおいて冗長な矢印要素を除いたフォーマットを利用します                                                                                    |
-| `paginationSlots`     | Boolean or Integer | ページ送りに表示するページ番号リンクの個数を設定します（`true` を設定するとフォーマット固有のデフォルト定数、`false` を設定すると無制限にできます） |
-| `sectionLabelText`    | String             | セクションを表すラベルのテキストを変更します                                                                                                        |
-| `recursiveListing`    | Boolean            | セクションに含まれるページを再帰的に表示するか否かを設定します                                                                                      |
-| `showTreeCount`       | Boolean            | 含まれるページ数をサイドバーのディレクトリツリーに表示するか否かを設定します                                                                        |
-| `treeRoot`            | String             | サイドバーのディレクトリツリーの起点を指定します                                                                                                    |
-| `sidebarSearch`       | Boolean            | サイドバーに検索ボックスを表示するか否かを設定します                                                                                                |
-| `sidebarTagThreshold` | Integer            | 属するページ数がこの数に満たないタグをサイドバーのタグ一覧から割愛する                                                                              |
-| `tagEllipsizedText`   | String or Boolean  | タグ割愛時に表示するすべてのタグ一覧ページへのリンクテキストを設定します（`false` を設定すると何も表示しません）                                    |
-| `newNum`              | Integer            | サイドバーに表示する最新記事の数を設定します                                                                                                        |
-| `newText`             | String             | サイドバーに表示する最新記事領域のタイトルを設定します                                                                                              |
-| `readNextText`        | String             | 各記事下部に表示する記事リスト領域のタイトルを設定します                                                                                            |
-| `relatedNum`          | Integer            | 各記事下部に表示する記事リストにおける関連記事の最大数を設定します                                                                                      |
-| `randomNum`           | Integer            | 各記事下部に表示する記事リストにおけるランダム記事の数を設定します                                                                                  |
-| `randomNumFillTo`             | Integer or Boolean            | 各記事下部に表示する記事リストがこの数になるまでランダム記事で埋めます（`false` を設定すると無効、`true` を設定すると `relatedNum` + `randomNum` まで埋めます）                                                                                |
-| `shuffleSeeAlso`      | Boolean            | 関連記事とランダム記事の順序をシャッフルするか否かを設定します                                                                                      |
-| `showHeaderText`      | Boolean            | ヘッダーにサイトの概要テキストを表示するか否かを設定します                                                                                          |
-| `headerText`          | String             | ヘッダーのサイト概要テキストを手動設定します                                                                                                        |
-| `maxConcurrency`      | Integer            | 検索機能で使う Web Worker の上限数を指定します                                                                                                      |
-| `toc`                 | Boolean            | コンテンツへの目次の自動挿入を有効化します（`toc` ショートコードがコンテンツ内に存在している場合は、追加挿入されません）                                 |
-| `tocAfterSummary`     | Boolean            | 目次の自動挿入位置をコンテンツ上部ではなく、Summary の後にします（コンテンツが Truncated されていない場合は上部のままです）                         |
-| `tocHeaderText`       | String or Boolean  | 目次領域のタイトルを設定します（`false` を設定すると非表示にできます）                                                                              |
+| キー                  | 型                 | 説明                                                                                                                                                            |
+| --------------------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `author`              | String             | サイト全体の著者名を指定します                                                                                                                                  |
+| `authorLink`          | String             | 著者ページまたはメールアドレスのハイパーリンクを設定します                                                                                                      |
+| `description`         | String             | サイトの概要を設定します                                                                                                                                        |
+| `keywords`            | Array of String    | サイト全体のキーワードを設定します                                                                                                                              |
+| `showAuthor`          | Boolean            | 著者情報を記事に表示するか否かを設定します                                                                                                                      |
+| `showLastmod`         | Boolean            | 各記事の最終更新日を表示するか否かを設定します                                                                                                                  |
+| `lastmodLabelText`    | String             | 最終更新日を表すラベルのテキストを変更します                                                                                                                    |
+| `dateLabelText`       | String             | 公開日を表すラベルのテキストを変更します                                                                                                                        |
+| `showSummary`         | Boolean            | リストページに Summary を表示するか否かを設定します                                                                                                             |
+| `showThumbnail`       | Boolean            | リストページにサムネイル画像を表示するか否かを設定します                                                                                                        |
+| `tersePagination`     | Boolean            | ページ送りにおいて冗長な矢印要素を除いたフォーマットを利用します                                                                                                |
+| `paginationSlots`     | Boolean or Integer | ページ送りに表示するページ番号リンクの個数を設定します（`true` を設定するとフォーマット固有のデフォルト定数、`false` を設定すると無制限にできます）             |
+| `sectionLabelText`    | String             | セクションを表すラベルのテキストを変更します                                                                                                                    |
+| `recursiveListing`    | Boolean            | セクションに含まれるページを再帰的に表示するか否かを設定します                                                                                                  |
+| `showTreeCount`       | Boolean            | 含まれるページ数をサイドバーのディレクトリツリーに表示するか否かを設定します                                                                                    |
+| `treeRoot`            | String             | サイドバーのディレクトリツリーの起点を指定します                                                                                                                |
+| `sidebarSearch`       | Boolean            | サイドバーに検索ボックスを表示するか否かを設定します                                                                                                            |
+| `sidebarTagThreshold` | Integer            | 属するページ数がこの数に満たないタグをサイドバーのタグ一覧から割愛する                                                                                          |
+| `tagEllipsizedText`   | String or Boolean  | タグ割愛時に表示するすべてのタグ一覧ページへのリンクテキストを設定します（`false` を設定すると何も表示しません）                                                |
+| `newNum`              | Integer            | サイドバーに表示する最新記事の数を設定します                                                                                                                    |
+| `newText`             | String             | サイドバーに表示する最新記事領域のタイトルを設定します                                                                                                          |
+| `readNextText`        | String             | 各記事下部に表示する記事リスト領域のタイトルを設定します                                                                                                        |
+| `relatedNum`          | Integer            | 各記事下部に表示する記事リストにおける関連記事の最大数を設定します                                                                                              |
+| `randomNum`           | Integer            | 各記事下部に表示する記事リストにおけるランダム記事の数を設定します                                                                                              |
+| `randomNumFillTo`     | Integer or Boolean | 各記事下部に表示する記事リストがこの数になるまでランダム記事で埋めます（`false` を設定すると無効、`true` を設定すると `relatedNum` + `randomNum` まで埋めます） |
+| `shuffleSeeAlso`      | Boolean            | 関連記事とランダム記事の順序をシャッフルするか否かを設定します                                                                                                  |
+| `showHeaderText`      | Boolean            | ヘッダーにサイトの概要テキストを表示するか否かを設定します                                                                                                      |
+| `headerText`          | String             | ヘッダーのサイト概要テキストを手動設定します                                                                                                                    |
+| `maxConcurrency`      | Integer            | 検索機能で使う Web Worker の上限数を指定します                                                                                                                  |
+| `toc`                 | Boolean            | コンテンツへの目次の自動挿入を有効化します（`toc` ショートコードがコンテンツ内に存在している場合は、追加挿入されません）                                        |
+| `tocAfterSummary`     | Boolean            | 目次の自動挿入位置をコンテンツ上部ではなく、Summary の後にします（コンテンツが Truncated されていない場合は上部のままです）                                     |
+| `tocHeaderText`       | String or Boolean  | 目次領域のタイトルを設定します（`false` を設定すると非表示にできます）                                                                                          |
 
 ## ページパラメータ
 
