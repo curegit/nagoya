@@ -49,17 +49,17 @@ div#middle {
   background-color: var(--pane-tint, #fff6);
 }
 
-.pane a {
+:where(.pane) a {
   text-decoration-color: color-mix(in srgb, transparent 25%, currentColor);
 }
 
 @media (any-hover: hover) {
-  .pane a[href]:hover {
+  :where(.pane) a[href]:hover {
     text-decoration-line: underline;
   }
 }
 
-.pane a[href]:active {
+:where(.pane) a[href]:active {
   text-decoration-line: underline;
 }
 
