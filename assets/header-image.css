@@ -1,3 +1,4 @@
 header#top {
   background-image: url("{{ "header.jpg" | relURL }}");
+  background-position: 20% 40%;
 }
