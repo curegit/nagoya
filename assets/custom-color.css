@@ -22,6 +22,8 @@
   /* コンテンツ */
   --nagoya-default-text-color: initial;
   --nagoya-default-background-color: initial;
+  --nagoya-code-plain-background-color: initial;
+  --nagoya-code-plain-text-color: initial;
 
   /* 要素一般 (basic.css) */
   --nagoya-hr-color: initial;

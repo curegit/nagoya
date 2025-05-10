@@ -210,7 +210,8 @@ main h1 {
 .single :not(pre) > code {
   padding: 0.21em 0.42em;
   border-radius: 5px;
-  background-color: #e5e9ec;
+  background-color: var(--nagoya-code-plain-background-color, #e5e9ec);
+  color: var(--nagoya-code-plain-text-color, #000);
   font-size: 95%;
   white-space: break-spaces;
 }
@@ -232,7 +233,8 @@ main h1 {
 }
 
 .single pre:has(> code) {
-  background-color: #e5e9ec;
+  background-color: var(--nagoya-code-plain-background-color, #e5e9ec);
+  color: var(--nagoya-code-plain-text-color, #000);
 }
 
 .single pre > code:first-child:not(:has(+ *)) {
