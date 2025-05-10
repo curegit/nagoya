@@ -20,7 +20,14 @@
   showHeaderText = true
   maxConcurrency = 16
 
+[markup]
+  # Use _merge = "deep" or "shallow" in site level config to import these default values
+  [markup.highlight]
+    codeFences = true
+    lineNumbersInTable = false
+    style = "modus-vivendi"
+
 [module]
   [module.hugoVersion]
-    min = "0.134.1"
+    min = "0.147.0"
     extended = false
