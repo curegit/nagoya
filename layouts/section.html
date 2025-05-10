@@ -1,5 +1,9 @@
 {{ define "eager-paginate" }}
-  {{ $paginator := .Paginate .RegularPagesRecursive }}
+  {{ if site.Params.recursiveListing }}
+    {{ $paginator := .Paginate .RegularPagesRecursive }}
+  {{ else }}
+    {{ $paginator := .Paginate .RegularPages }}
+  {{ end }}
 {{ end }}
 
 {{ define "rel-seq" }}

@@ -11,10 +11,12 @@
       </header>
       {{ $link := .RelPermalink }}
       {{ $title := .LinkTitle }}
-      {{ with partial "functions/feature-image" (dict "context" . "fallbackGlobal" false "preferOriginal" false) }}
-        <a href="{{ $link }}" class="thumbnail-link">
-          <img class="thumbnail" src="{{ . }}" alt="{{ $title }}">
-        </a>
+      {{ if site.Params.showThumbnail }}
+        {{ with partial "functions/feature-image" (dict "context" . "fallbackGlobal" false "preferOriginal" false) }}
+          <a href="{{ $link }}" class="thumbnail-link">
+            <img class="thumbnail" src="{{ . }}" alt="{{ $title }}">
+          </a>
+        {{ end }}
       {{ end }}
       {{ $summary := (trim (.Summary | plainify) " \n") }}
       {{ if and site.Params.showSummary $summary }}

@@ -19,7 +19,12 @@ body {
   font-size: 16px;
   line-height: 1.75;
   text-underline-offset: 3px;
+  text-wrap: stable;
   text-rendering: optimizeLegibility;
+}
+
+hgroup {
+  display: contents;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -76,12 +81,12 @@ small {
 }
 
 mark {
-  background-color: #fff900;
+  background-color: var(--nagoya-marker-background-color, #fff900);
   color: currentColor;
 }
 
 ins {
-  background-color: #dafbe1;
+  background-color: var(--nagoya-ins-background-color, #dafbe1);
   text-decoration: none;
 }
 
@@ -90,12 +95,16 @@ del {
 }
 
 code del {
-  background-color: #ffebe9;
+  background-color: var(--nagoya-del-background-color, #ffebe9);
   text-decoration: none;
 }
 
 a {
   text-decoration: none;
+}
+
+a:has(> img:first-child:last-child) {
+  height: fit-content;
 }
 
 ul, ol {
@@ -158,7 +167,7 @@ pre, code {
 blockquote {
   margin: 12px;
   padding: 2px 13px 2px 10px;
-  border-left: 4px solid #cbd1da;
+  border-left: 4px solid var(--nagoya-blockquote-ribbon-color, #cbd1da);
   font-style: italic;
 }
 
@@ -174,6 +183,7 @@ blockquote pre, blockquote code {
 blockquote hr {
   height: .1em;
   margin-block: 1.2em;
+  margin-inline: 0.4em;
 }
 
 hr {
@@ -181,7 +191,7 @@ hr {
   margin: 1.8em auto;
   border: none;
   overflow: hidden;
-  background-color: #cfcfcf;
+  background-color: var(--nagoya-hr-color, #cfcfcf);
 }
 
 dl {
@@ -198,12 +208,13 @@ dd {
 
 kbd {
   padding: 2px 4px;
-  border: 1px solid #b4b4b4;
+  border: 1px solid var(--nagoya-kbd-border-color, #b4b4b4);
   border-radius: 3px;
-  box-shadow: 0 1px 1px #00000033, 0 2px 0 0 #ffffffb3 inset;
-  background-color: #eee;
+  box-shadow: 0 1px 1px var(--nagoya-kbd-box-shadow-color, #00000033), 0 2px 0 0 var(--nagoya-kbd-box-highlight-color, #ffffffb3) inset;
+  background-color: var(--nagoya-kbd-background-color, #eee);
+  color: var(--nagoya-kbd-text-color, #000);
   font-size: 85%;
-  line-height: 1;
+  vertical-align: middle;
   white-space: nowrap;
 }
 

@@ -2,7 +2,12 @@
   {{ with .Sections }}
     <ul class="folders">
       {{ range . }}
-        {{ $n := len .RegularPagesRecursive }}
+        {{ $n := 0 }}
+        {{ if site.Params.recursiveListing }}
+          {{ $n = len .RegularPagesRecursive }}
+        {{ else }}
+          {{ $n = len .RegularPages }}
+        {{ end }}
         <li class="folder">
           <a href="{{ .RelPermalink }}">
             {{ .LinkTitle }}{{ if and site.Params.showTreeCount $n }} ({{ $n }}) {{ end }}

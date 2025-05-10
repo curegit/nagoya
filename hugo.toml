@@ -2,10 +2,12 @@
   showAuthor = true
   showLastmod = true
   showSummary = true
+  showThumbnail = true
   toc = false
   tocAfterSummary = false
   tersePagination = false
   paginationSlots = true
+  recursiveListing = true
   showTreeCount = true
   treeRoot = "/"
   sidebarSearch = true
@@ -13,12 +15,19 @@
   newNum = 10
   relatedNum = 3
   randomNum = 2
-  shuffleSeeAlso = true
+  randomNumFillTo = false
+  shuffleSeeAlso = false
   showHeaderText = true
   maxConcurrency = 16
 
+[markup]
+  # Use _merge = "deep" or "shallow" in site level config to import these default values
+  [markup.highlight]
+    codeFences = true
+    lineNumbersInTable = false
+    style = "modus-vivendi"
+
 [module]
   [module.hugoVersion]
-    min = "0.134.1"
-    max = "0.145.0"
+    min = "0.147.0"
     extended = false

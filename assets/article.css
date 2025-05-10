@@ -8,7 +8,7 @@ main h1 {
   flex-flow: column;
   row-gap: 18px;
   container-type: inline-size;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .single h1.title {
@@ -21,7 +21,7 @@ main h1 {
   display: flex;
   justify-content: end;
   gap: 20px;
-  color: #4d4d4d;
+  color: color-mix(in lab, transparent 10%, currentColor);
   font-size: 0.88em;
   line-height: 1.1;
 }
@@ -45,7 +45,7 @@ main h1 {
 
 .toc-title {
   text-align: center;
-  color: #000000b5;
+  color: color-mix(in lab, transparent 30%, currentColor);
   font-size: 1.05em;
   text-decoration-line: underline;
   text-underline-offset: 4px;
@@ -62,18 +62,23 @@ main h1 {
 }
 
 .single h2 {
-  margin-top: 40px;
+  margin-top: 42px;
   margin-bottom: 16px;
   padding-bottom: 3.5px;
   padding-left: 2px;
-  border-bottom: 1px solid #d1d8df;
+  border-bottom: 1px solid color-mix(in lab, #d1d8df4a 80%, currentColor);
   font-size: 24px;
+  line-height: 1.35;
 }
 
 .single h3 {
-  margin-top: 24px;
+  margin-top: 28px;
   margin-bottom: 2px;
   padding-left: 4px;
+}
+
+.single h2 + h3 {
+  margin-top: 22px;
 }
 
 .single h4, .single h5, .single h6 {
@@ -175,6 +180,10 @@ main h1 {
   font-style: normal;
 }
 
+.single :is(ul, ol) ::marker {
+  color: color-mix(in lab, transparent 20%, currentColor);
+}
+
 .single ul, .single ol {
   margin-top: 14px;
   margin-bottom: 14px;
@@ -201,7 +210,8 @@ main h1 {
 .single :not(pre) > code {
   padding: 0.21em 0.42em;
   border-radius: 5px;
-  background-color: #e5e9ec;
+  background-color: var(--nagoya-code-plain-background-color, #e5e9ec);
+  color: var(--nagoya-code-plain-text-color, #000);
   font-size: 95%;
   white-space: break-spaces;
 }
@@ -222,11 +232,16 @@ main h1 {
   overflow-x: auto;
 }
 
+.single pre:has(> code) {
+  background-color: var(--nagoya-code-plain-background-color, #e5e9ec);
+  color: var(--nagoya-code-plain-text-color, #000);
+}
+
 .single pre > code:first-child:not(:has(+ *)) {
   display: inline-block;
 }
 
-.single blockquote .highlight {
+.single blockquote > div:has(> pre), .single blockquote > pre {
   margin-left: 10px;
 }
 
@@ -347,7 +362,7 @@ a[href].footnote-ref {
 }
 
 .single footer {
-  margin: 16px 0 10px;
+  margin: 16px 0 8px;
 }
 
 .single footer a[href] {
@@ -364,7 +379,7 @@ a[href].footnote-ref {
 }
 
 .taxonomy-table th {
-  color: #4d4d4d;
+  color: color-mix(in lab, transparent 10%, currentColor);
   font-size: 0.95em;
   font-weight: normal;
   text-align: right;
@@ -388,7 +403,7 @@ a[href].footnote-ref {
 }
 
 @media (max-width: 600px) {
-  .single > .body > .highlight > pre {
+  :is(.single > .body, .single > .body > div) > pre {
     margin-block: 24px;
     margin-inline: calc((100% - var(--props-width)) / 2);
     padding-inline: 20px;
