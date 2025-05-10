@@ -92,6 +92,10 @@ Hugo の Menu Templates 機能には対応していません。
 
 `/layouts/partials/widgets/` 内のオーバーライドは、カスタムウィジェットの作成にも利用できます。
 
+## 配色カスタマイズ
+
+`custom-color.css` をオーバーライドしてください。
+
 ## ショートコード (Shortcodes)
 
 このテーマには、以下のショートコードが含まれています。
