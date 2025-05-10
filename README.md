@@ -88,9 +88,9 @@ title: カテゴリ
 ## メニューとウィジェット
 
 Hugo の Menu Templates 機能には対応していません。
-`layouts/partials/widgets/` 内にある、配置したい該当場所部分のパーシャルレイアウトをオーバーライドしてメニューを作成します。
+`layouts/_partials/widgets/` 内にある、配置したい該当場所部分のパーシャルレイアウトをオーバーライドしてメニューを作成します。
 
-`layouts/partials/widgets/` 内のオーバーライドは、カスタムウィジェットの作成にも利用できます。
+`layouts/_partials/widgets/` 内のオーバーライドは、カスタムウィジェットの作成にも利用できます。
 
 ## 配色カスタマイズ
 
