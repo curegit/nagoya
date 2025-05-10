@@ -19,6 +19,7 @@ body {
   word-break: normal;
   overflow-wrap: anywhere;
   text-wrap: pretty;
+  color: var(--nagoya-default-text-color, #000);
 }
 
 div#container {
@@ -68,7 +69,7 @@ main.pane {
   flex-flow: column;
   row-gap: 30px;
   padding: 24px 26px 34px;
-  background-color: #fff;
+  background-color: var(--nagoya-default-background-color, #fff);
   container-type: inline-size;
 }
 
@@ -142,7 +143,7 @@ ol.breadcrumb > li.page {
 .article-list article header time {
   display: block;
   padding-left: 2px;
-  color: #4d4d4d;
+  color: color-mix(in lab, transparent 10%, currentColor);
   font-size: 14px;
   line-height: 1.6;
 }
@@ -220,7 +221,7 @@ ol.breadcrumb > li.page {
 }
 
 .list-title-taxonomy {
-  color: #555;
+  color: color-mix(in lab, transparent 32%, currentColor);
   font-size: 90%;
 }
 

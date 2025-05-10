@@ -21,7 +21,7 @@ main h1 {
   display: flex;
   justify-content: end;
   gap: 20px;
-  color: #4d4d4d;
+  color: color-mix(in lab, transparent 10%, currentColor);
   font-size: 0.88em;
   line-height: 1.1;
 }
@@ -45,7 +45,7 @@ main h1 {
 
 .toc-title {
   text-align: center;
-  color: #000000b5;
+  color: color-mix(in lab, transparent 30%, currentColor);
   font-size: 1.05em;
   text-decoration-line: underline;
   text-underline-offset: 4px;
@@ -66,7 +66,7 @@ main h1 {
   margin-bottom: 16px;
   padding-bottom: 3.5px;
   padding-left: 2px;
-  border-bottom: 1px solid #d1d8df;
+  border-bottom: 1px solid color-mix(in lab, #d1d8df4a 80%, currentColor);
   font-size: 24px;
   line-height: 1.35;
 }
@@ -181,7 +181,7 @@ main h1 {
 }
 
 .single :is(ul, ol) ::marker {
-  color: color-mix(in srgb, transparent 20%, currentColor);
+  color: color-mix(in lab, transparent 20%, currentColor);
 }
 
 .single ul, .single ol {
@@ -377,7 +377,7 @@ a[href].footnote-ref {
 }
 
 .taxonomy-table th {
-  color: #4d4d4d;
+  color: color-mix(in lab, transparent 10%, currentColor);
   font-size: 0.95em;
   font-weight: normal;
   text-align: right;

@@ -1,4 +1,5 @@
 :root {
+  /* 主要テーマ色 (color.css) */
   --nagoya-background-color: initial;
   --nagoya-accent-color: initial;
   --nagoya-header-border-color: initial;
@@ -17,4 +18,20 @@
   --nagoya-article-link-color: initial;
   --nagoya-thead-background-color: initial;
   --nagoya-table-even-row-background-color: initial;
+
+  /* コンテンツ */
+  --nagoya-default-text-color: initial;
+  --nagoya-default-background-color: initial;
+
+  /* 要素一般 (basic.css) */
+  --nagoya-hr-color: initial;
+  --nagoya-blockquote-ribbon-color: initial;
+  --nagoya-marker-background-color: initial;
+  --nagoya-ins-background-color: initial;
+  --nagoya-del-background-color: initial;
+  --nagoya-kbd-background-color: initial;
+  --nagoya-kbd-border-color: initial;
+  --nagoya-kbd-box-highlight-color: initial;
+  --nagoya-kbd-box-shadow-color: initial;
+  --nagoya-kbd-text-color: initial;
 }
