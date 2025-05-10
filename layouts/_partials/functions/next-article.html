@@ -1,7 +1,7 @@
 {{ $next := false }}
 {{ with .Next }}
   {{ if .Params.page }}
-    {{ $next = partial "partials/functions/next-article" . }}
+    {{ $next = partial "functions/next-article" . }}
   {{ else }}
     {{ $next = . }}
   {{ end }}
