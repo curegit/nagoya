@@ -218,6 +218,7 @@ main h1 {
 
 .single .toc code {
   display: contents;
+  color: currentColor;
 }
 
 .single :is(h1, h2, h3, h4, h5, h6) code {
