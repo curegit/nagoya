@@ -5,12 +5,13 @@
 {{ $csss = $csss | append (resources.Get "font-palt.css") }}
 {{ $csss = $csss | append (resources.Get "color.css") }}
 {{ $csss = $csss | append (resources.Get "header.css") }}
-{{ $csss = $csss | append (resources.Get "header-image.css" | resources.ExecuteAsTemplate "image.css" .) }}
+{{ $csss = $csss | append (resources.Get "header-image.css" | resources.ExecuteAsTemplate "header-image.css" .) }}
 {{ $csss = $csss | append (resources.Get "article.css") }}
 {{ $csss = $csss | append (resources.Get "article-auxiliary.css") }}
 {{ $csss = $csss | append (resources.Get "katex-auxiliary.css") }}
 {{ $csss = $csss | append (resources.Get "search.css") }}
 {{ $csss = $csss | append (resources.Get "custom-color.css") }}
 {{ $csss = $csss | append (resources.Get "custom.css") }}
+{{ $csss = $csss | append (resources.Get "custom-exe.css" | resources.ExecuteAsTemplate "custom-exe.css" .) }}
 {{ $css := $csss | resources.Concat "bundle.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}">
