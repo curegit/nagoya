@@ -212,7 +212,7 @@ kbd {
   border-radius: 3px;
   box-shadow: 0 1px 1px var(--nagoya-kbd-box-shadow-color, #00000033), 0 2px 0 0 var(--nagoya-kbd-box-highlight-color, #ffffffb3) inset;
   background-color: var(--nagoya-kbd-background-color, #eee);
-  color: var(--nagoya-kbd-text-color, currentColor);
+  color: var(--nagoya-kbd-text-color, #000);
   font-size: 85%;
   vertical-align: middle;
   white-space: nowrap;
