@@ -77,7 +77,7 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
   search = "search"
 ```
 
-### 設定例: `/content/categories/_index.md`
+### 設定例: `content/categories/_index.md`
 
 ```md
 ---
@@ -88,13 +88,13 @@ title: カテゴリ
 ## メニューとウィジェット
 
 Hugo の Menu Templates 機能には対応していません。
-`/layouts/partials/widgets/` 内にある、配置したい該当場所部分のパーシャルレイアウトをオーバーライドしてメニューを作成します。
+`layouts/partials/widgets/` 内にある、配置したい該当場所部分のパーシャルレイアウトをオーバーライドしてメニューを作成します。
 
-`/layouts/partials/widgets/` 内のオーバーライドは、カスタムウィジェットの作成にも利用できます。
+`layouts/partials/widgets/` 内のオーバーライドは、カスタムウィジェットの作成にも利用できます。
 
 ## 配色カスタマイズ
 
-`custom-color.css` をオーバーライドしてください。
+`assets/custom-color.css` をオーバーライドしてください。
 
 ## ショートコード (Shortcodes)
 
