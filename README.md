@@ -13,7 +13,7 @@
 - サムネイル画像の表示
 - ディレクトリツリーによる整理
 - テキストマッチングによる記事の簡易全文検索
-- 構築時静的数式レンダリング (Hugo Passthrough + KaTeX)
+- 構築時静的数式レンダリング (Hugo Passthrough + WASM KaTeX)
 - ダイアグラム表示 (Mermaid)
 - リンクカード Shortcode
 - 目次の自動挿入オプションおよび手動挿入用 Shortcode
