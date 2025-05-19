@@ -1,8 +1,9 @@
 {{ $data := resources.Get "search.json" | resources.ExecuteAsTemplate "data.json" . | minify | fingerprint }}
-{{ $searcher := resources.Get "searcher.js" | minify | fingerprint }}
+{{ $searcher := resources.Get "searcher.js" | minify }}
 
 (function () {
-  const searcher = "{{ $searcher.RelPermalink }}";
+  const searcherScript = ({{ $searcher.Content | jsonify | safeJS }});
+  const searcher = URL.createObjectURL(new Blob([searcherScript], { type: "text/javascript" }));
   const data = "{{ $data.RelPermalink }}";
   const articleCount = {{ len . }};
   const maxConcurrency = {{ site.Params.maxConcurrency }};
