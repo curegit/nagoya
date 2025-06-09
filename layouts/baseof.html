@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {{ block "eager-paginate" . }}{{ end }}
-<html lang="{{ with .Params.lang }}{{ . }}{{ else }}{{ site.Language.LanguageCode }}{{ end }}" itemscope itemtype="{{ if and .IsPage (not .Params.page) }}{{ "https://schema.org/BlogPosting" }}{{ else }}{{ "http://schema.org/WebPage" }}{{ end }}">
+<html lang="{{ with .Params.lang }}{{ . }}{{ else }}{{ site.Language.LanguageCode }}{{ end }}" itemscope itemtype="{{ if and .IsPage (not .Params.page) }}{{ "https://schema.org/BlogPosting" }}{{ else }}{{ "https://schema.org/WebPage" }}{{ end }}">
   <head prefix="og: https://ogp.me/ns#">
     {{ partial "heads/basic" . }}
     {{ partial "heads/custom-eager" . }}
