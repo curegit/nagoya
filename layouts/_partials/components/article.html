@@ -14,7 +14,7 @@
       {{ end }}
     {{ else }}
       <div class="time">
-        {{ if or (not site.Params.showLastmod) (eq $created $lastmod) }}
+        {{ if or (not site.Params.showLastmod) (and (not site.Params.alwaysIncludeLastmod) (eq $created $lastmod)) }}
           <div><time datetime="{{ .Date.Format "2006-01-02" }}"> {{ $created }}</time></div>
         {{ else }}
           <div>{{ $dateLabel }}: <time datetime="{{ .Date.Format "2006-01-02" }}">{{ $created }}</time></div>
