@@ -177,7 +177,7 @@ CONTENT
 | `showTreeCount`        | Boolean            | 含まれるページ数をサイドバーのディレクトリツリーに表示するか否かを設定します                                                                                    |
 | `treeRoot`             | String             | サイドバーのディレクトリツリーの起点を指定します                                                                                                                |
 | `sidebarSearch`        | Boolean            | サイドバーに検索ボックスを表示するか否かを設定します                                                                                                            |
-| `sidebarTagThreshold`  | Integer            | 属するページ数がこの数に満たないタグをサイドバーのタグ一覧から割愛する                                                                                          |
+| `sidebarTagThreshold`  | Integer            | 属するページ数がこの数に満たないタグをサイドバーのタグ一覧から割愛します                                                                                        |
 | `tagEllipsizedText`    | String or Boolean  | タグ割愛時に表示するすべてのタグ一覧ページへのリンクテキストを設定します（`false` を設定すると何も表示しません）                                                |
 | `newNum`               | Integer            | サイドバーに表示する最新記事の数を設定します                                                                                                                    |
 | `newText`              | String             | サイドバーに表示する最新記事領域のタイトルを設定します                                                                                                          |
