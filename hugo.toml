@@ -1,6 +1,7 @@
 [params]
   showAuthor = true
   showLastmod = true
+  alwaysIncludeLastmod = false
   showSummary = true
   showThumbnail = true
   showSectionInList = false
