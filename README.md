@@ -168,6 +168,8 @@ CONTENT
 | `dateLabelText`        | String             | 公開日を表すラベルのテキストを変更します                                                                                                                        |
 | `showSummary`          | Boolean            | リストページに Summary を表示するか否かを設定します                                                                                                             |
 | `showThumbnail`        | Boolean            | リストページにサムネイル画像を表示するか否かを設定します                                                                                                        |
+| `showSectionInList`    | Boolean            | リストページに各記事の所属セクションを表示するか否かを設定します                                                                                                |
+| `showTagsInList`       | Boolean            | リストページに各記事のタグリストを表示するか否かを設定します                                                                                                    |
 | `tersePagination`      | Boolean            | ページ送りにおいて冗長な矢印要素を除いたフォーマットを利用します                                                                                                |
 | `paginationSlots`      | Boolean or Integer | ページ送りに表示するページ番号リンクの個数を設定します（`true` を設定するとフォーマット固有のデフォルト定数、`false` を設定すると無制限にできます）             |
 | `sectionLabelText`     | String             | セクションを表すラベルのテキストを変更します                                                                                                                    |
