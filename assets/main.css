@@ -551,11 +551,12 @@ footer#bottom a {
   color: unset;
 }
 
-footer#bottom small {
+footer#bottom > small {
+  display: block;
   font-size: inherit;
 }
 
-footer#bottom span {
+footer#bottom > small span {
   display: inline-block;
 }
 
