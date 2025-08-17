@@ -142,6 +142,8 @@ ol.breadcrumb > li.page {
 
 .article-list .head-upper {
   display: flex;
+  flex-wrap: nowrap;
+  padding-bottom: 1px;
   column-gap: 21px;
   color: color-mix(in lab, transparent 10%, currentColor);
   font-size: 14px;
@@ -149,8 +151,9 @@ ol.breadcrumb > li.page {
 }
 
 .article-list .head-upper time {
-  padding-left: 2px;
   display: block;
+  flex-shrink: 0;
+  padding-left: 2px;
 }
 
 .article-list :is(.folder, .tagged) {
