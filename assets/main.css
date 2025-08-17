@@ -140,11 +140,27 @@ ol.breadcrumb > li.page {
   margin-bottom: 4px;
 }
 
-.article-list article header time {
-  display: block;
-  padding-left: 2px;
+.article-list .head-upper {
+  display: flex;
+  column-gap: 21px;
   color: color-mix(in lab, transparent 10%, currentColor);
   font-size: 14px;
+  line-height: 1.6;
+}
+
+.article-list .head-upper time {
+  padding-left: 2px;
+  display: block;
+}
+
+.article-list :is(.folder, .tagged) {
+  zoom: 0.9;
+  font-size: 16px;
+}
+
+.article-list article footer {
+  padding-top: 3px;
+  padding-bottom: 8px;
   line-height: 1.6;
 }
 
@@ -169,8 +185,9 @@ ol.breadcrumb > li.page {
 
   article:not(:has(.summary)) .thumbnail {
     max-width: 100%;
-    margin: 4px 0 6px;
+    margin: 4px 0 1px;
     border-radius: 6px;
+    float: initial;
   }
 
   .thumbnail-link + .summary {
@@ -188,11 +205,11 @@ ol.breadcrumb > li.page {
     opacity: 0.85;
   }
 
-  article:has(a[href]:hover) .thumbnail-link img {
+  article:has(h2 a[href]:hover) .thumbnail-link img {
     opacity: 0.85;
   }
 
-  article:has(.thumbnail-link:hover) a[href] {
+  article:has(.thumbnail-link:hover) h2 a[href] {
     text-decoration-line: underline;
   }
 }
@@ -534,11 +551,12 @@ footer#bottom a {
   color: unset;
 }
 
-footer#bottom small {
+footer#bottom > small {
+  display: block;
   font-size: inherit;
 }
 
-footer#bottom span {
+footer#bottom > small span {
   display: inline-block;
 }
 

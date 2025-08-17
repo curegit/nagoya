@@ -4,6 +4,8 @@
   alwaysIncludeLastmod = false
   showSummary = true
   showThumbnail = true
+  showSectionInList = false
+  showTagsInList = false
   toc = false
   tocAfterSummary = false
   tersePagination = false

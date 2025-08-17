@@ -1,9 +1,24 @@
 <div class="article-list">
   {{ range . }}
+    {{ $section := false }}
+    {{ if and site.Params.showSectionInList .Parent (not .Parent.IsHome) }}
+      {{ $section = .Parent }}
+    {{ end }}
+    {{ $taxonomyTag := "tags" }}
+    {{ $tagTerms := .GetTerms $taxonomyTag }}
     <article>
       <header>
-        {{ if not .Params.page }}
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>
+        {{ if or (not .Params.page) $section }}
+          <div class="head-upper">
+            {{ if not .Params.page }}
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006/01/02" }}</time>
+            {{ end }}
+            {{ with $section }}
+              <div class="folder">
+                <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+              </div>
+            {{ end }}
+          </div>
         {{ end }}
         <h2>
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
@@ -27,6 +42,17 @@
             {{ $summary | safeHTML }}
           {{ end }}
         </div>
+      {{ end }}
+      {{ if and site.Params.showTagsInList $tagTerms }}
+        <footer>
+          {{ with $tagTerms }}
+            <ul class="tags">
+              {{ range . }}
+                <li class="tagged"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </footer>
       {{ end }}
     </article>
   {{ end }}
