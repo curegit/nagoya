@@ -153,7 +153,14 @@ ol.breadcrumb > li.page {
 .article-list .head-upper time {
   display: block;
   flex-shrink: 0;
+  align-self: center;
   padding-left: 2px;
+}
+
+.article-list .folder {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .article-list :is(.folder, .tagged) {
