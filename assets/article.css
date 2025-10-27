@@ -226,6 +226,10 @@ main h1 {
   background-color: initial;
 }
 
+.single :is(h1, h2, h3, h4, h5.h6) a[href] code {
+  color: inherit;
+}
+
 .single pre {
   margin: 22px 0;
   padding: 12px 16px;
