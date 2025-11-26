@@ -186,6 +186,11 @@ blockquote hr {
   margin-inline: 0.4em;
 }
 
+summary {
+  display: inline flow list-item;
+  cursor: pointer;
+}
+
 hr {
   height: 0.2em;
   margin: 1.8em auto;
