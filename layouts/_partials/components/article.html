@@ -2,10 +2,19 @@
 {{ $lastmod := .Lastmod.Format "2006/01/02" }}
 {{ $dateLabel := site.Params.dateLabelText | default "公開" }}
 {{ $lastmodLabel := site.Params.lastmodLabelText | default "更新" }}
+{{ $taxonomyTag := "tags" }}
+{{ $tagTerms := .GetTerms $taxonomyTag }}
 <article class="single">
   {{ partial "widgets/article-header-ante" . }}
   <header>
     <h1 class="title" itemprop="headline">{{ .Title }}</h1>
+    {{ if and site.Params.showTagsAboveArticle $tagTerms }}
+      <ul class="tags">
+        {{ range $tagTerms }}
+          <li class="tagged"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
     {{ if .Params.page }}
       {{ if site.Params.showLastmod }}
         <div class="time">
@@ -45,8 +54,6 @@
     {{ if and .Parent (not .Parent.IsHome) }}
       {{ $section = .Parent }}
     {{ end }}
-    {{ $taxonomyTag := "tags" }}
-    {{ $tagTerms := .GetTerms $taxonomyTag }}
     {{ if $tagTerms }}
       {{ $hasTerms = true }}
     {{ end }}
