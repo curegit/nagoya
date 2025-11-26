@@ -189,6 +189,7 @@ CONTENT
 | `showHeaderText`       | Boolean            | ヘッダーにサイトの概要テキストを表示するか否かを設定します                                                                                                      |
 | `headerText`           | String             | ヘッダーのサイト概要テキストを手動設定します                                                                                                                    |
 | `maxConcurrency`       | Integer            | 検索機能で使う Web Worker の上限数を指定します                                                                                                                  |
+| `showTagsAboveArticle` | Boolean            | 各記事上部にタグリストを表示するか否かを設定します                                                                                                              |
 | `toc`                  | Boolean            | コンテンツへの目次の自動挿入を有効化します（`toc` ショートコードがコンテンツ内に存在している場合は、追加挿入されません）                                        |
 | `tocAfterSummary`      | Boolean            | 目次の自動挿入位置をコンテンツ上部ではなく、Summary の後にします（コンテンツが Truncated されていない場合は上部のままです）                                     |
 | `tocHeaderText`        | String or Boolean  | 目次領域のタイトルを設定します（`false` を設定すると非表示にできます）                                                                                          |

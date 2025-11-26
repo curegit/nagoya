@@ -6,6 +6,7 @@
   showThumbnail = true
   showSectionInList = false
   showTagsInList = false
+  showTagsAboveArticle = false
   toc = false
   tocAfterSummary = false
   tersePagination = false
