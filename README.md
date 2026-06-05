@@ -1,7 +1,7 @@
 # Nagoya
 
 **Nagoya (名古屋)** は、静的サイトジェネレーター **Hugo** 用の日本語ブログテーマです。
-日本語のユーザーに最適になるよう設計されています。
+日本語ユーザーに最適になるよう設計されています。
 
 - デモサイト: <https://curegit.github.io/nagoya-example/> ([ソース](https://github.com/curegit/nagoya-example))
 - 運営ブログ例: <https://blog.curegit.jp/>
@@ -13,7 +13,7 @@
 - サムネイル画像の表示
 - ディレクトリツリーによる整理
 - テキストマッチングによる記事の簡易全文検索
-- 構築時静的数式レンダリング (Hugo Passthrough + WASM KaTeX)
+- ビルド時静的数式レンダリング (Hugo Passthrough + WASM KaTeX)
 - ダイアグラム表示 (Mermaid)
 - リンクカード Shortcode
 - 目次の自動挿入オプションおよび手動挿入用 Shortcode
@@ -77,7 +77,7 @@ Hugo 自体の挙動に似せており、フロントマターの `images` の�
   search = "search"
 ```
 
-### 設定例: `content/categories/_index.md`
+### 表記設定例: `content/categories/_index.md`
 
 ```md
 ---
