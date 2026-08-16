@@ -1,9 +1,16 @@
-{{ $latest := partial "functions/filter-articles" site.RegularPages | first site.Params.newNum }}
-{{ if $latest }}
+{{ $latest := partial "functions/filter-articles" site.RegularPages }}
+{{ $latestSub := slice }}
+{{ range $latest.GroupByDate "2023-10-15T13:18:50Z" "desc" }}
+  {{ range .Pages.GroupBy "Weight" "desc" }}
+    {{ $latestSub = $latestSub | append .Pages.ByLinkTitle }}
+  {{ end }}
+{{ end }}
+{{ $latestSub = first site.Params.newNum $latestSub }}
+{{ if $latestSub }}
   <nav class="pane">
     <header class="component-title">{{ site.Params.newText | default "最新記事" }}</header>
     <ul class="dense">
-      {{ range $latest }}
+      {{ range $latestSub }}
         <li>
           <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
         </li>

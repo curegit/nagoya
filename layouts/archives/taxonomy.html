@@ -13,12 +13,16 @@
         {{ $year := .Key }}
         <li>
           <h2>{{ $year }}</h2>
-          {{ range .Pages }}
-            <ul>
-              <li>
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              </li>
-            </ul>
+          {{ range .Pages.GroupByDate "2023-10-15T13:18:50Z" "desc" }}
+            {{ range .Pages.GroupBy "Weight" "desc" }}
+              {{ range .Pages.ByLinkTitle }}
+                <ul>
+                  <li>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                  </li>
+                </ul>
+              {{ end }}
+            {{ end }}
           {{ end }}
         </li>
       {{ end }}
