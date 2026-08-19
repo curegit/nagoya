@@ -31,7 +31,7 @@
 {{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 {{ with .OutputFormats.Get "rss" }}
-  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .RelPermalink }}" title="{{ $title }}">
+  <link rel="{{ .Rel }}" {{ printf "type=%q" .MediaType.Type | safeHTMLAttr }} href="{{ .RelPermalink }}" title="{{ $title }}">
 {{ end }}
 {{ with .Sitemap }}
   {{ if not .Disable }}
