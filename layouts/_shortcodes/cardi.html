@@ -3,8 +3,11 @@
   {{ $ref = . }}
 {{ end }}
 {{ $checkedRef := relref . $ref }}
-{{ $page := .Page.GetPage (urls.Parse $ref).Path }}
-{{ $image := partial "functions/feature-image" (dict "context" $page "fallbackGlobal" true "preferOriginal" false) }}
-{{ $title := partial "functions/title" $page }}
-{{ $desc := partial "functions/description" $page }}
-{{ partial "components/link-card" (dict "href" $checkedRef "image" $image "title" $title "desc" $desc) }}
+{{ $data := (dict "page" .Page "ref" $ref "checkedRef" $checkedRef) }}
+{{ with (templates.Defer (dict "data" $data)) }}
+  {{ $page := .page.GetPage (urls.Parse .ref).Path }}
+  {{ $image := partial "functions/feature-image" (dict "context" $page "fallbackGlobal" true "preferOriginal" false) }}
+  {{ $title := partial "functions/title" $page }}
+  {{ $desc := partial "functions/description" $page }}
+  {{ partial "components/link-card" (dict "href" .checkedRef "image" $image "title" $title "desc" $desc) }}
+{{ end }}
